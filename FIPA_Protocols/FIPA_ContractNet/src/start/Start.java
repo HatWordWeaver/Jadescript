@@ -1,4 +1,4 @@
-package StartContractNet;
+package start;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import jade.wrapper.ContainerController;
 import jadescript.java.Jadescript;
 import jadescript.util.JadescriptList;
 
-public class start {
+public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -39,4 +39,3 @@ public class start {
 				}		
 			}
 		}
-

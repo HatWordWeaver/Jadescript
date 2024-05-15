@@ -3,24 +3,24 @@ module CNontology
 ontology ContractNet
     
     concept operationReq(
-    	value1 as integer,
-    	value2 as integer,
-    	operation as text
+        value1 as integer,
+        value2 as integer,
+        operation as text
     )
     
     action Task(
-    	taskOp as operationReq,
-    	condition as duration,
-    	conversation_id as integer,
-    	reply_by as timestamp
+        taskOp as operationReq,
+        condition as duration,
+        conversation_id as integer,
+        reply_by as timestamp
     )
     
     proposition Request
     
     action ParticipantCost(
-    	computeCost as integer,
-    	computeTime as duration,
-    	conversation_id as integer
+        computeCost as integer,
+        computeTime as duration,
+        conversation_id as integer
     )
     
     proposition CostForMe
@@ -30,18 +30,19 @@ ontology ContractNet
     proposition TimeExpired
     
     predicate NoTime(
-    	conversation_id as integer
+        conversation_id as integer
     )
     
     predicate Failure(
-    	conversation_id as integer
+        conversation_id as integer
     )
     
     predicate ResultOp(
-    	result as integer,
-    	conversation_id as integer
+        result as integer,
+        conversation_id as integer
     )
     
     proposition Execute
     
     proposition RefuseProposed
+
