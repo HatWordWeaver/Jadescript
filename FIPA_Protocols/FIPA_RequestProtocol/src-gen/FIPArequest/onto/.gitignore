@@ -1,0 +1,14 @@
+/.Accepted.java._trace
+/.Acknowledge.java._trace
+/.CancelAccepted.java._trace
+/.CancelNotAccepted.java._trace
+/.NotAccepted.java._trace
+/.OntologyRequest.java._trace
+/.OntologyRequest_Vocabulary.java._trace
+/.TaskFailed.java._trace
+/.TaskSuccess.java._trace
+/.TaskSuccessResult.java._trace
+/.compute_request.java._trace
+/.operation.java._trace
+/.request_accepted.java._trace
+/.send_request.java._trace
