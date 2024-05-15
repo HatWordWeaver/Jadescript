@@ -1,0 +1,109 @@
+module agents
+import CNontology.ContractNet
+import CNontology.Task
+
+agent Participant
+    uses ontology ContractNet
+    # behaviour WaitForRequest
+    property waitForRequest as WaitForRequest
+    # behaviour HandleRequest
+    property sendFailure as SendFailure
+    property sendResult as SendResult
+    # price for execution
+    property price as integer
+    # duration of an execution
+    property durOp as duration
+    # task to execute
+    property toExecute as Task
+    # sender of message
+    property toContact as aid
+    # conversation_id for messages
+    property conversation_id as integer
+    # on create handler
+    on create with price as integer, expectDur as text do
+        price of this = price
+        durOp of this = expectDur as duration
+        activate waitForRequest
+    
+    
+cyclic behaviour WaitForRequest
+    for agent Participant
+    uses ontology ContractNet
+    
+    on message cfp(received as Task, Request) do
+        log "Received!"
+        log "Task: " + received
+        cond = condition of received 
+        toContact = sender of message
+        conversation_id = conversation_id of received
+        operation_required = operation of taskOp of received
+        toAccept = operation_required = "ADD" or operation_required = "SUB" or operation_required = "MUL" or operation_required = "DIV"
+        if cond > durOp as duration and toAccept do
+            log "I can do it!"
+            toExecute = received
+            send message propose(ParticipantCost(price, durOp, conversation_id), CostForMe) to toContact
+        else do
+            send message refuse(received, NoTime(conversation_id)) to toContact
+        
+    on message accept_proposal(ParticipantCost(cost, time, message_id), AcceptPropose) when message_id = conversation_id do
+        do EvalueRequest with value1 of taskOp of toExecute, value2 of taskOp of toExecute, operation of taskOp of toExecute
+        
+    on message reject_proposal do nothing
+    
+    procedure EvalueRequest with value1 as integer, value2 as integer, operation as text do
+    
+        log"value1: " + value1 + " value2: " + value2 + " operation: " + operation
+    
+        if operation = "ADD" do
+            if value1 = 0 do
+                activate SendResult(0, "done")
+            else if value2 = 0 do
+                activate SendResult(0, "done")
+            else do
+                activate SendResult(value1+value2, "res")
+                
+        else if operation = "SUB" do
+            if value1 = 0 do
+                activate SendResult(value2, "done")
+            else if value2 = 0 do
+                activate SendResult(-value1, "res")
+            else do
+                activate SendResult(value1-value2, "res")
+    
+        else if operation = "MUL" do
+            if value1 = 0 or value2 = 0 do
+                activate SendResult(0, "done")
+            else do
+                activate SendResult(value1*value2, "res")
+                
+        else if operation = "DIV" do
+            if value2 = 0 do
+                activate SendFailure
+            else if value1 = 0 do
+                activate SendResult(0, "done")
+            else do
+                activate SendResult(value1/value2, "res")    
+                
+one shot behaviour SendResult
+    for agent Participant
+    uses ontology ContractNet
+    
+    property result as integer
+    property method as text
+    
+    on create with result as integer, method as text do
+        result of this = result
+        method of this = method
+    
+    on execute do
+        if method = "res" do
+            send message inform(ResultOp(result, conversation_id)) to toContact
+        else do
+            send message inform(Execute) to toContact
+    
+one shot behaviour SendFailure
+    for agent Participant
+    uses ontology ContractNet
+    
+    on execute do
+        send message failure(toExecute, Failure(conversation_id)) to toContact

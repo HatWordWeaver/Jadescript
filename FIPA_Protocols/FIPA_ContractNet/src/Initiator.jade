@@ -1,0 +1,135 @@
+module agents
+import CNontology.ContractNet
+import CNontology.operationReq
+import CNontology.Task
+
+agent Initiator uses ontology ContractNet
+    # behaviour ContactParticipant
+    property contactParticipant as ContactParticipant
+    # behaviour WaitForResponse
+    property waitForResponse as WaitForResponse
+    # behaviour WaitForInform
+    property waitForInform as WaitForInform
+    # name of participant to contact
+    property nameParticipant as text
+    # task to request a perform
+    property taskRequested as operationReq
+    # list of aid to contact
+    property toContact as list of aid
+    # number of contacts
+    property numberOfContact as integer
+    # property for conversation
+    property conversation_id as integer
+    # property for timing
+    property shutdown_time as timestamp
+    # on create handler
+    on create with toContact as list of aid, 
+        firstNumber as integer, 
+        secondNumber as integer, 
+        opReq as text,
+        conversation_id as integer
+        do
+        toContact of this = toContact
+        numberOfContact of this = length of toContact
+        conversation_id of this = conversation_id
+        taskRequested = operationReq(firstNumber, secondNumber, opReq)
+        activate contactParticipant
+    
+one shot behaviour ContactParticipant
+    for agent Initiator
+    uses ontology ContractNet
+    
+    property time = "PT5S" as duration
+    
+    on execute do
+        shutdown_time = now + "PT10S" as duration
+        send message cfp(Task(taskRequested, time, conversation_id, shutdown_time), Request) to toContact
+        activate waitForResponse
+        
+cyclic behaviour RefusePropose
+    for agent Initiator
+    uses ontology ContractNet
+    
+    on message propose(ParticipantCost(cost, time, message_id), CostForMe) when message_id = conversation_id do
+        send message reject_proposal(ParticipantCost(cost, time, message_id), TimeExpired) to sender of message
+        
+        
+cyclic behaviour WaitForResponse
+    for agent Initiator
+    uses ontology ContractNet
+    
+    property counter = 0
+    
+    on execute do
+        if now ≥ shutdown_time do
+            log "Time for proposed expired."
+            activate RefusePropose
+            if counter ≠ 0 do
+                activate waitForInform
+                deactivate this
+            else do
+                log "Nobody accepted. Shutting down..."
+                deactivate this
+        #else if counter = numberOfContact do
+         #   log "Received messages from every contact. Shutting down..."
+          #  deactivate this
+    
+    on message propose(ParticipantCost(cost, time, message_id), CostForMe) when message_id = conversation_id do
+        log "Proposed by " + name of sender + " : \nCosto: " + cost + "\nTempo: " + time
+        if cost < 10 do
+            log"sending message of accept to " + sender of message
+            activate SendResponse(cost, time, message_id, "accept", sender of message) at shutdown_time
+            counter = counter + 1
+        else do
+            log"sending message of refuse to " + sender of message
+            activate SendResponse(cost, time, message_id, "refuse", sender of message) at shutdown_time
+        
+    on message refuse(received as Task, NoTime(message_id)) when message_id = conversation_id do
+        log "Refused."
+
+one shot behaviour SendResponse
+    for agent Initiator
+    uses ontology ContractNet
+    
+    property cost as integer
+    property time as duration
+    property message_id as integer
+    property choice as text
+    property sender as aid
+    
+    on create with
+        cost as integer,
+        time as duration,
+        message_id as integer,
+        choice as text,
+        sender as aid
+        do
+        cost of this = cost
+        time of this = time
+        message_id of this = message_id
+        choice of this = choice
+        sender of this = sender
+    
+    on execute do
+        if choice = "accept" do
+            send message accept_proposal(ParticipantCost(cost, time, message_id), AcceptPropose) to sender
+        else do
+            send message reject_proposal(ParticipantCost(cost, time, message_id), RefuseProposed) to sender  
+        
+        
+
+cyclic behaviour WaitForInform
+    for agent Initiator
+    uses ontology ContractNet
+    
+    on activate do
+        log "Waiting for Results."
+        
+    on message inform(ResultOp(result, message_id)) when message_id = conversation_id do
+        log "Result: " + result
+        
+    on message inform(Execute) do
+        log "Executed."
+        
+    on message failure(toExecute, Failure(message_id)) when message_id = conversation_id do
+        log "Not executed."
