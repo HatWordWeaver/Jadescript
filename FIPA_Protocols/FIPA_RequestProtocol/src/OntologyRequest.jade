@@ -1,0 +1,68 @@
+module FIPArequest.onto
+import FIPArequest.onto.OntologyRequest
+
+# ontology necessary for FIPA request protocol
+#
+#
+# Riccardo Nazzari 20044680
+
+ontology OntologyRequest
+
+    # concept that contains some flags for the message
+    # agreed -> if the Partecipant accept the task
+    # refused -> if the Partecipant refused the task
+    # notification_necessary -> if the Initiator want a message of agree
+    # id_of_message -> an integer necessary for identify the conversation
+    concept compute_request(
+    	agreed as boolean,
+    	refused as boolean,
+    	notification_necessary as boolean,
+    	id_of_message as integer
+    )
+    
+    # concept that contains values for operations and the operation
+    # value1 -> first value to compute
+    # value2 -> second value to compute
+    # operator -> for the operation
+    concept operation(
+    	value1 as integer,
+    	value2 as integer,
+    	operator as text
+    )
+    
+    # action for sending a message
+    # data -> data of message
+    # operation_request -> data of operations
+    action send_request(
+    	data as compute_request,
+    	operation_request as operation
+    )
+    
+    # predicate if a request is accepted
+    # id_of_request -> extracted from compute_request
+    # status -> if the request is accepted
+    predicate request_accepted(
+    	id_of_request as integer,
+    	status as boolean
+    )
+    
+    # proposition if a request is refused
+    proposition NotAccepted
+    
+    # proposition if a request is accepted
+    proposition Accepted
+    
+    # proposition if a request failed
+    proposition TaskFailed
+    
+    # proposition if a request is done
+    predicate TaskSuccess(id_of_request as integer)
+    
+    # predicate if a request is done with the result
+    predicate TaskSuccessResult(result as integer, id_of_request as integer)
+    
+    proposition Acknowledge
+    
+    predicate CancelAccepted(id_of_request as integer)
+    
+    proposition CancelNotAccepted
