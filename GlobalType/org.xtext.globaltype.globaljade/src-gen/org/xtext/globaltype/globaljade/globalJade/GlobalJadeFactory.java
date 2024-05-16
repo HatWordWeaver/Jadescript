@@ -42,6 +42,24 @@ public interface GlobalJadeFactory extends EFactory
   Protocols createProtocols();
 
   /**
+   * Returns a new object of class '<em>For loop</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For loop</em>'.
+   * @generated
+   */
+  For_loop createFor_loop();
+
+  /**
+   * Returns a new object of class '<em>Global message</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Global message</em>'.
+   * @generated
+   */
+  Global_message createGlobal_message();
+
+  /**
    * Returns a new object of class '<em>Role</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

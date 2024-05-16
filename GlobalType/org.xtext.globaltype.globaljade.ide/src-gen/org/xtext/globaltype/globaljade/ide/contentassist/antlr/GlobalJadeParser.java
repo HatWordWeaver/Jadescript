@@ -31,11 +31,24 @@ public class GlobalJadeParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GlobalJadeGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getProtocolsAccess().getAlternatives_8(), "rule__Protocols__Alternatives_8");
 			builder.put(grammarAccess.getProtocolsAccess().getGroup(), "rule__Protocols__Group__0");
+			builder.put(grammarAccess.getProtocolsAccess().getGroup_5(), "rule__Protocols__Group_5__0");
+			builder.put(grammarAccess.getFor_loopAccess().getGroup(), "rule__For_loop__Group__0");
+			builder.put(grammarAccess.getGlobal_messageAccess().getGroup(), "rule__Global_message__Group__0");
 			builder.put(grammarAccess.getRoleAccess().getGroup(), "rule__Role__Group__0");
 			builder.put(grammarAccess.getModelAccess().getProtocolsAssignment(), "rule__Model__ProtocolsAssignment");
 			builder.put(grammarAccess.getProtocolsAccess().getNameAssignment_2(), "rule__Protocols__NameAssignment_2");
 			builder.put(grammarAccess.getProtocolsAccess().getRolesAssignment_4(), "rule__Protocols__RolesAssignment_4");
+			builder.put(grammarAccess.getProtocolsAccess().getRolesAssignment_5_1(), "rule__Protocols__RolesAssignment_5_1");
+			builder.put(grammarAccess.getProtocolsAccess().getGlobalsAssignment_8_0(), "rule__Protocols__GlobalsAssignment_8_0");
+			builder.put(grammarAccess.getProtocolsAccess().getForLoopAssignment_8_1(), "rule__Protocols__ForLoopAssignment_8_1");
+			builder.put(grammarAccess.getFor_loopAccess().getNameAssignment_1(), "rule__For_loop__NameAssignment_1");
+			builder.put(grammarAccess.getFor_loopAccess().getRoleAssignment_3(), "rule__For_loop__RoleAssignment_3");
+			builder.put(grammarAccess.getFor_loopAccess().getGlobalsAssignment_6(), "rule__For_loop__GlobalsAssignment_6");
+			builder.put(grammarAccess.getGlobal_messageAccess().getTypeAssignment_0(), "rule__Global_message__TypeAssignment_0");
+			builder.put(grammarAccess.getGlobal_messageAccess().getRoleAAssignment_4(), "rule__Global_message__RoleAAssignment_4");
+			builder.put(grammarAccess.getGlobal_messageAccess().getRoleBAssignment_6(), "rule__Global_message__RoleBAssignment_6");
 			builder.put(grammarAccess.getRoleAccess().getRoleAssignment_1(), "rule__Role__RoleAssignment_1");
 		}
 	}

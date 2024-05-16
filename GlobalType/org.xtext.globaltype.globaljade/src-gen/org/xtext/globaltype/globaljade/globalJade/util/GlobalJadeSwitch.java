@@ -87,6 +87,20 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GlobalJadePackage.FOR_LOOP:
+      {
+        For_loop for_loop = (For_loop)theEObject;
+        T result = caseFor_loop(for_loop);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.GLOBAL_MESSAGE:
+      {
+        Global_message global_message = (Global_message)theEObject;
+        T result = caseGlobal_message(global_message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GlobalJadePackage.ROLE:
       {
         Role role = (Role)theEObject;
@@ -126,6 +140,38 @@ public class GlobalJadeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProtocols(Protocols object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For loop</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For loop</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFor_loop(For_loop object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Global message</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Global message</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGlobal_message(Global_message object)
   {
     return null;
   }

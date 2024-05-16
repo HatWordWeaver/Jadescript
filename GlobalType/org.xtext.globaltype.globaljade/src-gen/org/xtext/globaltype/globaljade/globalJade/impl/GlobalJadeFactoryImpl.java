@@ -67,6 +67,8 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
     {
       case GlobalJadePackage.MODEL: return createModel();
       case GlobalJadePackage.PROTOCOLS: return createProtocols();
+      case GlobalJadePackage.FOR_LOOP: return createFor_loop();
+      case GlobalJadePackage.GLOBAL_MESSAGE: return createGlobal_message();
       case GlobalJadePackage.ROLE: return createRole();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -95,6 +97,30 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
   {
     ProtocolsImpl protocols = new ProtocolsImpl();
     return protocols;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public For_loop createFor_loop()
+  {
+    For_loopImpl for_loop = new For_loopImpl();
+    return for_loop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Global_message createGlobal_message()
+  {
+    Global_messageImpl global_message = new Global_messageImpl();
+    return global_message;
   }
 
   /**

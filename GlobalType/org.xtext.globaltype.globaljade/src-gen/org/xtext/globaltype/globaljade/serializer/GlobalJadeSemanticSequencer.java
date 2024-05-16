@@ -14,7 +14,9 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
+import org.xtext.globaltype.globaljade.globalJade.Global_message;
 import org.xtext.globaltype.globaljade.globalJade.Model;
 import org.xtext.globaltype.globaljade.globalJade.Protocols;
 import org.xtext.globaltype.globaljade.globalJade.Role;
@@ -34,6 +36,12 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GlobalJadePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GlobalJadePackage.FOR_LOOP:
+				sequence_For_loop(context, (For_loop) semanticObject); 
+				return; 
+			case GlobalJadePackage.GLOBAL_MESSAGE:
+				sequence_Global_message(context, (Global_message) semanticObject); 
+				return; 
 			case GlobalJadePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -47,6 +55,46 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     For_loop returns For_loop
+	 *
+	 * Constraint:
+	 *     (name=GENERAL_NAME role=GENERAL_NAME globals+=Global_message*)
+	 * </pre>
+	 */
+	protected void sequence_For_loop(ISerializationContext context, For_loop semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Global_message returns Global_message
+	 *
+	 * Constraint:
+	 *     (type=TYPE_MESSAGE roleA=GENERAL_NAME roleB=GENERAL_NAME)
+	 * </pre>
+	 */
+	protected void sequence_Global_message(ISerializationContext context, Global_message semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_A) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_A));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_B) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_B));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGlobal_messageAccess().getTypeTYPE_MESSAGETerminalRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getGlobal_messageAccess().getRoleAGENERAL_NAMETerminalRuleCall_4_0(), semanticObject.getRoleA());
+		feeder.accept(grammarAccess.getGlobal_messageAccess().getRoleBGENERAL_NAMETerminalRuleCall_6_0(), semanticObject.getRoleB());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * <pre>
@@ -68,7 +116,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Protocols returns Protocols
 	 *
 	 * Constraint:
-	 *     (name=GENERAL_NAME roles+=Role+)
+	 *     (name=GENERAL_NAME roles+=Role roles+=Role* (globals+=Global_message | forLoop+=For_loop)+)
 	 * </pre>
 	 */
 	protected void sequence_Protocols(ISerializationContext context, Protocols semanticObject) {

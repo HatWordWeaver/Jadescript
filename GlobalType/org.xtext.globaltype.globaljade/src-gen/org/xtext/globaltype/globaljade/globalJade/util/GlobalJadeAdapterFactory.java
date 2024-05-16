@@ -86,6 +86,16 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createProtocolsAdapter();
       }
       @Override
+      public Adapter caseFor_loop(For_loop object)
+      {
+        return createFor_loopAdapter();
+      }
+      @Override
+      public Adapter caseGlobal_message(Global_message object)
+      {
+        return createGlobal_messageAdapter();
+      }
+      @Override
       public Adapter caseRole(Role object)
       {
         return createRoleAdapter();
@@ -138,6 +148,36 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProtocolsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.For_loop <em>For loop</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.For_loop
+   * @generated
+   */
+  public Adapter createFor_loopAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Global_message <em>Global message</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Global_message
+   * @generated
+   */
+  public Adapter createGlobal_messageAdapter()
   {
     return null;
   }

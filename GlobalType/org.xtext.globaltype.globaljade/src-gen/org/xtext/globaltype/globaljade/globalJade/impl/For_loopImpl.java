@@ -22,26 +22,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Global_message;
-import org.xtext.globaltype.globaljade.globalJade.Protocols;
-import org.xtext.globaltype.globaljade.globalJade.Role;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Protocols</b></em>'.
+ * An implementation of the model object '<em><b>For loop</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolsImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolsImpl#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolsImpl#getGlobals <em>Globals</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolsImpl#getForLoop <em>For Loop</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getGlobals <em>Globals</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Protocols
+public class For_loopImpl extends MinimalEObjectImpl.Container implements For_loop
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -64,14 +61,24 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
+   * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRoles()
+   * @see #getRole()
    * @generated
    * @ordered
    */
-  protected EList<Role> roles;
+  protected static final String ROLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRole()
+   * @generated
+   * @ordered
+   */
+  protected String role = ROLE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getGlobals() <em>Globals</em>}' containment reference list.
@@ -84,21 +91,11 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   protected EList<Global_message> globals;
 
   /**
-   * The cached value of the '{@link #getForLoop() <em>For Loop</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getForLoop()
-   * @generated
-   * @ordered
-   */
-  protected EList<For_loop> forLoop;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ProtocolsImpl()
+  protected For_loopImpl()
   {
     super();
   }
@@ -111,7 +108,7 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.PROTOCOLS;
+    return GlobalJadePackage.Literals.FOR_LOOP;
   }
 
   /**
@@ -136,7 +133,7 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.PROTOCOLS__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__NAME, oldName, name));
   }
 
   /**
@@ -145,13 +142,23 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
    * @generated
    */
   @Override
-  public EList<Role> getRoles()
+  public String getRole()
   {
-    if (roles == null)
-    {
-      roles = new EObjectContainmentEList<Role>(Role.class, this, GlobalJadePackage.PROTOCOLS__ROLES);
-    }
-    return roles;
+    return role;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRole(String newRole)
+  {
+    String oldRole = role;
+    role = newRole;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__ROLE, oldRole, role));
   }
 
   /**
@@ -164,24 +171,9 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     if (globals == null)
     {
-      globals = new EObjectContainmentEList<Global_message>(Global_message.class, this, GlobalJadePackage.PROTOCOLS__GLOBALS);
+      globals = new EObjectContainmentEList<Global_message>(Global_message.class, this, GlobalJadePackage.FOR_LOOP__GLOBALS);
     }
     return globals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<For_loop> getForLoop()
-  {
-    if (forLoop == null)
-    {
-      forLoop = new EObjectContainmentEList<For_loop>(For_loop.class, this, GlobalJadePackage.PROTOCOLS__FOR_LOOP);
-    }
-    return forLoop;
   }
 
   /**
@@ -194,12 +186,8 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case GlobalJadePackage.PROTOCOLS__ROLES:
-        return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
-      case GlobalJadePackage.PROTOCOLS__GLOBALS:
+      case GlobalJadePackage.FOR_LOOP__GLOBALS:
         return ((InternalEList<?>)getGlobals()).basicRemove(otherEnd, msgs);
-      case GlobalJadePackage.PROTOCOLS__FOR_LOOP:
-        return ((InternalEList<?>)getForLoop()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -214,14 +202,12 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case GlobalJadePackage.PROTOCOLS__NAME:
+      case GlobalJadePackage.FOR_LOOP__NAME:
         return getName();
-      case GlobalJadePackage.PROTOCOLS__ROLES:
-        return getRoles();
-      case GlobalJadePackage.PROTOCOLS__GLOBALS:
+      case GlobalJadePackage.FOR_LOOP__ROLE:
+        return getRole();
+      case GlobalJadePackage.FOR_LOOP__GLOBALS:
         return getGlobals();
-      case GlobalJadePackage.PROTOCOLS__FOR_LOOP:
-        return getForLoop();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -237,20 +223,15 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case GlobalJadePackage.PROTOCOLS__NAME:
+      case GlobalJadePackage.FOR_LOOP__NAME:
         setName((String)newValue);
         return;
-      case GlobalJadePackage.PROTOCOLS__ROLES:
-        getRoles().clear();
-        getRoles().addAll((Collection<? extends Role>)newValue);
+      case GlobalJadePackage.FOR_LOOP__ROLE:
+        setRole((String)newValue);
         return;
-      case GlobalJadePackage.PROTOCOLS__GLOBALS:
+      case GlobalJadePackage.FOR_LOOP__GLOBALS:
         getGlobals().clear();
         getGlobals().addAll((Collection<? extends Global_message>)newValue);
-        return;
-      case GlobalJadePackage.PROTOCOLS__FOR_LOOP:
-        getForLoop().clear();
-        getForLoop().addAll((Collection<? extends For_loop>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -266,17 +247,14 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case GlobalJadePackage.PROTOCOLS__NAME:
+      case GlobalJadePackage.FOR_LOOP__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case GlobalJadePackage.PROTOCOLS__ROLES:
-        getRoles().clear();
+      case GlobalJadePackage.FOR_LOOP__ROLE:
+        setRole(ROLE_EDEFAULT);
         return;
-      case GlobalJadePackage.PROTOCOLS__GLOBALS:
+      case GlobalJadePackage.FOR_LOOP__GLOBALS:
         getGlobals().clear();
-        return;
-      case GlobalJadePackage.PROTOCOLS__FOR_LOOP:
-        getForLoop().clear();
         return;
     }
     super.eUnset(featureID);
@@ -292,14 +270,12 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
   {
     switch (featureID)
     {
-      case GlobalJadePackage.PROTOCOLS__NAME:
+      case GlobalJadePackage.FOR_LOOP__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GlobalJadePackage.PROTOCOLS__ROLES:
-        return roles != null && !roles.isEmpty();
-      case GlobalJadePackage.PROTOCOLS__GLOBALS:
+      case GlobalJadePackage.FOR_LOOP__ROLE:
+        return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+      case GlobalJadePackage.FOR_LOOP__GLOBALS:
         return globals != null && !globals.isEmpty();
-      case GlobalJadePackage.PROTOCOLS__FOR_LOOP:
-        return forLoop != null && !forLoop.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -317,8 +293,10 @@ public class ProtocolsImpl extends MinimalEObjectImpl.Container implements Proto
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", role: ");
+    result.append(role);
     result.append(')');
     return result.toString();
   }
 
-} //ProtocolsImpl
+} //For_loopImpl

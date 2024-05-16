@@ -10,11 +10,33 @@ Model:
 ;
 
 Protocols:
-	'global' 'protocol' name=GENERAL_NAME '('
-	roles+=Role
-	(',' roles+=Role)*
-	')'
+	// global protocol declaration
+	'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
+	// start function
+	'{'
+		(globals+=Global_message
+		|forLoop+=For_loop
+		)+
+	'}'
 ;
+
+For_loop:
+	'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
+		(
+			globals+=Global_message*
+		)
+	'}' 
+;
+
+
+Global_message:
+	type=TYPE_MESSAGE '(' ')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+;
+
+terminal TYPE_MESSAGE:
+	'CFP' | 'REJECT-PROPOSAL' | 'ACCEPT-PROPOSAL'
+;
+
 
 Role:
 	'role' role=GENERAL_NAME // dovrei mettere la parte opzionale per quanto riguarda piu' ruoli

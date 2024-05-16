@@ -12,6 +12,18 @@
     <genClasses ecoreClass="GlobalJade.ecore#//Protocols">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Protocols/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Protocols/roles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Protocols/globals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Protocols/forLoop"/>
+    </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//For_loop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//For_loop/globals"/>
+    </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//Global_message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Global_message/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Global_message/roleA"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Global_message/roleB"/>
     </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Role/role"/>

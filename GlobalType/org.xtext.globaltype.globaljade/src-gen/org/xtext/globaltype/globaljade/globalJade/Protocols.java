@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Protocols#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Protocols#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Protocols#getGlobals <em>Globals</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Protocols#getForLoop <em>For Loop</em>}</li>
  * </ul>
  *
  * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getProtocols()
@@ -59,5 +61,29 @@ public interface Protocols extends EObject
    * @generated
    */
   EList<Role> getRoles();
+
+  /**
+   * Returns the value of the '<em><b>Globals</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Global_message}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Globals</em>' containment reference list.
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getProtocols_Globals()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Global_message> getGlobals();
+
+  /**
+   * Returns the value of the '<em><b>For Loop</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.For_loop}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>For Loop</em>' containment reference list.
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getProtocols_ForLoop()
+   * @model containment="true"
+   * @generated
+   */
+  EList<For_loop> getForLoop();
 
 } // Protocols
