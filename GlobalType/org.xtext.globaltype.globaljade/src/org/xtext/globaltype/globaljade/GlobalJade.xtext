@@ -1,0 +1,25 @@
+grammar org.xtext.globaltype.globaljade.GlobalJade with org.eclipse.xtext.common.Terminals
+
+generate globalJade "http://www.xtext.org/globaltype/globaljade/GlobalJade"
+
+/*
+ * gbjade
+ */
+Model:
+	protocols+=Protocols*
+;
+
+Protocols:
+	'global' 'protocol' name=GENERAL_NAME '('
+	roles+=Role
+	(',' roles+=Role)*
+	')'
+;
+
+Role:
+	'role' role=GENERAL_NAME // dovrei mettere la parte opzionale per quanto riguarda piu' ruoli
+;
+
+terminal GENERAL_NAME:
+	('A'..'Z')+ ('a'..'z')*
+;

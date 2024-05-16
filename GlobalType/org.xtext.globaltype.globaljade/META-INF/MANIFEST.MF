@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.globaltype.globaljade
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.globaltype.globaljade
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.globaltype.globaljade; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.globaltype.globaljade.services,
+ org.xtext.globaltype.globaljade.globalJade.util,
+ org.xtext.globaltype.globaljade,
+ org.xtext.globaltype.globaljade.globalJade,
+ org.xtext.globaltype.globaljade.validation,
+ org.xtext.globaltype.globaljade.generator,
+ org.xtext.globaltype.globaljade.scoping,
+ org.xtext.globaltype.globaljade.globalJade.impl,
+ org.xtext.globaltype.globaljade.parser.antlr,
+ org.xtext.globaltype.globaljade.serializer,
+ org.xtext.globaltype.globaljade.parser.antlr.internal
+Import-Package: org.apache.log4j
