@@ -19,66 +19,45 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.globaltype.globaljade.globalJade.For_loop;
+import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Message;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>For loop</b></em>'.
+ * An implementation of the model object '<em><b>Choice rule</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getRole <em>Role</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getRole_name <em>Role name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getMessages <em>Messages</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class For_loopImpl extends MinimalEObjectImpl.Container implements For_loop
+public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Choice_rule
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getRole_name() <em>Role name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRole_name()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String ROLE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRole_name() <em>Role name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRole_name()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRole()
-   * @generated
-   * @ordered
-   */
-  protected static final String ROLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRole()
-   * @generated
-   * @ordered
-   */
-  protected String role = ROLE_EDEFAULT;
+  protected String role_name = ROLE_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
@@ -95,7 +74,7 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * <!-- end-user-doc -->
    * @generated
    */
-  protected For_loopImpl()
+  protected Choice_ruleImpl()
   {
     super();
   }
@@ -108,7 +87,7 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.FOR_LOOP;
+    return GlobalJadePackage.Literals.CHOICE_RULE;
   }
 
   /**
@@ -117,9 +96,9 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * @generated
    */
   @Override
-  public String getName()
+  public String getRole_name()
   {
-    return name;
+    return role_name;
   }
 
   /**
@@ -128,37 +107,12 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setRole_name(String newRole_name)
   {
-    String oldName = name;
-    name = newName;
+    String oldRole_name = role_name;
+    role_name = newRole_name;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getRole()
-  {
-    return role;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setRole(String newRole)
-  {
-    String oldRole = role;
-    role = newRole;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__ROLE, oldRole, role));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.CHOICE_RULE__ROLE_NAME, oldRole_name, role_name));
   }
 
   /**
@@ -171,7 +125,7 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     if (messages == null)
     {
-      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.FOR_LOOP__MESSAGES);
+      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.CHOICE_RULE__MESSAGES);
     }
     return messages;
   }
@@ -186,7 +140,7 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
+      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
         return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -202,11 +156,9 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__NAME:
-        return getName();
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        return getRole();
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
+      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
+        return getRole_name();
+      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
         return getMessages();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -223,13 +175,10 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__NAME:
-        setName((String)newValue);
+      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
+        setRole_name((String)newValue);
         return;
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        setRole((String)newValue);
-        return;
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
+      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
         getMessages().clear();
         getMessages().addAll((Collection<? extends Message>)newValue);
         return;
@@ -247,13 +196,10 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__NAME:
-        setName(NAME_EDEFAULT);
+      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
+        setRole_name(ROLE_NAME_EDEFAULT);
         return;
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        setRole(ROLE_EDEFAULT);
-        return;
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
+      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
         getMessages().clear();
         return;
     }
@@ -270,11 +216,9 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
+      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
+        return ROLE_NAME_EDEFAULT == null ? role_name != null : !ROLE_NAME_EDEFAULT.equals(role_name);
+      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
         return messages != null && !messages.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -291,12 +235,10 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", role: ");
-    result.append(role);
+    result.append(" (role_name: ");
+    result.append(role_name);
     result.append(')');
     return result.toString();
   }
 
-} //For_loopImpl
+} //Choice_ruleImpl

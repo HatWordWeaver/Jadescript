@@ -33,13 +33,22 @@ public interface GlobalJadeFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Protocols</em>'.
+   * Returns a new object of class '<em>Protocol</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Protocols</em>'.
+   * @return a new object of class '<em>Protocol</em>'.
    * @generated
    */
-  Protocols createProtocols();
+  Protocol createProtocol();
+
+  /**
+   * Returns a new object of class '<em>Choice rule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Choice rule</em>'.
+   * @generated
+   */
+  Choice_rule createChoice_rule();
 
   /**
    * Returns a new object of class '<em>For loop</em>'.
@@ -51,13 +60,22 @@ public interface GlobalJadeFactory extends EFactory
   For_loop createFor_loop();
 
   /**
-   * Returns a new object of class '<em>Global message</em>'.
+   * Returns a new object of class '<em>End message</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Global message</em>'.
+   * @return a new object of class '<em>End message</em>'.
    * @generated
    */
-  Global_message createGlobal_message();
+  End_message createEnd_message();
+
+  /**
+   * Returns a new object of class '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message</em>'.
+   * @generated
+   */
+  Message createMessage();
 
   /**
    * Returns a new object of class '<em>Role</em>'.

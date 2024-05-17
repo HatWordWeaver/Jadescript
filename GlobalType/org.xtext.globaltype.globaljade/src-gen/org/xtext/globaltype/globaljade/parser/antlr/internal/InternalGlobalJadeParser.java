@@ -21,31 +21,36 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_GENERAL_NAME", "RULE_TYPE_MESSAGE", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'global'", "'protocol'", "'('", "','", "')'", "'{'", "'}'", "'forall'", "'in'", "'do'", "'from'", "'to'", "';'", "'role'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_GENERAL_NAME", "RULE_TYPE_MESSAGE", "RULE_CONTENT", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'global'", "'protocol'", "'('", "','", "')'", "'{'", "'}'", "'choice'", "'at'", "'or'", "'forall'", "'in'", "'do'", "';'", "'end'", "'from'", "'to'", "'role'"
     };
     public static final int RULE_GENERAL_NAME=4;
-    public static final int RULE_STRING=8;
-    public static final int RULE_SL_COMMENT=10;
+    public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
-    public static final int T__13=13;
     public static final int T__14=14;
     public static final int RULE_TYPE_MESSAGE=5;
     public static final int EOF=-1;
-    public static final int RULE_ID=6;
-    public static final int RULE_WS=11;
-    public static final int RULE_ANY_OTHER=12;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int RULE_ID=7;
+    public static final int RULE_WS=12;
+    public static final int RULE_ANY_OTHER=13;
     public static final int T__26=26;
-    public static final int RULE_INT=7;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=8;
+    public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=9;
+    public static final int RULE_ML_COMMENT=10;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int T__20=20;
+    public static final int RULE_CONTENT=6;
     public static final int T__21=21;
 
     // delegates
@@ -124,57 +129,151 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // InternalGlobalJade.g:71:1: ruleModel returns [EObject current=null] : ( (lv_protocols_0_0= ruleProtocols ) )* ;
+    // InternalGlobalJade.g:71:1: ruleModel returns [EObject current=null] : (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( (lv_protocol_9_0= ruleProtocol ) ) otherlv_10= '}' ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_protocols_0_0 = null;
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_10=null;
+        EObject lv_roles_4_0 = null;
+
+        EObject lv_roles_6_0 = null;
+
+        EObject lv_protocol_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGlobalJade.g:77:2: ( ( (lv_protocols_0_0= ruleProtocols ) )* )
-            // InternalGlobalJade.g:78:2: ( (lv_protocols_0_0= ruleProtocols ) )*
+            // InternalGlobalJade.g:77:2: ( (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( (lv_protocol_9_0= ruleProtocol ) ) otherlv_10= '}' ) )
+            // InternalGlobalJade.g:78:2: (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( (lv_protocol_9_0= ruleProtocol ) ) otherlv_10= '}' )
             {
-            // InternalGlobalJade.g:78:2: ( (lv_protocols_0_0= ruleProtocols ) )*
+            // InternalGlobalJade.g:78:2: (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( (lv_protocol_9_0= ruleProtocol ) ) otherlv_10= '}' )
+            // InternalGlobalJade.g:79:3: otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( (lv_protocol_9_0= ruleProtocol ) ) otherlv_10= '}'
+            {
+            otherlv_0=(Token)match(input,14,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getGlobalKeyword_0());
+            		
+            otherlv_1=(Token)match(input,15,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getModelAccess().getProtocolKeyword_1());
+            		
+            // InternalGlobalJade.g:87:3: ( (lv_name_2_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:88:4: (lv_name_2_0= RULE_GENERAL_NAME )
+            {
+            // InternalGlobalJade.g:88:4: (lv_name_2_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:89:5: lv_name_2_0= RULE_GENERAL_NAME
+            {
+            lv_name_2_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_5); 
+
+            					newLeafNode(lv_name_2_0, grammarAccess.getModelAccess().getNameGENERAL_NAMETerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getModelRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,16,FOLLOW_6); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getModelAccess().getLeftParenthesisKeyword_3());
+            		
+            // InternalGlobalJade.g:109:3: ( (lv_roles_4_0= ruleRole ) )
+            // InternalGlobalJade.g:110:4: (lv_roles_4_0= ruleRole )
+            {
+            // InternalGlobalJade.g:110:4: (lv_roles_4_0= ruleRole )
+            // InternalGlobalJade.g:111:5: lv_roles_4_0= ruleRole
+            {
+
+            					newCompositeNode(grammarAccess.getModelAccess().getRolesRoleParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_7);
+            lv_roles_4_0=ruleRole();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getModelRule());
+            					}
+            					add(
+            						current,
+            						"roles",
+            						lv_roles_4_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.Role");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalGlobalJade.g:128:3: (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==13) ) {
+                if ( (LA1_0==17) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalGlobalJade.g:79:3: (lv_protocols_0_0= ruleProtocols )
+            	    // InternalGlobalJade.g:129:4: otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) )
             	    {
-            	    // InternalGlobalJade.g:79:3: (lv_protocols_0_0= ruleProtocols )
-            	    // InternalGlobalJade.g:80:4: lv_protocols_0_0= ruleProtocols
+            	    otherlv_5=(Token)match(input,17,FOLLOW_6); 
+
+            	    				newLeafNode(otherlv_5, grammarAccess.getModelAccess().getCommaKeyword_5_0());
+            	    			
+            	    // InternalGlobalJade.g:133:4: ( (lv_roles_6_0= ruleRole ) )
+            	    // InternalGlobalJade.g:134:5: (lv_roles_6_0= ruleRole )
+            	    {
+            	    // InternalGlobalJade.g:134:5: (lv_roles_6_0= ruleRole )
+            	    // InternalGlobalJade.g:135:6: lv_roles_6_0= ruleRole
             	    {
 
-            	    				newCompositeNode(grammarAccess.getModelAccess().getProtocolsProtocolsParserRuleCall_0());
-            	    			
-            	    pushFollow(FOLLOW_3);
-            	    lv_protocols_0_0=ruleProtocols();
+            	    						newCompositeNode(grammarAccess.getModelAccess().getRolesRoleParserRuleCall_5_1_0());
+            	    					
+            	    pushFollow(FOLLOW_7);
+            	    lv_roles_6_0=ruleRole();
 
             	    state._fsp--;
 
 
-            	    				if (current==null) {
-            	    					current = createModelElementForParent(grammarAccess.getModelRule());
-            	    				}
-            	    				add(
-            	    					current,
-            	    					"protocols",
-            	    					lv_protocols_0_0,
-            	    					"org.xtext.globaltype.globaljade.GlobalJade.Protocols");
-            	    				afterParserOrEnumRuleCall();
-            	    			
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getModelRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"roles",
+            	    							lv_roles_6_0,
+            	    							"org.xtext.globaltype.globaljade.GlobalJade.Role");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
 
             	    }
 
@@ -186,6 +285,52 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
             	    break loop1;
                 }
             } while (true);
+
+            otherlv_7=(Token)match(input,18,FOLLOW_8); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getModelAccess().getRightParenthesisKeyword_6());
+            		
+            otherlv_8=(Token)match(input,19,FOLLOW_9); 
+
+            			newLeafNode(otherlv_8, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_7());
+            		
+            // InternalGlobalJade.g:161:3: ( (lv_protocol_9_0= ruleProtocol ) )
+            // InternalGlobalJade.g:162:4: (lv_protocol_9_0= ruleProtocol )
+            {
+            // InternalGlobalJade.g:162:4: (lv_protocol_9_0= ruleProtocol )
+            // InternalGlobalJade.g:163:5: lv_protocol_9_0= ruleProtocol
+            {
+
+            					newCompositeNode(grammarAccess.getModelAccess().getProtocolProtocolParserRuleCall_8_0());
+            				
+            pushFollow(FOLLOW_10);
+            lv_protocol_9_0=ruleProtocol();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getModelRule());
+            					}
+            					add(
+            						current,
+            						"protocol",
+            						lv_protocol_9_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.Protocol");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_10=(Token)match(input,20,FOLLOW_2); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_9());
+            		
+
+            }
 
 
             }
@@ -206,25 +351,25 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleModel"
 
 
-    // $ANTLR start "entryRuleProtocols"
-    // InternalGlobalJade.g:100:1: entryRuleProtocols returns [EObject current=null] : iv_ruleProtocols= ruleProtocols EOF ;
-    public final EObject entryRuleProtocols() throws RecognitionException {
+    // $ANTLR start "entryRuleProtocol"
+    // InternalGlobalJade.g:188:1: entryRuleProtocol returns [EObject current=null] : iv_ruleProtocol= ruleProtocol EOF ;
+    public final EObject entryRuleProtocol() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleProtocols = null;
+        EObject iv_ruleProtocol = null;
 
 
         try {
-            // InternalGlobalJade.g:100:50: (iv_ruleProtocols= ruleProtocols EOF )
-            // InternalGlobalJade.g:101:2: iv_ruleProtocols= ruleProtocols EOF
+            // InternalGlobalJade.g:188:49: (iv_ruleProtocol= ruleProtocol EOF )
+            // InternalGlobalJade.g:189:2: iv_ruleProtocol= ruleProtocol EOF
             {
-             newCompositeNode(grammarAccess.getProtocolsRule()); 
+             newCompositeNode(grammarAccess.getProtocolRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleProtocols=ruleProtocols();
+            iv_ruleProtocol=ruleProtocol();
 
             state._fsp--;
 
-             current =iv_ruleProtocols; 
+             current =iv_ruleProtocol; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -239,258 +384,193 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleProtocols"
+    // $ANTLR end "entryRuleProtocol"
 
 
-    // $ANTLR start "ruleProtocols"
-    // InternalGlobalJade.g:107:1: ruleProtocols returns [EObject current=null] : (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+ otherlv_11= '}' ) ;
-    public final EObject ruleProtocols() throws RecognitionException {
+    // $ANTLR start "ruleProtocol"
+    // InternalGlobalJade.g:195:1: ruleProtocol returns [EObject current=null] : ( () ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )* ) ;
+    public final EObject ruleProtocol() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token lv_name_2_0=null;
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_11=null;
-        EObject lv_roles_4_0 = null;
+        EObject lv_actions_1_1 = null;
 
-        EObject lv_roles_6_0 = null;
+        EObject lv_actions_1_2 = null;
 
-        EObject lv_globals_9_0 = null;
+        EObject lv_actions_1_3 = null;
 
-        EObject lv_forLoop_10_0 = null;
+        EObject lv_actions_1_4 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGlobalJade.g:113:2: ( (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+ otherlv_11= '}' ) )
-            // InternalGlobalJade.g:114:2: (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+ otherlv_11= '}' )
+            // InternalGlobalJade.g:201:2: ( ( () ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )* ) )
+            // InternalGlobalJade.g:202:2: ( () ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )* )
             {
-            // InternalGlobalJade.g:114:2: (otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+ otherlv_11= '}' )
-            // InternalGlobalJade.g:115:3: otherlv_0= 'global' otherlv_1= 'protocol' ( (lv_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '(' ( (lv_roles_4_0= ruleRole ) ) (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )* otherlv_7= ')' otherlv_8= '{' ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+ otherlv_11= '}'
+            // InternalGlobalJade.g:202:2: ( () ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )* )
+            // InternalGlobalJade.g:203:3: () ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )*
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_4); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getProtocolsAccess().getGlobalKeyword_0());
-            		
-            otherlv_1=(Token)match(input,14,FOLLOW_5); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getProtocolsAccess().getProtocolKeyword_1());
-            		
-            // InternalGlobalJade.g:123:3: ( (lv_name_2_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:124:4: (lv_name_2_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:203:3: ()
+            // InternalGlobalJade.g:204:4: 
             {
-            // InternalGlobalJade.g:124:4: (lv_name_2_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:125:5: lv_name_2_0= RULE_GENERAL_NAME
-            {
-            lv_name_2_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_6); 
 
-            					newLeafNode(lv_name_2_0, grammarAccess.getProtocolsAccess().getNameGENERAL_NAMETerminalRuleCall_2_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getProtocolsRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
-            				
+            				current = forceCreateModelElement(
+            					grammarAccess.getProtocolAccess().getProtocolAction_0(),
+            					current);
+            			
 
             }
 
-
-            }
-
-            otherlv_3=(Token)match(input,15,FOLLOW_7); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getProtocolsAccess().getLeftParenthesisKeyword_3());
-            		
-            // InternalGlobalJade.g:145:3: ( (lv_roles_4_0= ruleRole ) )
-            // InternalGlobalJade.g:146:4: (lv_roles_4_0= ruleRole )
-            {
-            // InternalGlobalJade.g:146:4: (lv_roles_4_0= ruleRole )
-            // InternalGlobalJade.g:147:5: lv_roles_4_0= ruleRole
-            {
-
-            					newCompositeNode(grammarAccess.getProtocolsAccess().getRolesRoleParserRuleCall_4_0());
-            				
-            pushFollow(FOLLOW_8);
-            lv_roles_4_0=ruleRole();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getProtocolsRule());
-            					}
-            					add(
-            						current,
-            						"roles",
-            						lv_roles_4_0,
-            						"org.xtext.globaltype.globaljade.GlobalJade.Role");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalGlobalJade.g:164:3: (otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) ) )*
-            loop2:
-            do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
-
-                if ( (LA2_0==16) ) {
-                    alt2=1;
-                }
-
-
-                switch (alt2) {
-            	case 1 :
-            	    // InternalGlobalJade.g:165:4: otherlv_5= ',' ( (lv_roles_6_0= ruleRole ) )
-            	    {
-            	    otherlv_5=(Token)match(input,16,FOLLOW_7); 
-
-            	    				newLeafNode(otherlv_5, grammarAccess.getProtocolsAccess().getCommaKeyword_5_0());
-            	    			
-            	    // InternalGlobalJade.g:169:4: ( (lv_roles_6_0= ruleRole ) )
-            	    // InternalGlobalJade.g:170:5: (lv_roles_6_0= ruleRole )
-            	    {
-            	    // InternalGlobalJade.g:170:5: (lv_roles_6_0= ruleRole )
-            	    // InternalGlobalJade.g:171:6: lv_roles_6_0= ruleRole
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getProtocolsAccess().getRolesRoleParserRuleCall_5_1_0());
-            	    					
-            	    pushFollow(FOLLOW_8);
-            	    lv_roles_6_0=ruleRole();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getProtocolsRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"roles",
-            	    							lv_roles_6_0,
-            	    							"org.xtext.globaltype.globaljade.GlobalJade.Role");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop2;
-                }
-            } while (true);
-
-            otherlv_7=(Token)match(input,17,FOLLOW_9); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getProtocolsAccess().getRightParenthesisKeyword_6());
-            		
-            otherlv_8=(Token)match(input,18,FOLLOW_10); 
-
-            			newLeafNode(otherlv_8, grammarAccess.getProtocolsAccess().getLeftCurlyBracketKeyword_7());
-            		
-            // InternalGlobalJade.g:197:3: ( ( (lv_globals_9_0= ruleGlobal_message ) ) | ( (lv_forLoop_10_0= ruleFor_loop ) ) )+
-            int cnt3=0;
+            // InternalGlobalJade.g:210:3: ( ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) ) )*
             loop3:
             do {
-                int alt3=3;
+                int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==RULE_TYPE_MESSAGE) ) {
+                if ( (LA3_0==RULE_TYPE_MESSAGE||LA3_0==21||LA3_0==24||LA3_0==28) ) {
                     alt3=1;
-                }
-                else if ( (LA3_0==20) ) {
-                    alt3=2;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalGlobalJade.g:198:4: ( (lv_globals_9_0= ruleGlobal_message ) )
+            	    // InternalGlobalJade.g:211:4: ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) )
             	    {
-            	    // InternalGlobalJade.g:198:4: ( (lv_globals_9_0= ruleGlobal_message ) )
-            	    // InternalGlobalJade.g:199:5: (lv_globals_9_0= ruleGlobal_message )
+            	    // InternalGlobalJade.g:211:4: ( (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message ) )
+            	    // InternalGlobalJade.g:212:5: (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message )
             	    {
-            	    // InternalGlobalJade.g:199:5: (lv_globals_9_0= ruleGlobal_message )
-            	    // InternalGlobalJade.g:200:6: lv_globals_9_0= ruleGlobal_message
-            	    {
+            	    // InternalGlobalJade.g:212:5: (lv_actions_1_1= ruleMessage | lv_actions_1_2= ruleChoice_rule | lv_actions_1_3= ruleFor_loop | lv_actions_1_4= ruleEnd_message )
+            	    int alt2=4;
+            	    switch ( input.LA(1) ) {
+            	    case RULE_TYPE_MESSAGE:
+            	        {
+            	        alt2=1;
+            	        }
+            	        break;
+            	    case 21:
+            	        {
+            	        alt2=2;
+            	        }
+            	        break;
+            	    case 24:
+            	        {
+            	        alt2=3;
+            	        }
+            	        break;
+            	    case 28:
+            	        {
+            	        alt2=4;
+            	        }
+            	        break;
+            	    default:
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 2, 0, input);
 
-            	    						newCompositeNode(grammarAccess.getProtocolsAccess().getGlobalsGlobal_messageParserRuleCall_8_0_0());
-            	    					
-            	    pushFollow(FOLLOW_11);
-            	    lv_globals_9_0=ruleGlobal_message();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getProtocolsRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"globals",
-            	    							lv_globals_9_0,
-            	    							"org.xtext.globaltype.globaljade.GlobalJade.Global_message");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
+            	        throw nvae;
             	    }
 
+            	    switch (alt2) {
+            	        case 1 :
+            	            // InternalGlobalJade.g:213:6: lv_actions_1_1= ruleMessage
+            	            {
 
-            	    }
+            	            						newCompositeNode(grammarAccess.getProtocolAccess().getActionsMessageParserRuleCall_1_0_0());
+            	            					
+            	            pushFollow(FOLLOW_11);
+            	            lv_actions_1_1=ruleMessage();
 
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalGlobalJade.g:218:4: ( (lv_forLoop_10_0= ruleFor_loop ) )
-            	    {
-            	    // InternalGlobalJade.g:218:4: ( (lv_forLoop_10_0= ruleFor_loop ) )
-            	    // InternalGlobalJade.g:219:5: (lv_forLoop_10_0= ruleFor_loop )
-            	    {
-            	    // InternalGlobalJade.g:219:5: (lv_forLoop_10_0= ruleFor_loop )
-            	    // InternalGlobalJade.g:220:6: lv_forLoop_10_0= ruleFor_loop
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getProtocolsAccess().getForLoopFor_loopParserRuleCall_8_1_0());
-            	    					
-            	    pushFollow(FOLLOW_11);
-            	    lv_forLoop_10_0=ruleFor_loop();
-
-            	    state._fsp--;
+            	            state._fsp--;
 
 
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getProtocolsRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"forLoop",
-            	    							lv_forLoop_10_0,
-            	    							"org.xtext.globaltype.globaljade.GlobalJade.For_loop");
-            	    						afterParserOrEnumRuleCall();
-            	    					
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getProtocolRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"actions",
+            	            							lv_actions_1_1,
+            	            							"org.xtext.globaltype.globaljade.GlobalJade.Message");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalGlobalJade.g:229:6: lv_actions_1_2= ruleChoice_rule
+            	            {
+
+            	            						newCompositeNode(grammarAccess.getProtocolAccess().getActionsChoice_ruleParserRuleCall_1_0_1());
+            	            					
+            	            pushFollow(FOLLOW_11);
+            	            lv_actions_1_2=ruleChoice_rule();
+
+            	            state._fsp--;
+
+
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getProtocolRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"actions",
+            	            							lv_actions_1_2,
+            	            							"org.xtext.globaltype.globaljade.GlobalJade.Choice_rule");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
+            	        case 3 :
+            	            // InternalGlobalJade.g:245:6: lv_actions_1_3= ruleFor_loop
+            	            {
+
+            	            						newCompositeNode(grammarAccess.getProtocolAccess().getActionsFor_loopParserRuleCall_1_0_2());
+            	            					
+            	            pushFollow(FOLLOW_11);
+            	            lv_actions_1_3=ruleFor_loop();
+
+            	            state._fsp--;
+
+
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getProtocolRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"actions",
+            	            							lv_actions_1_3,
+            	            							"org.xtext.globaltype.globaljade.GlobalJade.For_loop");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
+            	        case 4 :
+            	            // InternalGlobalJade.g:261:6: lv_actions_1_4= ruleEnd_message
+            	            {
+
+            	            						newCompositeNode(grammarAccess.getProtocolAccess().getActionsEnd_messageParserRuleCall_1_0_3());
+            	            					
+            	            pushFollow(FOLLOW_11);
+            	            lv_actions_1_4=ruleEnd_message();
+
+            	            state._fsp--;
+
+
+            	            						if (current==null) {
+            	            							current = createModelElementForParent(grammarAccess.getProtocolRule());
+            	            						}
+            	            						add(
+            	            							current,
+            	            							"actions",
+            	            							lv_actions_1_4,
+            	            							"org.xtext.globaltype.globaljade.GlobalJade.End_message");
+            	            						afterParserOrEnumRuleCall();
+            	            					
+
+            	            }
+            	            break;
 
             	    }
 
@@ -502,18 +582,10 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
-                        EarlyExitException eee =
-                            new EarlyExitException(3, input);
-                        throw eee;
+            	    break loop3;
                 }
-                cnt3++;
             } while (true);
 
-            otherlv_11=(Token)match(input,19,FOLLOW_2); 
-
-            			newLeafNode(otherlv_11, grammarAccess.getProtocolsAccess().getRightCurlyBracketKeyword_9());
-            		
 
             }
 
@@ -533,11 +605,273 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleProtocols"
+    // $ANTLR end "ruleProtocol"
+
+
+    // $ANTLR start "entryRuleChoice_rule"
+    // InternalGlobalJade.g:283:1: entryRuleChoice_rule returns [EObject current=null] : iv_ruleChoice_rule= ruleChoice_rule EOF ;
+    public final EObject entryRuleChoice_rule() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleChoice_rule = null;
+
+
+        try {
+            // InternalGlobalJade.g:283:52: (iv_ruleChoice_rule= ruleChoice_rule EOF )
+            // InternalGlobalJade.g:284:2: iv_ruleChoice_rule= ruleChoice_rule EOF
+            {
+             newCompositeNode(grammarAccess.getChoice_ruleRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleChoice_rule=ruleChoice_rule();
+
+            state._fsp--;
+
+             current =iv_ruleChoice_rule; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleChoice_rule"
+
+
+    // $ANTLR start "ruleChoice_rule"
+    // InternalGlobalJade.g:290:1: ruleChoice_rule returns [EObject current=null] : (otherlv_0= 'choice' otherlv_1= 'at' ( (lv_role_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '{' ( (lv_messages_4_0= ruleMessage ) )* otherlv_5= '}' (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )* ) ;
+    public final EObject ruleChoice_rule() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token lv_role_name_2_0=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        EObject lv_messages_4_0 = null;
+
+        EObject lv_messages_8_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalGlobalJade.g:296:2: ( (otherlv_0= 'choice' otherlv_1= 'at' ( (lv_role_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '{' ( (lv_messages_4_0= ruleMessage ) )* otherlv_5= '}' (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )* ) )
+            // InternalGlobalJade.g:297:2: (otherlv_0= 'choice' otherlv_1= 'at' ( (lv_role_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '{' ( (lv_messages_4_0= ruleMessage ) )* otherlv_5= '}' (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )* )
+            {
+            // InternalGlobalJade.g:297:2: (otherlv_0= 'choice' otherlv_1= 'at' ( (lv_role_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '{' ( (lv_messages_4_0= ruleMessage ) )* otherlv_5= '}' (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )* )
+            // InternalGlobalJade.g:298:3: otherlv_0= 'choice' otherlv_1= 'at' ( (lv_role_name_2_0= RULE_GENERAL_NAME ) ) otherlv_3= '{' ( (lv_messages_4_0= ruleMessage ) )* otherlv_5= '}' (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )*
+            {
+            otherlv_0=(Token)match(input,21,FOLLOW_12); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getChoice_ruleAccess().getChoiceKeyword_0());
+            		
+            otherlv_1=(Token)match(input,22,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getChoice_ruleAccess().getAtKeyword_1());
+            		
+            // InternalGlobalJade.g:306:3: ( (lv_role_name_2_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:307:4: (lv_role_name_2_0= RULE_GENERAL_NAME )
+            {
+            // InternalGlobalJade.g:307:4: (lv_role_name_2_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:308:5: lv_role_name_2_0= RULE_GENERAL_NAME
+            {
+            lv_role_name_2_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_8); 
+
+            					newLeafNode(lv_role_name_2_0, grammarAccess.getChoice_ruleAccess().getRole_nameGENERAL_NAMETerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getChoice_ruleRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"role_name",
+            						lv_role_name_2_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,19,FOLLOW_13); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getChoice_ruleAccess().getLeftCurlyBracketKeyword_3());
+            		
+            // InternalGlobalJade.g:328:3: ( (lv_messages_4_0= ruleMessage ) )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( (LA4_0==RULE_TYPE_MESSAGE) ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalGlobalJade.g:329:4: (lv_messages_4_0= ruleMessage )
+            	    {
+            	    // InternalGlobalJade.g:329:4: (lv_messages_4_0= ruleMessage )
+            	    // InternalGlobalJade.g:330:5: lv_messages_4_0= ruleMessage
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getChoice_ruleAccess().getMessagesMessageParserRuleCall_4_0());
+            	    				
+            	    pushFollow(FOLLOW_13);
+            	    lv_messages_4_0=ruleMessage();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getChoice_ruleRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"messages",
+            	    						lv_messages_4_0,
+            	    						"org.xtext.globaltype.globaljade.GlobalJade.Message");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,20,FOLLOW_14); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_5());
+            		
+            // InternalGlobalJade.g:351:3: (otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}' )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==23) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // InternalGlobalJade.g:352:4: otherlv_6= 'or' otherlv_7= '{' ( (lv_messages_8_0= ruleMessage ) )* otherlv_9= '}'
+            	    {
+            	    otherlv_6=(Token)match(input,23,FOLLOW_8); 
+
+            	    				newLeafNode(otherlv_6, grammarAccess.getChoice_ruleAccess().getOrKeyword_6_0());
+            	    			
+            	    otherlv_7=(Token)match(input,19,FOLLOW_13); 
+
+            	    				newLeafNode(otherlv_7, grammarAccess.getChoice_ruleAccess().getLeftCurlyBracketKeyword_6_1());
+            	    			
+            	    // InternalGlobalJade.g:360:4: ( (lv_messages_8_0= ruleMessage ) )*
+            	    loop5:
+            	    do {
+            	        int alt5=2;
+            	        int LA5_0 = input.LA(1);
+
+            	        if ( (LA5_0==RULE_TYPE_MESSAGE) ) {
+            	            alt5=1;
+            	        }
+
+
+            	        switch (alt5) {
+            	    	case 1 :
+            	    	    // InternalGlobalJade.g:361:5: (lv_messages_8_0= ruleMessage )
+            	    	    {
+            	    	    // InternalGlobalJade.g:361:5: (lv_messages_8_0= ruleMessage )
+            	    	    // InternalGlobalJade.g:362:6: lv_messages_8_0= ruleMessage
+            	    	    {
+
+            	    	    						newCompositeNode(grammarAccess.getChoice_ruleAccess().getMessagesMessageParserRuleCall_6_2_0());
+            	    	    					
+            	    	    pushFollow(FOLLOW_13);
+            	    	    lv_messages_8_0=ruleMessage();
+
+            	    	    state._fsp--;
+
+
+            	    	    						if (current==null) {
+            	    	    							current = createModelElementForParent(grammarAccess.getChoice_ruleRule());
+            	    	    						}
+            	    	    						add(
+            	    	    							current,
+            	    	    							"messages",
+            	    	    							lv_messages_8_0,
+            	    	    							"org.xtext.globaltype.globaljade.GlobalJade.Message");
+            	    	    						afterParserOrEnumRuleCall();
+            	    	    					
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop5;
+            	        }
+            	    } while (true);
+
+            	    otherlv_9=(Token)match(input,20,FOLLOW_14); 
+
+            	    				newLeafNode(otherlv_9, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_6_3());
+            	    			
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleChoice_rule"
 
 
     // $ANTLR start "entryRuleFor_loop"
-    // InternalGlobalJade.g:246:1: entryRuleFor_loop returns [EObject current=null] : iv_ruleFor_loop= ruleFor_loop EOF ;
+    // InternalGlobalJade.g:388:1: entryRuleFor_loop returns [EObject current=null] : iv_ruleFor_loop= ruleFor_loop EOF ;
     public final EObject entryRuleFor_loop() throws RecognitionException {
         EObject current = null;
 
@@ -545,8 +879,8 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGlobalJade.g:246:49: (iv_ruleFor_loop= ruleFor_loop EOF )
-            // InternalGlobalJade.g:247:2: iv_ruleFor_loop= ruleFor_loop EOF
+            // InternalGlobalJade.g:388:49: (iv_ruleFor_loop= ruleFor_loop EOF )
+            // InternalGlobalJade.g:389:2: iv_ruleFor_loop= ruleFor_loop EOF
             {
              newCompositeNode(grammarAccess.getFor_loopRule()); 
             pushFollow(FOLLOW_1);
@@ -573,7 +907,7 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFor_loop"
-    // InternalGlobalJade.g:253:1: ruleFor_loop returns [EObject current=null] : (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal_message ) )* otherlv_7= '}' ) ;
+    // InternalGlobalJade.g:395:1: ruleFor_loop returns [EObject current=null] : (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_messages_6_0= ruleMessage ) )* otherlv_7= '}' ) ;
     public final EObject ruleFor_loop() throws RecognitionException {
         EObject current = null;
 
@@ -584,30 +918,30 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_5=null;
         Token otherlv_7=null;
-        EObject lv_globals_6_0 = null;
+        EObject lv_messages_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGlobalJade.g:259:2: ( (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal_message ) )* otherlv_7= '}' ) )
-            // InternalGlobalJade.g:260:2: (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal_message ) )* otherlv_7= '}' )
+            // InternalGlobalJade.g:401:2: ( (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_messages_6_0= ruleMessage ) )* otherlv_7= '}' ) )
+            // InternalGlobalJade.g:402:2: (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_messages_6_0= ruleMessage ) )* otherlv_7= '}' )
             {
-            // InternalGlobalJade.g:260:2: (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal_message ) )* otherlv_7= '}' )
-            // InternalGlobalJade.g:261:3: otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_globals_6_0= ruleGlobal_message ) )* otherlv_7= '}'
+            // InternalGlobalJade.g:402:2: (otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_messages_6_0= ruleMessage ) )* otherlv_7= '}' )
+            // InternalGlobalJade.g:403:3: otherlv_0= 'forall' ( (lv_name_1_0= RULE_GENERAL_NAME ) ) otherlv_2= 'in' ( (lv_role_3_0= RULE_GENERAL_NAME ) ) otherlv_4= 'do' otherlv_5= '{' ( (lv_messages_6_0= ruleMessage ) )* otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_5); 
+            otherlv_0=(Token)match(input,24,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getFor_loopAccess().getForallKeyword_0());
             		
-            // InternalGlobalJade.g:265:3: ( (lv_name_1_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:266:4: (lv_name_1_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:407:3: ( (lv_name_1_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:408:4: (lv_name_1_0= RULE_GENERAL_NAME )
             {
-            // InternalGlobalJade.g:266:4: (lv_name_1_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:267:5: lv_name_1_0= RULE_GENERAL_NAME
+            // InternalGlobalJade.g:408:4: (lv_name_1_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:409:5: lv_name_1_0= RULE_GENERAL_NAME
             {
-            lv_name_1_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_12); 
+            lv_name_1_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_15); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getFor_loopAccess().getNameGENERAL_NAMETerminalRuleCall_1_0());
             				
@@ -627,17 +961,17 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,21,FOLLOW_5); 
+            otherlv_2=(Token)match(input,25,FOLLOW_4); 
 
             			newLeafNode(otherlv_2, grammarAccess.getFor_loopAccess().getInKeyword_2());
             		
-            // InternalGlobalJade.g:287:3: ( (lv_role_3_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:288:4: (lv_role_3_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:429:3: ( (lv_role_3_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:430:4: (lv_role_3_0= RULE_GENERAL_NAME )
             {
-            // InternalGlobalJade.g:288:4: (lv_role_3_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:289:5: lv_role_3_0= RULE_GENERAL_NAME
+            // InternalGlobalJade.g:430:4: (lv_role_3_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:431:5: lv_role_3_0= RULE_GENERAL_NAME
             {
-            lv_role_3_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_13); 
+            lv_role_3_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_16); 
 
             					newLeafNode(lv_role_3_0, grammarAccess.getFor_loopAccess().getRoleGENERAL_NAMETerminalRuleCall_3_0());
             				
@@ -657,37 +991,37 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,22,FOLLOW_9); 
+            otherlv_4=(Token)match(input,26,FOLLOW_8); 
 
             			newLeafNode(otherlv_4, grammarAccess.getFor_loopAccess().getDoKeyword_4());
             		
-            otherlv_5=(Token)match(input,18,FOLLOW_14); 
+            otherlv_5=(Token)match(input,19,FOLLOW_13); 
 
             			newLeafNode(otherlv_5, grammarAccess.getFor_loopAccess().getLeftCurlyBracketKeyword_5());
             		
-            // InternalGlobalJade.g:313:3: ( (lv_globals_6_0= ruleGlobal_message ) )*
-            loop4:
+            // InternalGlobalJade.g:455:3: ( (lv_messages_6_0= ruleMessage ) )*
+            loop7:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA4_0==RULE_TYPE_MESSAGE) ) {
-                    alt4=1;
+                if ( (LA7_0==RULE_TYPE_MESSAGE) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalGlobalJade.g:314:4: (lv_globals_6_0= ruleGlobal_message )
+            	    // InternalGlobalJade.g:456:4: (lv_messages_6_0= ruleMessage )
             	    {
-            	    // InternalGlobalJade.g:314:4: (lv_globals_6_0= ruleGlobal_message )
-            	    // InternalGlobalJade.g:315:5: lv_globals_6_0= ruleGlobal_message
+            	    // InternalGlobalJade.g:456:4: (lv_messages_6_0= ruleMessage )
+            	    // InternalGlobalJade.g:457:5: lv_messages_6_0= ruleMessage
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFor_loopAccess().getGlobalsGlobal_messageParserRuleCall_6_0());
+            	    					newCompositeNode(grammarAccess.getFor_loopAccess().getMessagesMessageParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_14);
-            	    lv_globals_6_0=ruleGlobal_message();
+            	    pushFollow(FOLLOW_13);
+            	    lv_messages_6_0=ruleMessage();
 
             	    state._fsp--;
 
@@ -697,9 +1031,9 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"globals",
-            	    						lv_globals_6_0,
-            	    						"org.xtext.globaltype.globaljade.GlobalJade.Global_message");
+            	    						"messages",
+            	    						lv_messages_6_0,
+            	    						"org.xtext.globaltype.globaljade.GlobalJade.Message");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -710,11 +1044,11 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop7;
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,19,FOLLOW_2); 
+            otherlv_7=(Token)match(input,20,FOLLOW_2); 
 
             			newLeafNode(otherlv_7, grammarAccess.getFor_loopAccess().getRightCurlyBracketKeyword_7());
             		
@@ -740,25 +1074,25 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleFor_loop"
 
 
-    // $ANTLR start "entryRuleGlobal_message"
-    // InternalGlobalJade.g:340:1: entryRuleGlobal_message returns [EObject current=null] : iv_ruleGlobal_message= ruleGlobal_message EOF ;
-    public final EObject entryRuleGlobal_message() throws RecognitionException {
+    // $ANTLR start "entryRuleEnd_message"
+    // InternalGlobalJade.g:482:1: entryRuleEnd_message returns [EObject current=null] : iv_ruleEnd_message= ruleEnd_message EOF ;
+    public final EObject entryRuleEnd_message() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleGlobal_message = null;
+        EObject iv_ruleEnd_message = null;
 
 
         try {
-            // InternalGlobalJade.g:340:55: (iv_ruleGlobal_message= ruleGlobal_message EOF )
-            // InternalGlobalJade.g:341:2: iv_ruleGlobal_message= ruleGlobal_message EOF
+            // InternalGlobalJade.g:482:52: (iv_ruleEnd_message= ruleEnd_message EOF )
+            // InternalGlobalJade.g:483:2: iv_ruleEnd_message= ruleEnd_message EOF
             {
-             newCompositeNode(grammarAccess.getGlobal_messageRule()); 
+             newCompositeNode(grammarAccess.getEnd_messageRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleGlobal_message=ruleGlobal_message();
+            iv_ruleEnd_message=ruleEnd_message();
 
             state._fsp--;
 
-             current =iv_ruleGlobal_message; 
+             current =iv_ruleEnd_message; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -773,52 +1107,52 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleGlobal_message"
+    // $ANTLR end "entryRuleEnd_message"
 
 
-    // $ANTLR start "ruleGlobal_message"
-    // InternalGlobalJade.g:347:1: ruleGlobal_message returns [EObject current=null] : ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' otherlv_2= ')' otherlv_3= 'from' ( (lv_roleA_4_0= RULE_GENERAL_NAME ) ) otherlv_5= 'to' ( (lv_roleB_6_0= RULE_GENERAL_NAME ) ) otherlv_7= ';' ) ;
-    public final EObject ruleGlobal_message() throws RecognitionException {
+    // $ANTLR start "ruleEnd_message"
+    // InternalGlobalJade.g:489:1: ruleEnd_message returns [EObject current=null] : ( ( (lv_end_0_0= ruleEND_MEX ) ) otherlv_1= ';' ) ;
+    public final EObject ruleEnd_message() throws RecognitionException {
         EObject current = null;
 
-        Token lv_type_0_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_roleA_4_0=null;
-        Token otherlv_5=null;
-        Token lv_roleB_6_0=null;
-        Token otherlv_7=null;
+        AntlrDatatypeRuleToken lv_end_0_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalGlobalJade.g:353:2: ( ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' otherlv_2= ')' otherlv_3= 'from' ( (lv_roleA_4_0= RULE_GENERAL_NAME ) ) otherlv_5= 'to' ( (lv_roleB_6_0= RULE_GENERAL_NAME ) ) otherlv_7= ';' ) )
-            // InternalGlobalJade.g:354:2: ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' otherlv_2= ')' otherlv_3= 'from' ( (lv_roleA_4_0= RULE_GENERAL_NAME ) ) otherlv_5= 'to' ( (lv_roleB_6_0= RULE_GENERAL_NAME ) ) otherlv_7= ';' )
+            // InternalGlobalJade.g:495:2: ( ( ( (lv_end_0_0= ruleEND_MEX ) ) otherlv_1= ';' ) )
+            // InternalGlobalJade.g:496:2: ( ( (lv_end_0_0= ruleEND_MEX ) ) otherlv_1= ';' )
             {
-            // InternalGlobalJade.g:354:2: ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' otherlv_2= ')' otherlv_3= 'from' ( (lv_roleA_4_0= RULE_GENERAL_NAME ) ) otherlv_5= 'to' ( (lv_roleB_6_0= RULE_GENERAL_NAME ) ) otherlv_7= ';' )
-            // InternalGlobalJade.g:355:3: ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' otherlv_2= ')' otherlv_3= 'from' ( (lv_roleA_4_0= RULE_GENERAL_NAME ) ) otherlv_5= 'to' ( (lv_roleB_6_0= RULE_GENERAL_NAME ) ) otherlv_7= ';'
+            // InternalGlobalJade.g:496:2: ( ( (lv_end_0_0= ruleEND_MEX ) ) otherlv_1= ';' )
+            // InternalGlobalJade.g:497:3: ( (lv_end_0_0= ruleEND_MEX ) ) otherlv_1= ';'
             {
-            // InternalGlobalJade.g:355:3: ( (lv_type_0_0= RULE_TYPE_MESSAGE ) )
-            // InternalGlobalJade.g:356:4: (lv_type_0_0= RULE_TYPE_MESSAGE )
+            // InternalGlobalJade.g:497:3: ( (lv_end_0_0= ruleEND_MEX ) )
+            // InternalGlobalJade.g:498:4: (lv_end_0_0= ruleEND_MEX )
             {
-            // InternalGlobalJade.g:356:4: (lv_type_0_0= RULE_TYPE_MESSAGE )
-            // InternalGlobalJade.g:357:5: lv_type_0_0= RULE_TYPE_MESSAGE
+            // InternalGlobalJade.g:498:4: (lv_end_0_0= ruleEND_MEX )
+            // InternalGlobalJade.g:499:5: lv_end_0_0= ruleEND_MEX
             {
-            lv_type_0_0=(Token)match(input,RULE_TYPE_MESSAGE,FOLLOW_6); 
 
-            					newLeafNode(lv_type_0_0, grammarAccess.getGlobal_messageAccess().getTypeTYPE_MESSAGETerminalRuleCall_0_0());
+            					newCompositeNode(grammarAccess.getEnd_messageAccess().getEndEND_MEXParserRuleCall_0_0());
             				
+            pushFollow(FOLLOW_17);
+            lv_end_0_0=ruleEND_MEX();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getGlobal_messageRule());
+            						current = createModelElementForParent(grammarAccess.getEnd_messageRule());
             					}
-            					setWithLastConsumed(
+            					add(
             						current,
-            						"type",
-            						lv_type_0_0,
-            						"org.xtext.globaltype.globaljade.GlobalJade.TYPE_MESSAGE");
+            						"end",
+            						lv_end_0_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.END_MEX");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -826,77 +1160,9 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,15,FOLLOW_15); 
+            otherlv_1=(Token)match(input,27,FOLLOW_2); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getGlobal_messageAccess().getLeftParenthesisKeyword_1());
-            		
-            otherlv_2=(Token)match(input,17,FOLLOW_16); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getGlobal_messageAccess().getRightParenthesisKeyword_2());
-            		
-            otherlv_3=(Token)match(input,23,FOLLOW_5); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getGlobal_messageAccess().getFromKeyword_3());
-            		
-            // InternalGlobalJade.g:385:3: ( (lv_roleA_4_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:386:4: (lv_roleA_4_0= RULE_GENERAL_NAME )
-            {
-            // InternalGlobalJade.g:386:4: (lv_roleA_4_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:387:5: lv_roleA_4_0= RULE_GENERAL_NAME
-            {
-            lv_roleA_4_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_17); 
-
-            					newLeafNode(lv_roleA_4_0, grammarAccess.getGlobal_messageAccess().getRoleAGENERAL_NAMETerminalRuleCall_4_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getGlobal_messageRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"roleA",
-            						lv_roleA_4_0,
-            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
-            				
-
-            }
-
-
-            }
-
-            otherlv_5=(Token)match(input,24,FOLLOW_5); 
-
-            			newLeafNode(otherlv_5, grammarAccess.getGlobal_messageAccess().getToKeyword_5());
-            		
-            // InternalGlobalJade.g:407:3: ( (lv_roleB_6_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:408:4: (lv_roleB_6_0= RULE_GENERAL_NAME )
-            {
-            // InternalGlobalJade.g:408:4: (lv_roleB_6_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:409:5: lv_roleB_6_0= RULE_GENERAL_NAME
-            {
-            lv_roleB_6_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_18); 
-
-            					newLeafNode(lv_roleB_6_0, grammarAccess.getGlobal_messageAccess().getRoleBGENERAL_NAMETerminalRuleCall_6_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getGlobal_messageRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"roleB",
-            						lv_roleB_6_0,
-            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
-            				
-
-            }
-
-
-            }
-
-            otherlv_7=(Token)match(input,25,FOLLOW_2); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getGlobal_messageAccess().getSemicolonKeyword_7());
+            			newLeafNode(otherlv_1, grammarAccess.getEnd_messageAccess().getSemicolonKeyword_1());
             		
 
             }
@@ -917,11 +1183,348 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleGlobal_message"
+    // $ANTLR end "ruleEnd_message"
+
+
+    // $ANTLR start "entryRuleEND_MEX"
+    // InternalGlobalJade.g:524:1: entryRuleEND_MEX returns [String current=null] : iv_ruleEND_MEX= ruleEND_MEX EOF ;
+    public final String entryRuleEND_MEX() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleEND_MEX = null;
+
+
+        try {
+            // InternalGlobalJade.g:524:47: (iv_ruleEND_MEX= ruleEND_MEX EOF )
+            // InternalGlobalJade.g:525:2: iv_ruleEND_MEX= ruleEND_MEX EOF
+            {
+             newCompositeNode(grammarAccess.getEND_MEXRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEND_MEX=ruleEND_MEX();
+
+            state._fsp--;
+
+             current =iv_ruleEND_MEX.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEND_MEX"
+
+
+    // $ANTLR start "ruleEND_MEX"
+    // InternalGlobalJade.g:531:1: ruleEND_MEX returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'end' ;
+    public final AntlrDatatypeRuleToken ruleEND_MEX() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGlobalJade.g:537:2: (kw= 'end' )
+            // InternalGlobalJade.g:538:2: kw= 'end'
+            {
+            kw=(Token)match(input,28,FOLLOW_2); 
+
+            		current.merge(kw);
+            		newLeafNode(kw, grammarAccess.getEND_MEXAccess().getEndKeyword());
+            	
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEND_MEX"
+
+
+    // $ANTLR start "entryRuleMessage"
+    // InternalGlobalJade.g:546:1: entryRuleMessage returns [EObject current=null] : iv_ruleMessage= ruleMessage EOF ;
+    public final EObject entryRuleMessage() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMessage = null;
+
+
+        try {
+            // InternalGlobalJade.g:546:48: (iv_ruleMessage= ruleMessage EOF )
+            // InternalGlobalJade.g:547:2: iv_ruleMessage= ruleMessage EOF
+            {
+             newCompositeNode(grammarAccess.getMessageRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleMessage=ruleMessage();
+
+            state._fsp--;
+
+             current =iv_ruleMessage; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMessage"
+
+
+    // $ANTLR start "ruleMessage"
+    // InternalGlobalJade.g:553:1: ruleMessage returns [EObject current=null] : ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' ( (lv_content_2_0= RULE_CONTENT ) ) (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )* otherlv_5= ')' otherlv_6= 'from' ( (lv_roleA_7_0= RULE_GENERAL_NAME ) ) otherlv_8= 'to' ( (lv_roleB_9_0= RULE_GENERAL_NAME ) ) otherlv_10= ';' ) ;
+    public final EObject ruleMessage() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_type_0_0=null;
+        Token otherlv_1=null;
+        Token lv_content_2_0=null;
+        Token otherlv_3=null;
+        Token lv_content_4_0=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token lv_roleA_7_0=null;
+        Token otherlv_8=null;
+        Token lv_roleB_9_0=null;
+        Token otherlv_10=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGlobalJade.g:559:2: ( ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' ( (lv_content_2_0= RULE_CONTENT ) ) (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )* otherlv_5= ')' otherlv_6= 'from' ( (lv_roleA_7_0= RULE_GENERAL_NAME ) ) otherlv_8= 'to' ( (lv_roleB_9_0= RULE_GENERAL_NAME ) ) otherlv_10= ';' ) )
+            // InternalGlobalJade.g:560:2: ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' ( (lv_content_2_0= RULE_CONTENT ) ) (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )* otherlv_5= ')' otherlv_6= 'from' ( (lv_roleA_7_0= RULE_GENERAL_NAME ) ) otherlv_8= 'to' ( (lv_roleB_9_0= RULE_GENERAL_NAME ) ) otherlv_10= ';' )
+            {
+            // InternalGlobalJade.g:560:2: ( ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' ( (lv_content_2_0= RULE_CONTENT ) ) (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )* otherlv_5= ')' otherlv_6= 'from' ( (lv_roleA_7_0= RULE_GENERAL_NAME ) ) otherlv_8= 'to' ( (lv_roleB_9_0= RULE_GENERAL_NAME ) ) otherlv_10= ';' )
+            // InternalGlobalJade.g:561:3: ( (lv_type_0_0= RULE_TYPE_MESSAGE ) ) otherlv_1= '(' ( (lv_content_2_0= RULE_CONTENT ) ) (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )* otherlv_5= ')' otherlv_6= 'from' ( (lv_roleA_7_0= RULE_GENERAL_NAME ) ) otherlv_8= 'to' ( (lv_roleB_9_0= RULE_GENERAL_NAME ) ) otherlv_10= ';'
+            {
+            // InternalGlobalJade.g:561:3: ( (lv_type_0_0= RULE_TYPE_MESSAGE ) )
+            // InternalGlobalJade.g:562:4: (lv_type_0_0= RULE_TYPE_MESSAGE )
+            {
+            // InternalGlobalJade.g:562:4: (lv_type_0_0= RULE_TYPE_MESSAGE )
+            // InternalGlobalJade.g:563:5: lv_type_0_0= RULE_TYPE_MESSAGE
+            {
+            lv_type_0_0=(Token)match(input,RULE_TYPE_MESSAGE,FOLLOW_5); 
+
+            					newLeafNode(lv_type_0_0, grammarAccess.getMessageAccess().getTypeTYPE_MESSAGETerminalRuleCall_0_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getMessageRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"type",
+            						lv_type_0_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.TYPE_MESSAGE");
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,16,FOLLOW_18); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getMessageAccess().getLeftParenthesisKeyword_1());
+            		
+            // InternalGlobalJade.g:583:3: ( (lv_content_2_0= RULE_CONTENT ) )
+            // InternalGlobalJade.g:584:4: (lv_content_2_0= RULE_CONTENT )
+            {
+            // InternalGlobalJade.g:584:4: (lv_content_2_0= RULE_CONTENT )
+            // InternalGlobalJade.g:585:5: lv_content_2_0= RULE_CONTENT
+            {
+            lv_content_2_0=(Token)match(input,RULE_CONTENT,FOLLOW_7); 
+
+            					newLeafNode(lv_content_2_0, grammarAccess.getMessageAccess().getContentCONTENTTerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getMessageRule());
+            					}
+            					addWithLastConsumed(
+            						current,
+            						"content",
+            						lv_content_2_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.CONTENT");
+            				
+
+            }
+
+
+            }
+
+            // InternalGlobalJade.g:601:3: (otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) ) )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==17) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // InternalGlobalJade.g:602:4: otherlv_3= ',' ( (lv_content_4_0= RULE_CONTENT ) )
+            	    {
+            	    otherlv_3=(Token)match(input,17,FOLLOW_18); 
+
+            	    				newLeafNode(otherlv_3, grammarAccess.getMessageAccess().getCommaKeyword_3_0());
+            	    			
+            	    // InternalGlobalJade.g:606:4: ( (lv_content_4_0= RULE_CONTENT ) )
+            	    // InternalGlobalJade.g:607:5: (lv_content_4_0= RULE_CONTENT )
+            	    {
+            	    // InternalGlobalJade.g:607:5: (lv_content_4_0= RULE_CONTENT )
+            	    // InternalGlobalJade.g:608:6: lv_content_4_0= RULE_CONTENT
+            	    {
+            	    lv_content_4_0=(Token)match(input,RULE_CONTENT,FOLLOW_7); 
+
+            	    						newLeafNode(lv_content_4_0, grammarAccess.getMessageAccess().getContentCONTENTTerminalRuleCall_3_1_0());
+            	    					
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getMessageRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"content",
+            	    							lv_content_4_0,
+            	    							"org.xtext.globaltype.globaljade.GlobalJade.CONTENT");
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,18,FOLLOW_19); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getMessageAccess().getRightParenthesisKeyword_4());
+            		
+            otherlv_6=(Token)match(input,29,FOLLOW_4); 
+
+            			newLeafNode(otherlv_6, grammarAccess.getMessageAccess().getFromKeyword_5());
+            		
+            // InternalGlobalJade.g:633:3: ( (lv_roleA_7_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:634:4: (lv_roleA_7_0= RULE_GENERAL_NAME )
+            {
+            // InternalGlobalJade.g:634:4: (lv_roleA_7_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:635:5: lv_roleA_7_0= RULE_GENERAL_NAME
+            {
+            lv_roleA_7_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_20); 
+
+            					newLeafNode(lv_roleA_7_0, grammarAccess.getMessageAccess().getRoleAGENERAL_NAMETerminalRuleCall_6_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getMessageRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"roleA",
+            						lv_roleA_7_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+            				
+
+            }
+
+
+            }
+
+            otherlv_8=(Token)match(input,30,FOLLOW_4); 
+
+            			newLeafNode(otherlv_8, grammarAccess.getMessageAccess().getToKeyword_7());
+            		
+            // InternalGlobalJade.g:655:3: ( (lv_roleB_9_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:656:4: (lv_roleB_9_0= RULE_GENERAL_NAME )
+            {
+            // InternalGlobalJade.g:656:4: (lv_roleB_9_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:657:5: lv_roleB_9_0= RULE_GENERAL_NAME
+            {
+            lv_roleB_9_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_17); 
+
+            					newLeafNode(lv_roleB_9_0, grammarAccess.getMessageAccess().getRoleBGENERAL_NAMETerminalRuleCall_8_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getMessageRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"roleB",
+            						lv_roleB_9_0,
+            						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+            				
+
+            }
+
+
+            }
+
+            otherlv_10=(Token)match(input,27,FOLLOW_2); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getMessageAccess().getSemicolonKeyword_9());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMessage"
 
 
     // $ANTLR start "entryRuleRole"
-    // InternalGlobalJade.g:433:1: entryRuleRole returns [EObject current=null] : iv_ruleRole= ruleRole EOF ;
+    // InternalGlobalJade.g:681:1: entryRuleRole returns [EObject current=null] : iv_ruleRole= ruleRole EOF ;
     public final EObject entryRuleRole() throws RecognitionException {
         EObject current = null;
 
@@ -929,8 +1532,8 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGlobalJade.g:433:45: (iv_ruleRole= ruleRole EOF )
-            // InternalGlobalJade.g:434:2: iv_ruleRole= ruleRole EOF
+            // InternalGlobalJade.g:681:45: (iv_ruleRole= ruleRole EOF )
+            // InternalGlobalJade.g:682:2: iv_ruleRole= ruleRole EOF
             {
              newCompositeNode(grammarAccess.getRoleRule()); 
             pushFollow(FOLLOW_1);
@@ -957,7 +1560,7 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRole"
-    // InternalGlobalJade.g:440:1: ruleRole returns [EObject current=null] : (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) ) ;
+    // InternalGlobalJade.g:688:1: ruleRole returns [EObject current=null] : (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) ) ;
     public final EObject ruleRole() throws RecognitionException {
         EObject current = null;
 
@@ -968,21 +1571,21 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGlobalJade.g:446:2: ( (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) ) )
-            // InternalGlobalJade.g:447:2: (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) )
+            // InternalGlobalJade.g:694:2: ( (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) ) )
+            // InternalGlobalJade.g:695:2: (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) )
             {
-            // InternalGlobalJade.g:447:2: (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) )
-            // InternalGlobalJade.g:448:3: otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:695:2: (otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) ) )
+            // InternalGlobalJade.g:696:3: otherlv_0= 'role' ( (lv_role_1_0= RULE_GENERAL_NAME ) )
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_5); 
+            otherlv_0=(Token)match(input,31,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRoleAccess().getRoleKeyword_0());
             		
-            // InternalGlobalJade.g:452:3: ( (lv_role_1_0= RULE_GENERAL_NAME ) )
-            // InternalGlobalJade.g:453:4: (lv_role_1_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:700:3: ( (lv_role_1_0= RULE_GENERAL_NAME ) )
+            // InternalGlobalJade.g:701:4: (lv_role_1_0= RULE_GENERAL_NAME )
             {
-            // InternalGlobalJade.g:453:4: (lv_role_1_0= RULE_GENERAL_NAME )
-            // InternalGlobalJade.g:454:5: lv_role_1_0= RULE_GENERAL_NAME
+            // InternalGlobalJade.g:701:4: (lv_role_1_0= RULE_GENERAL_NAME )
+            // InternalGlobalJade.g:702:5: lv_role_1_0= RULE_GENERAL_NAME
             {
             lv_role_1_0=(Token)match(input,RULE_GENERAL_NAME,FOLLOW_2); 
 
@@ -1032,21 +1635,23 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000030000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100020L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000180020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080020L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000011300020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000011200022L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100020L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000040000000L});
 
 }

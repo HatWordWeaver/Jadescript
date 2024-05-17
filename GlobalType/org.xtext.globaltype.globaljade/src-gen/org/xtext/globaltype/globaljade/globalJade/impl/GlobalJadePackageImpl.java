@@ -10,12 +10,14 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.End_message;
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadeFactory;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Global_message;
+import org.xtext.globaltype.globaljade.globalJade.Message;
 import org.xtext.globaltype.globaljade.globalJade.Model;
-import org.xtext.globaltype.globaljade.globalJade.Protocols;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
 import org.xtext.globaltype.globaljade.globalJade.Role;
 
 /**
@@ -38,7 +40,14 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass protocolsEClass = null;
+  private EClass protocolEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass choice_ruleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -52,7 +61,14 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass global_messageEClass = null;
+  private EClass end_messageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,9 +156,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EReference getModel_Protocols()
+  public EAttribute getModel_Name()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -151,9 +167,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EClass getProtocols()
+  public EReference getModel_Roles()
   {
-    return protocolsEClass;
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -162,9 +178,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EAttribute getProtocols_Name()
+  public EReference getModel_Protocol()
   {
-    return (EAttribute)protocolsEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -173,9 +189,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EReference getProtocols_Roles()
+  public EClass getProtocol()
   {
-    return (EReference)protocolsEClass.getEStructuralFeatures().get(1);
+    return protocolEClass;
   }
 
   /**
@@ -184,9 +200,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EReference getProtocols_Globals()
+  public EReference getProtocol_Actions()
   {
-    return (EReference)protocolsEClass.getEStructuralFeatures().get(2);
+    return (EReference)protocolEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -195,9 +211,31 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EReference getProtocols_ForLoop()
+  public EClass getChoice_rule()
   {
-    return (EReference)protocolsEClass.getEStructuralFeatures().get(3);
+    return choice_ruleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getChoice_rule_Role_name()
+  {
+    return (EAttribute)choice_ruleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getChoice_rule_Messages()
+  {
+    return (EReference)choice_ruleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -239,7 +277,7 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EReference getFor_loop_Globals()
+  public EReference getFor_loop_Messages()
   {
     return (EReference)for_loopEClass.getEStructuralFeatures().get(2);
   }
@@ -250,9 +288,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EClass getGlobal_message()
+  public EClass getEnd_message()
   {
-    return global_messageEClass;
+    return end_messageEClass;
   }
 
   /**
@@ -261,9 +299,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EAttribute getGlobal_message_Type()
+  public EAttribute getEnd_message_End()
   {
-    return (EAttribute)global_messageEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)end_messageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -272,9 +310,9 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EAttribute getGlobal_message_RoleA()
+  public EClass getMessage()
   {
-    return (EAttribute)global_messageEClass.getEStructuralFeatures().get(1);
+    return messageEClass;
   }
 
   /**
@@ -283,9 +321,42 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
    * @generated
    */
   @Override
-  public EAttribute getGlobal_message_RoleB()
+  public EAttribute getMessage_Type()
   {
-    return (EAttribute)global_messageEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMessage_Content()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMessage_RoleA()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMessage_RoleB()
+  {
+    return (EAttribute)messageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -342,23 +413,30 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__PROTOCOLS);
+    createEAttribute(modelEClass, MODEL__NAME);
+    createEReference(modelEClass, MODEL__ROLES);
+    createEReference(modelEClass, MODEL__PROTOCOL);
 
-    protocolsEClass = createEClass(PROTOCOLS);
-    createEAttribute(protocolsEClass, PROTOCOLS__NAME);
-    createEReference(protocolsEClass, PROTOCOLS__ROLES);
-    createEReference(protocolsEClass, PROTOCOLS__GLOBALS);
-    createEReference(protocolsEClass, PROTOCOLS__FOR_LOOP);
+    protocolEClass = createEClass(PROTOCOL);
+    createEReference(protocolEClass, PROTOCOL__ACTIONS);
+
+    choice_ruleEClass = createEClass(CHOICE_RULE);
+    createEAttribute(choice_ruleEClass, CHOICE_RULE__ROLE_NAME);
+    createEReference(choice_ruleEClass, CHOICE_RULE__MESSAGES);
 
     for_loopEClass = createEClass(FOR_LOOP);
     createEAttribute(for_loopEClass, FOR_LOOP__NAME);
     createEAttribute(for_loopEClass, FOR_LOOP__ROLE);
-    createEReference(for_loopEClass, FOR_LOOP__GLOBALS);
+    createEReference(for_loopEClass, FOR_LOOP__MESSAGES);
 
-    global_messageEClass = createEClass(GLOBAL_MESSAGE);
-    createEAttribute(global_messageEClass, GLOBAL_MESSAGE__TYPE);
-    createEAttribute(global_messageEClass, GLOBAL_MESSAGE__ROLE_A);
-    createEAttribute(global_messageEClass, GLOBAL_MESSAGE__ROLE_B);
+    end_messageEClass = createEClass(END_MESSAGE);
+    createEAttribute(end_messageEClass, END_MESSAGE__END);
+
+    messageEClass = createEClass(MESSAGE);
+    createEAttribute(messageEClass, MESSAGE__TYPE);
+    createEAttribute(messageEClass, MESSAGE__CONTENT);
+    createEAttribute(messageEClass, MESSAGE__ROLE_A);
+    createEAttribute(messageEClass, MESSAGE__ROLE_B);
 
     roleEClass = createEClass(ROLE);
     createEAttribute(roleEClass, ROLE__ROLE);
@@ -396,23 +474,30 @@ public class GlobalJadePackageImpl extends EPackageImpl implements GlobalJadePac
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Protocols(), this.getProtocols(), null, "protocols", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Roles(), this.getRole(), null, "roles", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Protocol(), this.getProtocol(), null, "protocol", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(protocolsEClass, Protocols.class, "Protocols", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProtocols_Name(), ecorePackage.getEString(), "name", null, 0, 1, Protocols.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProtocols_Roles(), this.getRole(), null, "roles", null, 0, -1, Protocols.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProtocols_Globals(), this.getGlobal_message(), null, "globals", null, 0, -1, Protocols.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProtocols_ForLoop(), this.getFor_loop(), null, "forLoop", null, 0, -1, Protocols.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(protocolEClass, Protocol.class, "Protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProtocol_Actions(), ecorePackage.getEObject(), null, "actions", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(choice_ruleEClass, Choice_rule.class, "Choice_rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getChoice_rule_Role_name(), ecorePackage.getEString(), "role_name", null, 0, 1, Choice_rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getChoice_rule_Messages(), this.getMessage(), null, "messages", null, 0, -1, Choice_rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(for_loopEClass, For_loop.class, "For_loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFor_loop_Name(), ecorePackage.getEString(), "name", null, 0, 1, For_loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFor_loop_Role(), ecorePackage.getEString(), "role", null, 0, 1, For_loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFor_loop_Globals(), this.getGlobal_message(), null, "globals", null, 0, -1, For_loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_loop_Messages(), this.getMessage(), null, "messages", null, 0, -1, For_loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(global_messageEClass, Global_message.class, "Global_message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGlobal_message_Type(), ecorePackage.getEString(), "type", null, 0, 1, Global_message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGlobal_message_RoleA(), ecorePackage.getEString(), "roleA", null, 0, 1, Global_message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGlobal_message_RoleB(), ecorePackage.getEString(), "roleB", null, 0, 1, Global_message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(end_messageEClass, End_message.class, "End_message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnd_message_End(), ecorePackage.getEString(), "end", null, 0, -1, End_message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMessage_Type(), ecorePackage.getEString(), "type", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessage_Content(), ecorePackage.getEString(), "content", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessage_RoleA(), ecorePackage.getEString(), "roleA", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMessage_RoleB(), ecorePackage.getEString(), "roleB", null, 0, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRole_Role(), ecorePackage.getEString(), "role", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

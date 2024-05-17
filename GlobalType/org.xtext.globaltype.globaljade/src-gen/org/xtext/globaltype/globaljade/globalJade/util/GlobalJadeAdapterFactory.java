@@ -81,9 +81,14 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseProtocols(Protocols object)
+      public Adapter caseProtocol(Protocol object)
       {
-        return createProtocolsAdapter();
+        return createProtocolAdapter();
+      }
+      @Override
+      public Adapter caseChoice_rule(Choice_rule object)
+      {
+        return createChoice_ruleAdapter();
       }
       @Override
       public Adapter caseFor_loop(For_loop object)
@@ -91,9 +96,14 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createFor_loopAdapter();
       }
       @Override
-      public Adapter caseGlobal_message(Global_message object)
+      public Adapter caseEnd_message(End_message object)
       {
-        return createGlobal_messageAdapter();
+        return createEnd_messageAdapter();
+      }
+      @Override
+      public Adapter caseMessage(Message object)
+      {
+        return createMessageAdapter();
       }
       @Override
       public Adapter caseRole(Role object)
@@ -138,16 +148,31 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Protocols <em>Protocols</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Protocol <em>Protocol</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.Protocols
+   * @see org.xtext.globaltype.globaljade.globalJade.Protocol
    * @generated
    */
-  public Adapter createProtocolsAdapter()
+  public Adapter createProtocolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule <em>Choice rule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule
+   * @generated
+   */
+  public Adapter createChoice_ruleAdapter()
   {
     return null;
   }
@@ -168,16 +193,31 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Global_message <em>Global message</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.End_message <em>End message</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.Global_message
+   * @see org.xtext.globaltype.globaljade.globalJade.End_message
    * @generated
    */
-  public Adapter createGlobal_messageAdapter()
+  public Adapter createEnd_messageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Message <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Message
+   * @generated
+   */
+  public Adapter createMessageAdapter()
   {
     return null;
   }

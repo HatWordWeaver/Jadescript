@@ -3,38 +3,56 @@ grammar org.xtext.globaltype.globaljade.GlobalJade with org.eclipse.xtext.common
 generate globalJade "http://www.xtext.org/globaltype/globaljade/GlobalJade"
 
 /*
- * gbjade
+ * file extension: gbjade
  */
 Model:
-	protocols+=Protocols*
-;
-
-Protocols:
 	// global protocol declaration
 	'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
-	// start function
 	'{'
-		(globals+=Global_message
-		|forLoop+=For_loop
-		)+
+		protocol+=Protocol
 	'}'
 ;
+
+Protocol:
+	{Protocol} (actions+=(Message | Choice_rule | For_loop | End_message))* 
+;
+
+Choice_rule:
+	// for choice
+	'choice' 'at' role_name=GENERAL_NAME '{'
+		messages+=Message*
+	'}' ('or' '{'
+		messages+=Message*
+	'}')*
+;
+
 
 For_loop:
 	'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
 		(
-			globals+=Global_message*
+			messages+=Message*
 		)
 	'}' 
 ;
 
+End_message:
+	end+=END_MEX ';'
+;
 
-Global_message:
-	type=TYPE_MESSAGE '(' ')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+END_MEX:
+	'end'
+;
+
+Message:
+	type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
 ;
 
 terminal TYPE_MESSAGE:
 	'CFP' | 'REJECT-PROPOSAL' | 'ACCEPT-PROPOSAL'
+;
+
+terminal CONTENT:
+	'int' | 'bool' | 'string'
 ;
 
 

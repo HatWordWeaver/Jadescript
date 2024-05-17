@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRole <em>Role</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getGlobals <em>Globals</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getMessages <em>Messages</em>}</li>
  * </ul>
  *
  * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getFor_loop()
@@ -72,15 +72,15 @@ public interface For_loop extends EObject
   void setRole(String value);
 
   /**
-   * Returns the value of the '<em><b>Globals</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Global_message}.
+   * Returns the value of the '<em><b>Messages</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Message}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Globals</em>' containment reference list.
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getFor_loop_Globals()
+   * @return the value of the '<em>Messages</em>' containment reference list.
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getFor_loop_Messages()
    * @model containment="true"
    * @generated
    */
-  EList<Global_message> getGlobals();
+  EList<Message> getMessages();
 
 } // For_loop

@@ -3,27 +3,30 @@
  */
 package org.xtext.globaltype.globaljade.globalJade;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Global message</b></em>'.
+ * A representation of the model object '<em><b>Message</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getRoleA <em>Role A</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getRoleB <em>Role B</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleA <em>Role A</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleB <em>Role B</em>}</li>
  * </ul>
  *
- * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getGlobal_message()
+ * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage()
  * @model
  * @generated
  */
-public interface Global_message extends EObject
+public interface Message extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -31,14 +34,14 @@ public interface Global_message extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
    * @see #setType(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getGlobal_message_Type()
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Type()
    * @model
    * @generated
    */
   String getType();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
@@ -48,19 +51,31 @@ public interface Global_message extends EObject
   void setType(String value);
 
   /**
+   * Returns the value of the '<em><b>Content</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' attribute list.
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Content()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getContent();
+
+  /**
    * Returns the value of the '<em><b>Role A</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Role A</em>' attribute.
    * @see #setRoleA(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getGlobal_message_RoleA()
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_RoleA()
    * @model
    * @generated
    */
   String getRoleA();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getRoleA <em>Role A</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleA <em>Role A</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Role A</em>' attribute.
@@ -75,14 +90,14 @@ public interface Global_message extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Role B</em>' attribute.
    * @see #setRoleB(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getGlobal_message_RoleB()
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_RoleB()
    * @model
    * @generated
    */
   String getRoleB();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Global_message#getRoleB <em>Role B</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleB <em>Role B</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Role B</em>' attribute.
@@ -91,4 +106,4 @@ public interface Global_message extends EObject
    */
   void setRoleB(String value);
 
-} // Global_message
+} // Message

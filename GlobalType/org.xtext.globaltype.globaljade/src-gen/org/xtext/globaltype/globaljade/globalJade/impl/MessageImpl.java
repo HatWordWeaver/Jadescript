@@ -3,32 +3,39 @@
  */
 package org.xtext.globaltype.globaljade.globalJade.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Global_message;
+import org.xtext.globaltype.globaljade.globalJade.Message;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Global message</b></em>'.
+ * An implementation of the model object '<em><b>Message</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Global_messageImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Global_messageImpl#getRoleA <em>Role A</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Global_messageImpl#getRoleB <em>Role B</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getRoleA <em>Role A</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getRoleB <em>Role B</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Global_messageImpl extends MinimalEObjectImpl.Container implements Global_message
+public class MessageImpl extends MinimalEObjectImpl.Container implements Message
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -49,6 +56,16 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String type = TYPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> content;
 
   /**
    * The default value of the '{@link #getRoleA() <em>Role A</em>}' attribute.
@@ -95,7 +112,7 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Global_messageImpl()
+  protected MessageImpl()
   {
     super();
   }
@@ -108,7 +125,7 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.GLOBAL_MESSAGE;
+    return GlobalJadePackage.Literals.MESSAGE;
   }
 
   /**
@@ -133,7 +150,22 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
     String oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.GLOBAL_MESSAGE__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getContent()
+  {
+    if (content == null)
+    {
+      content = new EDataTypeEList<String>(String.class, this, GlobalJadePackage.MESSAGE__CONTENT);
+    }
+    return content;
   }
 
   /**
@@ -158,7 +190,7 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
     String oldRoleA = roleA;
     roleA = newRoleA;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.GLOBAL_MESSAGE__ROLE_A, oldRoleA, roleA));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__ROLE_A, oldRoleA, roleA));
   }
 
   /**
@@ -183,7 +215,7 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
     String oldRoleB = roleB;
     roleB = newRoleB;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.GLOBAL_MESSAGE__ROLE_B, oldRoleB, roleB));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__ROLE_B, oldRoleB, roleB));
   }
 
   /**
@@ -196,11 +228,13 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case GlobalJadePackage.GLOBAL_MESSAGE__TYPE:
+      case GlobalJadePackage.MESSAGE__TYPE:
         return getType();
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_A:
+      case GlobalJadePackage.MESSAGE__CONTENT:
+        return getContent();
+      case GlobalJadePackage.MESSAGE__ROLE_A:
         return getRoleA();
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_B:
+      case GlobalJadePackage.MESSAGE__ROLE_B:
         return getRoleB();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -211,18 +245,23 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GlobalJadePackage.GLOBAL_MESSAGE__TYPE:
+      case GlobalJadePackage.MESSAGE__TYPE:
         setType((String)newValue);
         return;
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_A:
+      case GlobalJadePackage.MESSAGE__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends String>)newValue);
+        return;
+      case GlobalJadePackage.MESSAGE__ROLE_A:
         setRoleA((String)newValue);
         return;
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_B:
+      case GlobalJadePackage.MESSAGE__ROLE_B:
         setRoleB((String)newValue);
         return;
     }
@@ -239,13 +278,16 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case GlobalJadePackage.GLOBAL_MESSAGE__TYPE:
+      case GlobalJadePackage.MESSAGE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_A:
+      case GlobalJadePackage.MESSAGE__CONTENT:
+        getContent().clear();
+        return;
+      case GlobalJadePackage.MESSAGE__ROLE_A:
         setRoleA(ROLE_A_EDEFAULT);
         return;
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_B:
+      case GlobalJadePackage.MESSAGE__ROLE_B:
         setRoleB(ROLE_B_EDEFAULT);
         return;
     }
@@ -262,11 +304,13 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case GlobalJadePackage.GLOBAL_MESSAGE__TYPE:
+      case GlobalJadePackage.MESSAGE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_A:
+      case GlobalJadePackage.MESSAGE__CONTENT:
+        return content != null && !content.isEmpty();
+      case GlobalJadePackage.MESSAGE__ROLE_A:
         return ROLE_A_EDEFAULT == null ? roleA != null : !ROLE_A_EDEFAULT.equals(roleA);
-      case GlobalJadePackage.GLOBAL_MESSAGE__ROLE_B:
+      case GlobalJadePackage.MESSAGE__ROLE_B:
         return ROLE_B_EDEFAULT == null ? roleB != null : !ROLE_B_EDEFAULT.equals(roleB);
     }
     return super.eIsSet(featureID);
@@ -285,6 +329,8 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (type: ");
     result.append(type);
+    result.append(", content: ");
+    result.append(content);
     result.append(", roleA: ");
     result.append(roleA);
     result.append(", roleB: ");
@@ -293,4 +339,4 @@ public class Global_messageImpl extends MinimalEObjectImpl.Container implements 
     return result.toString();
   }
 
-} //Global_messageImpl
+} //MessageImpl

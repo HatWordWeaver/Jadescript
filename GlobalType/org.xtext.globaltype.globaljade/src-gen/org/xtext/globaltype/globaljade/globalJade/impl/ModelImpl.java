@@ -5,6 +5,7 @@ package org.xtext.globaltype.globaljade.globalJade.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -19,7 +21,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Model;
-import org.xtext.globaltype.globaljade.globalJade.Protocols;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
+import org.xtext.globaltype.globaljade.globalJade.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +32,9 @@ import org.xtext.globaltype.globaljade.globalJade.Protocols;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ModelImpl#getProtocols <em>Protocols</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ModelImpl#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ModelImpl#getProtocol <em>Protocol</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +42,44 @@ import org.xtext.globaltype.globaljade.globalJade.Protocols;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getProtocols() <em>Protocols</em>}' containment reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProtocols()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<Protocols> protocols;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRoles()
+   * @generated
+   * @ordered
+   */
+  protected EList<Role> roles;
+
+  /**
+   * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProtocol()
+   * @generated
+   * @ordered
+   */
+  protected EList<Protocol> protocol;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +108,53 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Protocols> getProtocols()
+  public String getName()
   {
-    if (protocols == null)
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MODEL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Role> getRoles()
+  {
+    if (roles == null)
     {
-      protocols = new EObjectContainmentEList<Protocols>(Protocols.class, this, GlobalJadePackage.MODEL__PROTOCOLS);
+      roles = new EObjectContainmentEList<Role>(Role.class, this, GlobalJadePackage.MODEL__ROLES);
     }
-    return protocols;
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Protocol> getProtocol()
+  {
+    if (protocol == null)
+    {
+      protocol = new EObjectContainmentEList<Protocol>(Protocol.class, this, GlobalJadePackage.MODEL__PROTOCOL);
+    }
+    return protocol;
   }
 
   /**
@@ -92,8 +167,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MODEL__PROTOCOLS:
-        return ((InternalEList<?>)getProtocols()).basicRemove(otherEnd, msgs);
+      case GlobalJadePackage.MODEL__ROLES:
+        return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
+      case GlobalJadePackage.MODEL__PROTOCOL:
+        return ((InternalEList<?>)getProtocol()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +185,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MODEL__PROTOCOLS:
-        return getProtocols();
+      case GlobalJadePackage.MODEL__NAME:
+        return getName();
+      case GlobalJadePackage.MODEL__ROLES:
+        return getRoles();
+      case GlobalJadePackage.MODEL__PROTOCOL:
+        return getProtocol();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +206,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MODEL__PROTOCOLS:
-        getProtocols().clear();
-        getProtocols().addAll((Collection<? extends Protocols>)newValue);
+      case GlobalJadePackage.MODEL__NAME:
+        setName((String)newValue);
+        return;
+      case GlobalJadePackage.MODEL__ROLES:
+        getRoles().clear();
+        getRoles().addAll((Collection<? extends Role>)newValue);
+        return;
+      case GlobalJadePackage.MODEL__PROTOCOL:
+        getProtocol().clear();
+        getProtocol().addAll((Collection<? extends Protocol>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +231,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MODEL__PROTOCOLS:
-        getProtocols().clear();
+      case GlobalJadePackage.MODEL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case GlobalJadePackage.MODEL__ROLES:
+        getRoles().clear();
+        return;
+      case GlobalJadePackage.MODEL__PROTOCOL:
+        getProtocol().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +254,31 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MODEL__PROTOCOLS:
-        return protocols != null && !protocols.isEmpty();
+      case GlobalJadePackage.MODEL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GlobalJadePackage.MODEL__ROLES:
+        return roles != null && !roles.isEmpty();
+      case GlobalJadePackage.MODEL__PROTOCOL:
+        return protocol != null && !protocol.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

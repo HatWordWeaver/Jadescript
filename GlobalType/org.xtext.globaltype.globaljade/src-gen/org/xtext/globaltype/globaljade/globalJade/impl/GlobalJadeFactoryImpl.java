@@ -66,9 +66,11 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
     switch (eClass.getClassifierID())
     {
       case GlobalJadePackage.MODEL: return createModel();
-      case GlobalJadePackage.PROTOCOLS: return createProtocols();
+      case GlobalJadePackage.PROTOCOL: return createProtocol();
+      case GlobalJadePackage.CHOICE_RULE: return createChoice_rule();
       case GlobalJadePackage.FOR_LOOP: return createFor_loop();
-      case GlobalJadePackage.GLOBAL_MESSAGE: return createGlobal_message();
+      case GlobalJadePackage.END_MESSAGE: return createEnd_message();
+      case GlobalJadePackage.MESSAGE: return createMessage();
       case GlobalJadePackage.ROLE: return createRole();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -93,10 +95,22 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public Protocols createProtocols()
+  public Protocol createProtocol()
   {
-    ProtocolsImpl protocols = new ProtocolsImpl();
-    return protocols;
+    ProtocolImpl protocol = new ProtocolImpl();
+    return protocol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Choice_rule createChoice_rule()
+  {
+    Choice_ruleImpl choice_rule = new Choice_ruleImpl();
+    return choice_rule;
   }
 
   /**
@@ -117,10 +131,22 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public Global_message createGlobal_message()
+  public End_message createEnd_message()
   {
-    Global_messageImpl global_message = new Global_messageImpl();
-    return global_message;
+    End_messageImpl end_message = new End_messageImpl();
+    return end_message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Message createMessage()
+  {
+    MessageImpl message = new MessageImpl();
+    return message;
   }
 
   /**

@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.globaltype.globaljade.services.GlobalJadeGrammarAccess;
@@ -18,10 +21,14 @@ import org.xtext.globaltype.globaljade.services.GlobalJadeGrammarAccess;
 public class GlobalJadeSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GlobalJadeGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Choice_rule___OrKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__a;
+	protected AbstractElementAlias match_Choice_rule___RightCurlyBracketKeyword_6_3_OrKeyword_6_0_LeftCurlyBracketKeyword_6_1__a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GlobalJadeGrammarAccess) access;
+		match_Choice_rule___OrKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getOrKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_6_3()));
+		match_Choice_rule___RightCurlyBracketKeyword_6_3_OrKeyword_6_0_LeftCurlyBracketKeyword_6_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_6_3()), new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getOrKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getChoice_ruleAccess().getLeftCurlyBracketKeyword_6_1()));
 	}
 	
 	@Override
@@ -36,8 +43,43 @@ public class GlobalJadeSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Choice_rule___OrKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__a.equals(syntax))
+				emit_Choice_rule___OrKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Choice_rule___RightCurlyBracketKeyword_6_3_OrKeyword_6_0_LeftCurlyBracketKeyword_6_1__a.equals(syntax))
+				emit_Choice_rule___RightCurlyBracketKeyword_6_3_OrKeyword_6_0_LeftCurlyBracketKeyword_6_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('or' '{' '}')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     messages+=Message '}' (ambiguity) (rule end)
+	 *     role_name=GENERAL_NAME '{' '}' (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Choice_rule___OrKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('}' 'or' '{')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     messages+=Message '}' 'or' '{' (ambiguity) messages+=Message
+	 *     messages+=Message (ambiguity) messages+=Message
+	 *     role_name=GENERAL_NAME '{' '}' 'or' '{' (ambiguity) messages+=Message
+	 
+	 * </pre>
+	 */
+	protected void emit_Choice_rule___RightCurlyBracketKeyword_6_3_OrKeyword_6_0_LeftCurlyBracketKeyword_6_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

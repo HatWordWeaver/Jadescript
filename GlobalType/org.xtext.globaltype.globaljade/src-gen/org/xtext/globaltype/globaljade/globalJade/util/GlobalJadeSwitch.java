@@ -80,10 +80,17 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.PROTOCOLS:
+      case GlobalJadePackage.PROTOCOL:
       {
-        Protocols protocols = (Protocols)theEObject;
-        T result = caseProtocols(protocols);
+        Protocol protocol = (Protocol)theEObject;
+        T result = caseProtocol(protocol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.CHOICE_RULE:
+      {
+        Choice_rule choice_rule = (Choice_rule)theEObject;
+        T result = caseChoice_rule(choice_rule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -94,10 +101,17 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.GLOBAL_MESSAGE:
+      case GlobalJadePackage.END_MESSAGE:
       {
-        Global_message global_message = (Global_message)theEObject;
-        T result = caseGlobal_message(global_message);
+        End_message end_message = (End_message)theEObject;
+        T result = caseEnd_message(end_message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.MESSAGE:
+      {
+        Message message = (Message)theEObject;
+        T result = caseMessage(message);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,17 +143,33 @@ public class GlobalJadeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Protocols</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Protocol</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Protocols</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Protocol</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseProtocols(Protocols object)
+  public T caseProtocol(Protocol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Choice rule</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Choice rule</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseChoice_rule(Choice_rule object)
   {
     return null;
   }
@@ -161,17 +191,33 @@ public class GlobalJadeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Global message</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>End message</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Global message</em>'.
+   * @return the result of interpreting the object as an instance of '<em>End message</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGlobal_message(Global_message object)
+  public T caseEnd_message(End_message object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessage(Message object)
   {
     return null;
   }

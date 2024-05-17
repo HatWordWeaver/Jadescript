@@ -14,11 +14,13 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.End_message;
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Global_message;
+import org.xtext.globaltype.globaljade.globalJade.Message;
 import org.xtext.globaltype.globaljade.globalJade.Model;
-import org.xtext.globaltype.globaljade.globalJade.Protocols;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
 import org.xtext.globaltype.globaljade.globalJade.Role;
 import org.xtext.globaltype.globaljade.services.GlobalJadeGrammarAccess;
 
@@ -36,17 +38,23 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GlobalJadePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case GlobalJadePackage.CHOICE_RULE:
+				sequence_Choice_rule(context, (Choice_rule) semanticObject); 
+				return; 
+			case GlobalJadePackage.END_MESSAGE:
+				sequence_End_message(context, (End_message) semanticObject); 
+				return; 
 			case GlobalJadePackage.FOR_LOOP:
 				sequence_For_loop(context, (For_loop) semanticObject); 
 				return; 
-			case GlobalJadePackage.GLOBAL_MESSAGE:
-				sequence_Global_message(context, (Global_message) semanticObject); 
+			case GlobalJadePackage.MESSAGE:
+				sequence_Message(context, (Message) semanticObject); 
 				return; 
 			case GlobalJadePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case GlobalJadePackage.PROTOCOLS:
-				sequence_Protocols(context, (Protocols) semanticObject); 
+			case GlobalJadePackage.PROTOCOL:
+				sequence_Protocol(context, (Protocol) semanticObject); 
 				return; 
 			case GlobalJadePackage.ROLE:
 				sequence_Role(context, (Role) semanticObject); 
@@ -59,10 +67,38 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Choice_rule returns Choice_rule
+	 *
+	 * Constraint:
+	 *     (role_name=GENERAL_NAME messages+=Message* messages+=Message*)
+	 * </pre>
+	 */
+	protected void sequence_Choice_rule(ISerializationContext context, Choice_rule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     End_message returns End_message
+	 *
+	 * Constraint:
+	 *     end+=END_MEX
+	 * </pre>
+	 */
+	protected void sequence_End_message(ISerializationContext context, End_message semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     For_loop returns For_loop
 	 *
 	 * Constraint:
-	 *     (name=GENERAL_NAME role=GENERAL_NAME globals+=Global_message*)
+	 *     (name=GENERAL_NAME role=GENERAL_NAME messages+=Message*)
 	 * </pre>
 	 */
 	protected void sequence_For_loop(ISerializationContext context, For_loop semanticObject) {
@@ -73,26 +109,14 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Global_message returns Global_message
+	 *     Message returns Message
 	 *
 	 * Constraint:
-	 *     (type=TYPE_MESSAGE roleA=GENERAL_NAME roleB=GENERAL_NAME)
+	 *     (type=TYPE_MESSAGE content+=CONTENT content+=CONTENT* roleA=GENERAL_NAME roleB=GENERAL_NAME)
 	 * </pre>
 	 */
-	protected void sequence_Global_message(ISerializationContext context, Global_message semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__TYPE));
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_A) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_A));
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_B) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.GLOBAL_MESSAGE__ROLE_B));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGlobal_messageAccess().getTypeTYPE_MESSAGETerminalRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getGlobal_messageAccess().getRoleAGENERAL_NAMETerminalRuleCall_4_0(), semanticObject.getRoleA());
-		feeder.accept(grammarAccess.getGlobal_messageAccess().getRoleBGENERAL_NAMETerminalRuleCall_6_0(), semanticObject.getRoleB());
-		feeder.finish();
+	protected void sequence_Message(ISerializationContext context, Message semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -102,7 +126,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     protocols+=Protocols+
+	 *     (name=GENERAL_NAME roles+=Role roles+=Role* protocol+=Protocol)
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -113,13 +137,13 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Protocols returns Protocols
+	 *     Protocol returns Protocol
 	 *
 	 * Constraint:
-	 *     (name=GENERAL_NAME roles+=Role roles+=Role* (globals+=Global_message | forLoop+=For_loop)+)
+	 *     (actions+=Message | actions+=Choice_rule | actions+=For_loop | actions+=End_message)*
 	 * </pre>
 	 */
-	protected void sequence_Protocols(ISerializationContext context, Protocols semanticObject) {
+	protected void sequence_Protocol(ISerializationContext context, Protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

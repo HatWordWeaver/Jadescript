@@ -6,6 +6,7 @@ package org.xtext.globaltype.globaljade.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -24,25 +25,6 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Model");
-		private final Assignment cProtocolsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cProtocolsProtocolsParserRuleCall_0 = (RuleCall)cProtocolsAssignment.eContents().get(0);
-		
-		///*
-		// * gbjade
-		// */
-		//Model:
-		//    protocols+=Protocols*
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//protocols+=Protocols*
-		public Assignment getProtocolsAssignment() { return cProtocolsAssignment; }
-		
-		//Protocols
-		public RuleCall getProtocolsProtocolsParserRuleCall_0() { return cProtocolsProtocolsParserRuleCall_0; }
-	}
-	public class ProtocolsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Protocols");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGlobalKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cProtocolKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -57,32 +39,26 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cRolesRoleParserRuleCall_5_1_0 = (RuleCall)cRolesAssignment_5_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Alternatives cAlternatives_8 = (Alternatives)cGroup.eContents().get(8);
-		private final Assignment cGlobalsAssignment_8_0 = (Assignment)cAlternatives_8.eContents().get(0);
-		private final RuleCall cGlobalsGlobal_messageParserRuleCall_8_0_0 = (RuleCall)cGlobalsAssignment_8_0.eContents().get(0);
-		private final Assignment cForLoopAssignment_8_1 = (Assignment)cAlternatives_8.eContents().get(1);
-		private final RuleCall cForLoopFor_loopParserRuleCall_8_1_0 = (RuleCall)cForLoopAssignment_8_1.eContents().get(0);
+		private final Assignment cProtocolAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cProtocolProtocolParserRuleCall_8_0 = (RuleCall)cProtocolAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		//Protocols:
+		///*
+		// * file extension: gbjade
+		// */
+		//Model:
 		//    // global protocol declaration
 		//    'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
-		//    // start function
 		//    '{'
-		//        (globals+=Global_message
-		//        |forLoop+=For_loop
-		//        )+
+		//        protocol+=Protocol
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// global protocol declaration
 		//'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
-		//// start function
 		//'{'
-		//    (globals+=Global_message
-		//    |forLoop+=For_loop
-		//    )+
+		//    protocol+=Protocol
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -123,29 +99,138 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
-		//// start function
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
-		//(globals+=Global_message
-		//|forLoop+=For_loop
-		//)+
-		public Alternatives getAlternatives_8() { return cAlternatives_8; }
+		//protocol+=Protocol
+		public Assignment getProtocolAssignment_8() { return cProtocolAssignment_8; }
 		
-		//globals+=Global_message
-		public Assignment getGlobalsAssignment_8_0() { return cGlobalsAssignment_8_0; }
-		
-		//Global_message
-		public RuleCall getGlobalsGlobal_messageParserRuleCall_8_0_0() { return cGlobalsGlobal_messageParserRuleCall_8_0_0; }
-		
-		//forLoop+=For_loop
-		public Assignment getForLoopAssignment_8_1() { return cForLoopAssignment_8_1; }
-		
-		//For_loop
-		public RuleCall getForLoopFor_loopParserRuleCall_8_1_0() { return cForLoopFor_loopParserRuleCall_8_1_0; }
+		//Protocol
+		public RuleCall getProtocolProtocolParserRuleCall_8_0() { return cProtocolProtocolParserRuleCall_8_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class ProtocolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Protocol");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cProtocolAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cActionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cActionsAlternatives_1_0 = (Alternatives)cActionsAssignment_1.eContents().get(0);
+		private final RuleCall cActionsMessageParserRuleCall_1_0_0 = (RuleCall)cActionsAlternatives_1_0.eContents().get(0);
+		private final RuleCall cActionsChoice_ruleParserRuleCall_1_0_1 = (RuleCall)cActionsAlternatives_1_0.eContents().get(1);
+		private final RuleCall cActionsFor_loopParserRuleCall_1_0_2 = (RuleCall)cActionsAlternatives_1_0.eContents().get(2);
+		private final RuleCall cActionsEnd_messageParserRuleCall_1_0_3 = (RuleCall)cActionsAlternatives_1_0.eContents().get(3);
+		
+		//Protocol:
+		//    {Protocol} (actions+=(Message | Choice_rule | For_loop | End_message))*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Protocol} (actions+=(Message | Choice_rule | For_loop | End_message))*
+		public Group getGroup() { return cGroup; }
+		
+		//{Protocol}
+		public Action getProtocolAction_0() { return cProtocolAction_0; }
+		
+		//(actions+=(Message | Choice_rule | For_loop | End_message))*
+		public Assignment getActionsAssignment_1() { return cActionsAssignment_1; }
+		
+		//(Message | Choice_rule | For_loop | End_message)
+		public Alternatives getActionsAlternatives_1_0() { return cActionsAlternatives_1_0; }
+		
+		//Message
+		public RuleCall getActionsMessageParserRuleCall_1_0_0() { return cActionsMessageParserRuleCall_1_0_0; }
+		
+		//Choice_rule
+		public RuleCall getActionsChoice_ruleParserRuleCall_1_0_1() { return cActionsChoice_ruleParserRuleCall_1_0_1; }
+		
+		//For_loop
+		public RuleCall getActionsFor_loopParserRuleCall_1_0_2() { return cActionsFor_loopParserRuleCall_1_0_2; }
+		
+		//End_message
+		public RuleCall getActionsEnd_messageParserRuleCall_1_0_3() { return cActionsEnd_messageParserRuleCall_1_0_3; }
+	}
+	public class Choice_ruleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Choice_rule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cChoiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAtKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRole_nameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRole_nameGENERAL_NAMETerminalRuleCall_2_0 = (RuleCall)cRole_nameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cMessagesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMessagesMessageParserRuleCall_4_0 = (RuleCall)cMessagesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cOrKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cMessagesAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cMessagesMessageParserRuleCall_6_2_0 = (RuleCall)cMessagesAssignment_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		
+		//Choice_rule:
+		//    // for choice
+		//    'choice' 'at' role_name=GENERAL_NAME '{'
+		//        messages+=Message*
+		//    '}' ('or' '{'
+		//        messages+=Message*
+		//    '}')*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//// for choice
+		//'choice' 'at' role_name=GENERAL_NAME '{'
+		//    messages+=Message*
+		//'}' ('or' '{'
+		//    messages+=Message*
+		//'}')*
+		public Group getGroup() { return cGroup; }
+		
+		//// for choice
+		//'choice'
+		public Keyword getChoiceKeyword_0() { return cChoiceKeyword_0; }
+		
+		//'at'
+		public Keyword getAtKeyword_1() { return cAtKeyword_1; }
+		
+		//role_name=GENERAL_NAME
+		public Assignment getRole_nameAssignment_2() { return cRole_nameAssignment_2; }
+		
+		//GENERAL_NAME
+		public RuleCall getRole_nameGENERAL_NAMETerminalRuleCall_2_0() { return cRole_nameGENERAL_NAMETerminalRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//messages+=Message*
+		public Assignment getMessagesAssignment_4() { return cMessagesAssignment_4; }
+		
+		//Message
+		public RuleCall getMessagesMessageParserRuleCall_4_0() { return cMessagesMessageParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		
+		//('or' '{'
+		//       messages+=Message*
+		//   '}')*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'or'
+		public Keyword getOrKeyword_6_0() { return cOrKeyword_6_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		
+		//messages+=Message*
+		public Assignment getMessagesAssignment_6_2() { return cMessagesAssignment_6_2; }
+		
+		//Message
+		public RuleCall getMessagesMessageParserRuleCall_6_2_0() { return cMessagesMessageParserRuleCall_6_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6_3() { return cRightCurlyBracketKeyword_6_3; }
 	}
 	public class For_loopElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.For_loop");
@@ -158,14 +243,14 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cRoleGENERAL_NAMETerminalRuleCall_3_0 = (RuleCall)cRoleAssignment_3.eContents().get(0);
 		private final Keyword cDoKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cGlobalsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cGlobalsGlobal_messageParserRuleCall_6_0 = (RuleCall)cGlobalsAssignment_6.eContents().get(0);
+		private final Assignment cMessagesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMessagesMessageParserRuleCall_6_0 = (RuleCall)cMessagesAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//For_loop:
 		//    'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
 		//        (
-		//            globals+=Global_message*
+		//            messages+=Message*
 		//        )
 		//    '}'
 		//;
@@ -173,7 +258,7 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
 		//    (
-		//        globals+=Global_message*
+		//        messages+=Message*
 		//    )
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -203,37 +288,79 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
 		//(
-		//    globals+=Global_message*
+		//    messages+=Message*
 		//)
-		public Assignment getGlobalsAssignment_6() { return cGlobalsAssignment_6; }
+		public Assignment getMessagesAssignment_6() { return cMessagesAssignment_6; }
 		
-		//Global_message
-		public RuleCall getGlobalsGlobal_messageParserRuleCall_6_0() { return cGlobalsGlobal_messageParserRuleCall_6_0; }
+		//Message
+		public RuleCall getMessagesMessageParserRuleCall_6_0() { return cMessagesMessageParserRuleCall_6_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
-	public class Global_messageElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Global_message");
+	public class End_messageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.End_message");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cEndAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cEndEND_MEXParserRuleCall_0_0 = (RuleCall)cEndAssignment_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//End_message:
+		//    end+=END_MEX ';'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//end+=END_MEX ';'
+		public Group getGroup() { return cGroup; }
+		
+		//end+=END_MEX
+		public Assignment getEndAssignment_0() { return cEndAssignment_0; }
+		
+		//END_MEX
+		public RuleCall getEndEND_MEXParserRuleCall_0_0() { return cEndEND_MEXParserRuleCall_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
+	}
+	public class END_MEXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.END_MEX");
+		private final Keyword cEndKeyword = (Keyword)rule.eContents().get(1);
+		
+		//END_MEX:
+		//    'end'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'end'
+		public Keyword getEndKeyword() { return cEndKeyword; }
+	}
+	public class MessageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Message");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cTypeTYPE_MESSAGETerminalRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cFromKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cRoleAAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRoleAGENERAL_NAMETerminalRuleCall_4_0 = (RuleCall)cRoleAAssignment_4.eContents().get(0);
-		private final Keyword cToKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cRoleBAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cRoleBGENERAL_NAMETerminalRuleCall_6_0 = (RuleCall)cRoleBAssignment_6.eContents().get(0);
-		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cContentAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cContentCONTENTTerminalRuleCall_2_0 = (RuleCall)cContentAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cContentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cContentCONTENTTerminalRuleCall_3_1_0 = (RuleCall)cContentAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cFromKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cRoleAAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cRoleAGENERAL_NAMETerminalRuleCall_6_0 = (RuleCall)cRoleAAssignment_6.eContents().get(0);
+		private final Keyword cToKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cRoleBAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cRoleBGENERAL_NAMETerminalRuleCall_8_0 = (RuleCall)cRoleBAssignment_8.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		//Global_message:
-		//    type=TYPE_MESSAGE '(' ')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+		//Message:
+		//    type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=TYPE_MESSAGE '(' ')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+		//type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
 		public Group getGroup() { return cGroup; }
 		
 		//type=TYPE_MESSAGE
@@ -245,29 +372,47 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
+		//content+=CONTENT
+		public Assignment getContentAssignment_2() { return cContentAssignment_2; }
+		
+		//CONTENT
+		public RuleCall getContentCONTENTTerminalRuleCall_2_0() { return cContentCONTENTTerminalRuleCall_2_0; }
+		
+		//(',' content+=CONTENT)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//content+=CONTENT
+		public Assignment getContentAssignment_3_1() { return cContentAssignment_3_1; }
+		
+		//CONTENT
+		public RuleCall getContentCONTENTTerminalRuleCall_3_1_0() { return cContentCONTENTTerminalRuleCall_3_1_0; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 		
 		//'from'
-		public Keyword getFromKeyword_3() { return cFromKeyword_3; }
+		public Keyword getFromKeyword_5() { return cFromKeyword_5; }
 		
 		//roleA=GENERAL_NAME
-		public Assignment getRoleAAssignment_4() { return cRoleAAssignment_4; }
+		public Assignment getRoleAAssignment_6() { return cRoleAAssignment_6; }
 		
 		//GENERAL_NAME
-		public RuleCall getRoleAGENERAL_NAMETerminalRuleCall_4_0() { return cRoleAGENERAL_NAMETerminalRuleCall_4_0; }
+		public RuleCall getRoleAGENERAL_NAMETerminalRuleCall_6_0() { return cRoleAGENERAL_NAMETerminalRuleCall_6_0; }
 		
 		//'to'
-		public Keyword getToKeyword_5() { return cToKeyword_5; }
+		public Keyword getToKeyword_7() { return cToKeyword_7; }
 		
 		//roleB=GENERAL_NAME
-		public Assignment getRoleBAssignment_6() { return cRoleBAssignment_6; }
+		public Assignment getRoleBAssignment_8() { return cRoleBAssignment_8; }
 		
 		//GENERAL_NAME
-		public RuleCall getRoleBGENERAL_NAMETerminalRuleCall_6_0() { return cRoleBGENERAL_NAMETerminalRuleCall_6_0; }
+		public RuleCall getRoleBGENERAL_NAMETerminalRuleCall_8_0() { return cRoleBGENERAL_NAMETerminalRuleCall_8_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
+		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
 	}
 	public class RoleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.Role");
@@ -296,10 +441,14 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	
 	private final ModelElements pModel;
-	private final ProtocolsElements pProtocols;
+	private final ProtocolElements pProtocol;
+	private final Choice_ruleElements pChoice_rule;
 	private final For_loopElements pFor_loop;
-	private final Global_messageElements pGlobal_message;
+	private final End_messageElements pEnd_message;
+	private final END_MEXElements pEND_MEX;
+	private final MessageElements pMessage;
 	private final TerminalRule tTYPE_MESSAGE;
+	private final TerminalRule tCONTENT;
 	private final RoleElements pRole;
 	private final TerminalRule tGENERAL_NAME;
 	
@@ -313,10 +462,14 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pProtocols = new ProtocolsElements();
+		this.pProtocol = new ProtocolElements();
+		this.pChoice_rule = new Choice_ruleElements();
 		this.pFor_loop = new For_loopElements();
-		this.pGlobal_message = new Global_messageElements();
+		this.pEnd_message = new End_messageElements();
+		this.pEND_MEX = new END_MEXElements();
+		this.pMessage = new MessageElements();
 		this.tTYPE_MESSAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.TYPE_MESSAGE");
+		this.tCONTENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.CONTENT");
 		this.pRole = new RoleElements();
 		this.tGENERAL_NAME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
 	}
@@ -349,10 +502,14 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 
 	
 	///*
-	// * gbjade
+	// * file extension: gbjade
 	// */
 	//Model:
-	//    protocols+=Protocols*
+	//    // global protocol declaration
+	//    'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
+	//    '{'
+	//        protocol+=Protocol
+	//    '}'
 	//;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -362,28 +519,37 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getModelAccess().getRule();
 	}
 	
-	//Protocols:
-	//    // global protocol declaration
-	//    'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
-	//    // start function
-	//    '{'
-	//        (globals+=Global_message
-	//        |forLoop+=For_loop
-	//        )+
-	//    '}'
+	//Protocol:
+	//    {Protocol} (actions+=(Message | Choice_rule | For_loop | End_message))*
 	//;
-	public ProtocolsElements getProtocolsAccess() {
-		return pProtocols;
+	public ProtocolElements getProtocolAccess() {
+		return pProtocol;
 	}
 	
-	public ParserRule getProtocolsRule() {
-		return getProtocolsAccess().getRule();
+	public ParserRule getProtocolRule() {
+		return getProtocolAccess().getRule();
+	}
+	
+	//Choice_rule:
+	//    // for choice
+	//    'choice' 'at' role_name=GENERAL_NAME '{'
+	//        messages+=Message*
+	//    '}' ('or' '{'
+	//        messages+=Message*
+	//    '}')*
+	//;
+	public Choice_ruleElements getChoice_ruleAccess() {
+		return pChoice_rule;
+	}
+	
+	public ParserRule getChoice_ruleRule() {
+		return getChoice_ruleAccess().getRule();
 	}
 	
 	//For_loop:
 	//    'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
 	//        (
-	//            globals+=Global_message*
+	//            messages+=Message*
 	//        )
 	//    '}'
 	//;
@@ -395,15 +561,37 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getFor_loopAccess().getRule();
 	}
 	
-	//Global_message:
-	//    type=TYPE_MESSAGE '(' ')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+	//End_message:
+	//    end+=END_MEX ';'
 	//;
-	public Global_messageElements getGlobal_messageAccess() {
-		return pGlobal_message;
+	public End_messageElements getEnd_messageAccess() {
+		return pEnd_message;
 	}
 	
-	public ParserRule getGlobal_messageRule() {
-		return getGlobal_messageAccess().getRule();
+	public ParserRule getEnd_messageRule() {
+		return getEnd_messageAccess().getRule();
+	}
+	
+	//END_MEX:
+	//    'end'
+	//;
+	public END_MEXElements getEND_MEXAccess() {
+		return pEND_MEX;
+	}
+	
+	public ParserRule getEND_MEXRule() {
+		return getEND_MEXAccess().getRule();
+	}
+	
+	//Message:
+	//    type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+	//;
+	public MessageElements getMessageAccess() {
+		return pMessage;
+	}
+	
+	public ParserRule getMessageRule() {
+		return getMessageAccess().getRule();
 	}
 	
 	//terminal TYPE_MESSAGE:
@@ -411,6 +599,13 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//;
 	public TerminalRule getTYPE_MESSAGERule() {
 		return tTYPE_MESSAGE;
+	}
+	
+	//terminal CONTENT:
+	//    'int' | 'bool' | 'string'
+	//;
+	public TerminalRule getCONTENTRule() {
+		return tCONTENT;
 	}
 	
 	//Role:
