@@ -35,6 +35,9 @@ public class GlobalJadeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getModelAccess().getGroup_5(), "rule__Model__Group_5__0");
 			builder.put(grammarAccess.getProtocolAccess().getGroup(), "rule__Protocol__Group__0");
+			builder.put(grammarAccess.getRecursionAccess().getGroup(), "rule__Recursion__Group__0");
+			builder.put(grammarAccess.getEnd_RecursionAccess().getGroup(), "rule__End_Recursion__Group__0");
+			builder.put(grammarAccess.getContinue_RecursionAccess().getGroup(), "rule__Continue_Recursion__Group__0");
 			builder.put(grammarAccess.getChoice_ruleAccess().getGroup(), "rule__Choice_rule__Group__0");
 			builder.put(grammarAccess.getChoice_ruleAccess().getGroup_6(), "rule__Choice_rule__Group_6__0");
 			builder.put(grammarAccess.getFor_loopAccess().getGroup(), "rule__For_loop__Group__0");
@@ -47,12 +50,15 @@ public class GlobalJadeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getRolesAssignment_5_1(), "rule__Model__RolesAssignment_5_1");
 			builder.put(grammarAccess.getModelAccess().getProtocolAssignment_8(), "rule__Model__ProtocolAssignment_8");
 			builder.put(grammarAccess.getProtocolAccess().getActionsAssignment_1(), "rule__Protocol__ActionsAssignment_1");
+			builder.put(grammarAccess.getRecursionAccess().getNameAssignment_1(), "rule__Recursion__NameAssignment_1");
+			builder.put(grammarAccess.getEnd_RecursionAccess().getNameAssignment_1(), "rule__End_Recursion__NameAssignment_1");
+			builder.put(grammarAccess.getContinue_RecursionAccess().getNameAssignment_1(), "rule__Continue_Recursion__NameAssignment_1");
 			builder.put(grammarAccess.getChoice_ruleAccess().getRole_nameAssignment_2(), "rule__Choice_rule__Role_nameAssignment_2");
-			builder.put(grammarAccess.getChoice_ruleAccess().getMessagesAssignment_4(), "rule__Choice_rule__MessagesAssignment_4");
-			builder.put(grammarAccess.getChoice_ruleAccess().getMessagesAssignment_6_2(), "rule__Choice_rule__MessagesAssignment_6_2");
+			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_4(), "rule__Choice_rule__BranchAssignment_4");
+			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_6_2(), "rule__Choice_rule__BranchAssignment_6_2");
 			builder.put(grammarAccess.getFor_loopAccess().getNameAssignment_1(), "rule__For_loop__NameAssignment_1");
 			builder.put(grammarAccess.getFor_loopAccess().getRoleAssignment_3(), "rule__For_loop__RoleAssignment_3");
-			builder.put(grammarAccess.getFor_loopAccess().getMessagesAssignment_6(), "rule__For_loop__MessagesAssignment_6");
+			builder.put(grammarAccess.getFor_loopAccess().getBranchAssignment_6(), "rule__For_loop__BranchAssignment_6");
 			builder.put(grammarAccess.getEnd_messageAccess().getEndAssignment_0(), "rule__End_message__EndAssignment_0");
 			builder.put(grammarAccess.getMessageAccess().getTypeAssignment_0(), "rule__Message__TypeAssignment_0");
 			builder.put(grammarAccess.getMessageAccess().getContentAssignment_2(), "rule__Message__ContentAssignment_2");

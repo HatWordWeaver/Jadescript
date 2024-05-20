@@ -42,6 +42,33 @@ public interface GlobalJadeFactory extends EFactory
   Protocol createProtocol();
 
   /**
+   * Returns a new object of class '<em>Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Recursion</em>'.
+   * @generated
+   */
+  Recursion createRecursion();
+
+  /**
+   * Returns a new object of class '<em>End Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>End Recursion</em>'.
+   * @generated
+   */
+  End_Recursion createEnd_Recursion();
+
+  /**
+   * Returns a new object of class '<em>Continue Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Continue Recursion</em>'.
+   * @generated
+   */
+  Continue_Recursion createContinue_Recursion();
+
+  /**
    * Returns a new object of class '<em>Choice rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

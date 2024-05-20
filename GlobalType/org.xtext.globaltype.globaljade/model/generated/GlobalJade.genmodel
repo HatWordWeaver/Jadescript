@@ -14,14 +14,23 @@
     <genClasses ecoreClass="GlobalJade.ecore#//Protocol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Protocol/actions"/>
     </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//Recursion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Recursion/name"/>
+    </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//End_Recursion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//End_Recursion/name"/>
+    </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//Continue_Recursion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Continue_Recursion/name"/>
+    </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//Choice_rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Choice_rule/role_name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice_rule/messages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice_rule/branch"/>
     </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//For_loop">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/role"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//For_loop/messages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//For_loop/branch"/>
     </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//End_message">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//End_message/end"/>

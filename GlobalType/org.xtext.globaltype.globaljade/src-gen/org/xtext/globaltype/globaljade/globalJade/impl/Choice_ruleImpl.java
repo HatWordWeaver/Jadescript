@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Message;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import org.xtext.globaltype.globaljade.globalJade.Message;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getRole_name <em>Role name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getBranch <em>Branch</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,14 +60,14 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   protected String role_name = ROLE_NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
+   * The cached value of the '{@link #getBranch() <em>Branch</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMessages()
+   * @see #getBranch()
    * @generated
    * @ordered
    */
-  protected EList<Message> messages;
+  protected EList<Protocol> branch;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,13 +121,13 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
    * @generated
    */
   @Override
-  public EList<Message> getMessages()
+  public EList<Protocol> getBranch()
   {
-    if (messages == null)
+    if (branch == null)
     {
-      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.CHOICE_RULE__MESSAGES);
+      branch = new EObjectContainmentEList<Protocol>(Protocol.class, this, GlobalJadePackage.CHOICE_RULE__BRANCH);
     }
-    return messages;
+    return branch;
   }
 
   /**
@@ -140,8 +140,8 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
-        return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
+      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+        return ((InternalEList<?>)getBranch()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -158,8 +158,8 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
     {
       case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
         return getRole_name();
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
-        return getMessages();
+      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+        return getBranch();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,9 +178,9 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
       case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
         setRole_name((String)newValue);
         return;
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
-        getMessages().clear();
-        getMessages().addAll((Collection<? extends Message>)newValue);
+      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+        getBranch().clear();
+        getBranch().addAll((Collection<? extends Protocol>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,8 +199,8 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
       case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
         setRole_name(ROLE_NAME_EDEFAULT);
         return;
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
-        getMessages().clear();
+      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+        getBranch().clear();
         return;
     }
     super.eUnset(featureID);
@@ -218,8 +218,8 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
     {
       case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
         return ROLE_NAME_EDEFAULT == null ? role_name != null : !ROLE_NAME_EDEFAULT.equals(role_name);
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
-        return messages != null && !messages.isEmpty();
+      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+        return branch != null && !branch.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -15,12 +15,15 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.Continue_Recursion;
+import org.xtext.globaltype.globaljade.globalJade.End_Recursion;
 import org.xtext.globaltype.globaljade.globalJade.End_message;
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Message;
 import org.xtext.globaltype.globaljade.globalJade.Model;
 import org.xtext.globaltype.globaljade.globalJade.Protocol;
+import org.xtext.globaltype.globaljade.globalJade.Recursion;
 import org.xtext.globaltype.globaljade.globalJade.Role;
 import org.xtext.globaltype.globaljade.services.GlobalJadeGrammarAccess;
 
@@ -41,6 +44,12 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GlobalJadePackage.CHOICE_RULE:
 				sequence_Choice_rule(context, (Choice_rule) semanticObject); 
 				return; 
+			case GlobalJadePackage.CONTINUE_RECURSION:
+				sequence_Continue_Recursion(context, (Continue_Recursion) semanticObject); 
+				return; 
+			case GlobalJadePackage.END_RECURSION:
+				sequence_End_Recursion(context, (End_Recursion) semanticObject); 
+				return; 
 			case GlobalJadePackage.END_MESSAGE:
 				sequence_End_message(context, (End_message) semanticObject); 
 				return; 
@@ -56,6 +65,9 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GlobalJadePackage.PROTOCOL:
 				sequence_Protocol(context, (Protocol) semanticObject); 
 				return; 
+			case GlobalJadePackage.RECURSION:
+				sequence_Recursion(context, (Recursion) semanticObject); 
+				return; 
 			case GlobalJadePackage.ROLE:
 				sequence_Role(context, (Role) semanticObject); 
 				return; 
@@ -70,11 +82,51 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Choice_rule returns Choice_rule
 	 *
 	 * Constraint:
-	 *     (role_name=GENERAL_NAME messages+=Message* messages+=Message*)
+	 *     (role_name=GENERAL_NAME branch+=Protocol branch+=Protocol*)
 	 * </pre>
 	 */
 	protected void sequence_Choice_rule(ISerializationContext context, Choice_rule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Continue_Recursion returns Continue_Recursion
+	 *
+	 * Constraint:
+	 *     name=GENERAL_NAME
+	 * </pre>
+	 */
+	protected void sequence_Continue_Recursion(ISerializationContext context, Continue_Recursion semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.CONTINUE_RECURSION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.CONTINUE_RECURSION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getContinue_RecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     End_Recursion returns End_Recursion
+	 *
+	 * Constraint:
+	 *     name=GENERAL_NAME
+	 * </pre>
+	 */
+	protected void sequence_End_Recursion(ISerializationContext context, End_Recursion semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.END_RECURSION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.END_RECURSION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEnd_RecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -98,7 +150,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     For_loop returns For_loop
 	 *
 	 * Constraint:
-	 *     (name=GENERAL_NAME role=GENERAL_NAME messages+=Message*)
+	 *     (name=GENERAL_NAME role=GENERAL_NAME branch+=Protocol)
 	 * </pre>
 	 */
 	protected void sequence_For_loop(ISerializationContext context, For_loop semanticObject) {
@@ -140,11 +192,39 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Protocol returns Protocol
 	 *
 	 * Constraint:
-	 *     (actions+=Message | actions+=Choice_rule | actions+=For_loop | actions+=End_message)*
+	 *     (
+	 *         actions+=Message | 
+	 *         actions+=Choice_rule | 
+	 *         actions+=For_loop | 
+	 *         actions+=End_message | 
+	 *         actions+=Recursion | 
+	 *         actions+=End_Recursion | 
+	 *         actions+=Continue_Recursion
+	 *     )*
 	 * </pre>
 	 */
 	protected void sequence_Protocol(ISerializationContext context, Protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Recursion returns Recursion
+	 *
+	 * Constraint:
+	 *     name=GENERAL_NAME
+	 * </pre>
+	 */
+	protected void sequence_Recursion(ISerializationContext context, Recursion semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.RECURSION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.RECURSION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

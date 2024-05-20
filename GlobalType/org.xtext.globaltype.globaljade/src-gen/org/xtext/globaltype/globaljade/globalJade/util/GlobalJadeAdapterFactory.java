@@ -86,6 +86,21 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createProtocolAdapter();
       }
       @Override
+      public Adapter caseRecursion(Recursion object)
+      {
+        return createRecursionAdapter();
+      }
+      @Override
+      public Adapter caseEnd_Recursion(End_Recursion object)
+      {
+        return createEnd_RecursionAdapter();
+      }
+      @Override
+      public Adapter caseContinue_Recursion(Continue_Recursion object)
+      {
+        return createContinue_RecursionAdapter();
+      }
+      @Override
       public Adapter caseChoice_rule(Choice_rule object)
       {
         return createChoice_ruleAdapter();
@@ -158,6 +173,51 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProtocolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Recursion <em>Recursion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Recursion
+   * @generated
+   */
+  public Adapter createRecursionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.End_Recursion <em>End Recursion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.End_Recursion
+   * @generated
+   */
+  public Adapter createEnd_RecursionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Continue_Recursion <em>Continue Recursion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Continue_Recursion
+   * @generated
+   */
+  public Adapter createContinue_RecursionAdapter()
   {
     return null;
   }

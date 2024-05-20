@@ -87,6 +87,27 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GlobalJadePackage.RECURSION:
+      {
+        Recursion recursion = (Recursion)theEObject;
+        T result = caseRecursion(recursion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.END_RECURSION:
+      {
+        End_Recursion end_Recursion = (End_Recursion)theEObject;
+        T result = caseEnd_Recursion(end_Recursion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.CONTINUE_RECURSION:
+      {
+        Continue_Recursion continue_Recursion = (Continue_Recursion)theEObject;
+        T result = caseContinue_Recursion(continue_Recursion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GlobalJadePackage.CHOICE_RULE:
       {
         Choice_rule choice_rule = (Choice_rule)theEObject;
@@ -154,6 +175,54 @@ public class GlobalJadeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProtocol(Protocol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Recursion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRecursion(Recursion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>End Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>End Recursion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnd_Recursion(End_Recursion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Continue Recursion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Continue Recursion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContinue_Recursion(Continue_Recursion object)
   {
     return null;
   }

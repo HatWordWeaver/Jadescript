@@ -14,23 +14,43 @@ Model:
 ;
 
 Protocol:
-	{Protocol} (actions+=(Message | Choice_rule | For_loop | End_message))* 
+	{Protocol} (actions+=(Message
+			   | Choice_rule 
+			   | For_loop 
+			   | End_message 
+			   | Recursion 
+			   | End_Recursion 
+			   | Continue_Recursion
+			   ))* 
+;
+
+Recursion:
+	'rec' name=GENERAL_NAME ':'
+;
+
+End_Recursion:
+	'stop' name=GENERAL_NAME
+;
+
+Continue_Recursion:
+	'continue' name=GENERAL_NAME
 ;
 
 Choice_rule:
 	// for choice
 	'choice' 'at' role_name=GENERAL_NAME '{'
-		messages+=Message*
+		//messages+=Message*
+		branch+=Protocol
 	'}' ('or' '{'
-		messages+=Message*
+		//messages+=Message*
+		branch+=Protocol
 	'}')*
 ;
-
 
 For_loop:
 	'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
 		(
-			messages+=Message*
+			branch+=Protocol
 		)
 	'}' 
 ;
@@ -48,7 +68,13 @@ Message:
 ;
 
 terminal TYPE_MESSAGE:
-	'CFP' | 'REJECT-PROPOSAL' | 'ACCEPT-PROPOSAL'
+	'CFP' 
+	| 'REJECT-PROPOSAL' 
+	| 'ACCEPT-PROPOSAL' 
+	| 'FAILURE' 
+	| 'INFORM-DONE' 
+	| 'INFORM' 
+	| 'PROPOSE'
 ;
 
 terminal CONTENT:

@@ -273,9 +273,184 @@ ruleProtocol returns [EObject current=null]
 							"org.xtext.globaltype.globaljade.GlobalJade.End_message");
 						afterParserOrEnumRuleCall();
 					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getProtocolAccess().getActionsRecursionParserRuleCall_1_0_4());
+					}
+					lv_actions_1_5=ruleRecursion
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_1_5,
+							"org.xtext.globaltype.globaljade.GlobalJade.Recursion");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getProtocolAccess().getActionsEnd_RecursionParserRuleCall_1_0_5());
+					}
+					lv_actions_1_6=ruleEnd_Recursion
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_1_6,
+							"org.xtext.globaltype.globaljade.GlobalJade.End_Recursion");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getProtocolAccess().getActionsContinue_RecursionParserRuleCall_1_0_6());
+					}
+					lv_actions_1_7=ruleContinue_Recursion
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_1_7,
+							"org.xtext.globaltype.globaljade.GlobalJade.Continue_Recursion");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleRecursion
+entryRuleRecursion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRecursionRule()); }
+	iv_ruleRecursion=ruleRecursion
+	{ $current=$iv_ruleRecursion.current; }
+	EOF;
+
+// Rule Recursion
+ruleRecursion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='rec'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRecursionAccess().getRecKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_GENERAL_NAME
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getRecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRecursionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+				}
+			)
+		)
+		otherlv_2=':'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRecursionAccess().getColonKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleEnd_Recursion
+entryRuleEnd_Recursion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEnd_RecursionRule()); }
+	iv_ruleEnd_Recursion=ruleEnd_Recursion
+	{ $current=$iv_ruleEnd_Recursion.current; }
+	EOF;
+
+// Rule End_Recursion
+ruleEnd_Recursion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='stop'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEnd_RecursionAccess().getStopKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_GENERAL_NAME
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getEnd_RecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEnd_RecursionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleContinue_Recursion
+entryRuleContinue_Recursion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getContinue_RecursionRule()); }
+	iv_ruleContinue_Recursion=ruleContinue_Recursion
+	{ $current=$iv_ruleContinue_Recursion.current; }
+	EOF;
+
+// Rule Continue_Recursion
+ruleContinue_Recursion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='continue'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getContinue_RecursionAccess().getContinueKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_GENERAL_NAME
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getContinue_RecursionAccess().getNameGENERAL_NAMETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getContinue_RecursionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.globaltype.globaljade.GlobalJade.GENERAL_NAME");
+				}
+			)
+		)
 	)
 ;
 
@@ -328,22 +503,22 @@ ruleChoice_rule returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getChoice_ruleAccess().getMessagesMessageParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getChoice_ruleAccess().getBranchProtocolParserRuleCall_4_0());
 				}
-				lv_messages_4_0=ruleMessage
+				lv_branch_4_0=ruleProtocol
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getChoice_ruleRule());
 					}
 					add(
 						$current,
-						"messages",
-						lv_messages_4_0,
-						"org.xtext.globaltype.globaljade.GlobalJade.Message");
+						"branch",
+						lv_branch_4_0,
+						"org.xtext.globaltype.globaljade.GlobalJade.Protocol");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_5());
@@ -360,22 +535,22 @@ ruleChoice_rule returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChoice_ruleAccess().getMessagesMessageParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getChoice_ruleAccess().getBranchProtocolParserRuleCall_6_2_0());
 					}
-					lv_messages_8_0=ruleMessage
+					lv_branch_8_0=ruleProtocol
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChoice_ruleRule());
 						}
 						add(
 							$current,
-							"messages",
-							lv_messages_8_0,
-							"org.xtext.globaltype.globaljade.GlobalJade.Message");
+							"branch",
+							lv_branch_8_0,
+							"org.xtext.globaltype.globaljade.GlobalJade.Protocol");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)*
+			)
 			otherlv_9='}'
 			{
 				newLeafNode(otherlv_9, grammarAccess.getChoice_ruleAccess().getRightCurlyBracketKeyword_6_3());
@@ -455,22 +630,22 @@ ruleFor_loop returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFor_loopAccess().getMessagesMessageParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getFor_loopAccess().getBranchProtocolParserRuleCall_6_0());
 				}
-				lv_messages_6_0=ruleMessage
+				lv_branch_6_0=ruleProtocol
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFor_loopRule());
 					}
 					add(
 						$current,
-						"messages",
-						lv_messages_6_0,
-						"org.xtext.globaltype.globaljade.GlobalJade.Message");
+						"branch",
+						lv_branch_6_0,
+						"org.xtext.globaltype.globaljade.GlobalJade.Protocol");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		otherlv_7='}'
 		{
 			newLeafNode(otherlv_7, grammarAccess.getFor_loopAccess().getRightCurlyBracketKeyword_7());
@@ -718,7 +893,7 @@ ruleRole returns [EObject current=null]
 	)
 ;
 
-RULE_TYPE_MESSAGE : ('CFP'|'REJECT-PROPOSAL'|'ACCEPT-PROPOSAL');
+RULE_TYPE_MESSAGE : ('CFP'|'REJECT-PROPOSAL'|'ACCEPT-PROPOSAL'|'FAILURE'|'INFORM-DONE'|'INFORM');
 
 RULE_CONTENT : ('int'|'bool'|'string');
 

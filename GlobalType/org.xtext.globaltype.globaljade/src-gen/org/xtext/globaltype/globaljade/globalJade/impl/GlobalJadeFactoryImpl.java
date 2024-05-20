@@ -67,6 +67,9 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
     {
       case GlobalJadePackage.MODEL: return createModel();
       case GlobalJadePackage.PROTOCOL: return createProtocol();
+      case GlobalJadePackage.RECURSION: return createRecursion();
+      case GlobalJadePackage.END_RECURSION: return createEnd_Recursion();
+      case GlobalJadePackage.CONTINUE_RECURSION: return createContinue_Recursion();
       case GlobalJadePackage.CHOICE_RULE: return createChoice_rule();
       case GlobalJadePackage.FOR_LOOP: return createFor_loop();
       case GlobalJadePackage.END_MESSAGE: return createEnd_message();
@@ -99,6 +102,42 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
   {
     ProtocolImpl protocol = new ProtocolImpl();
     return protocol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Recursion createRecursion()
+  {
+    RecursionImpl recursion = new RecursionImpl();
+    return recursion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public End_Recursion createEnd_Recursion()
+  {
+    End_RecursionImpl end_Recursion = new End_RecursionImpl();
+    return end_Recursion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Continue_Recursion createContinue_Recursion()
+  {
+    Continue_RecursionImpl continue_Recursion = new Continue_RecursionImpl();
+    return continue_Recursion;
   }
 
   /**

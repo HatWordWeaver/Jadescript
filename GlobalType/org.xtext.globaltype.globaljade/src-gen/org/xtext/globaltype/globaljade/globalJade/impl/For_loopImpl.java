@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Message;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +33,7 @@ import org.xtext.globaltype.globaljade.globalJade.Message;
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getRole <em>Role</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getBranch <em>Branch</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,14 +81,14 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   protected String role = ROLE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
+   * The cached value of the '{@link #getBranch() <em>Branch</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMessages()
+   * @see #getBranch()
    * @generated
    * @ordered
    */
-  protected EList<Message> messages;
+  protected EList<Protocol> branch;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,13 +167,13 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * @generated
    */
   @Override
-  public EList<Message> getMessages()
+  public EList<Protocol> getBranch()
   {
-    if (messages == null)
+    if (branch == null)
     {
-      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.FOR_LOOP__MESSAGES);
+      branch = new EObjectContainmentEList<Protocol>(Protocol.class, this, GlobalJadePackage.FOR_LOOP__BRANCH);
     }
-    return messages;
+    return branch;
   }
 
   /**
@@ -186,8 +186,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   {
     switch (featureID)
     {
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
-        return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
+      case GlobalJadePackage.FOR_LOOP__BRANCH:
+        return ((InternalEList<?>)getBranch()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -206,8 +206,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
         return getName();
       case GlobalJadePackage.FOR_LOOP__ROLE:
         return getRole();
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
-        return getMessages();
+      case GlobalJadePackage.FOR_LOOP__BRANCH:
+        return getBranch();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -229,9 +229,9 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
       case GlobalJadePackage.FOR_LOOP__ROLE:
         setRole((String)newValue);
         return;
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
-        getMessages().clear();
-        getMessages().addAll((Collection<? extends Message>)newValue);
+      case GlobalJadePackage.FOR_LOOP__BRANCH:
+        getBranch().clear();
+        getBranch().addAll((Collection<? extends Protocol>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -253,8 +253,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
       case GlobalJadePackage.FOR_LOOP__ROLE:
         setRole(ROLE_EDEFAULT);
         return;
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
-        getMessages().clear();
+      case GlobalJadePackage.FOR_LOOP__BRANCH:
+        getBranch().clear();
         return;
     }
     super.eUnset(featureID);
@@ -274,8 +274,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GlobalJadePackage.FOR_LOOP__ROLE:
         return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-      case GlobalJadePackage.FOR_LOOP__MESSAGES:
-        return messages != null && !messages.isEmpty();
+      case GlobalJadePackage.FOR_LOOP__BRANCH:
+        return branch != null && !branch.isEmpty();
     }
     return super.eIsSet(featureID);
   }
