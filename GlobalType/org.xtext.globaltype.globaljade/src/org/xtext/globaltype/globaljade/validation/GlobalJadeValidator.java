@@ -15,6 +15,7 @@ import org.xtext.globaltype.globaljade.globalJade.Role;
 import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.For_loop;
+import org.xtext.globaltype.globaljade.globalJade.Message;
 
 /**
  * This class contains custom validation rules. 
@@ -37,6 +38,19 @@ public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 			}
 		}
 	}
+	
+	@Check
+	public void notRolesWithSameName(Roles roles) {
+		ArrayList<String> allRoles = new ArrayList<>();
+		for(Role r: roles.getRoles()) {
+			if(!allRoles.contains(r.getName()))
+				allRoles.add(r.getName());
+			else
+				error("Ruolo gia' dichiarato", null, GlobalJadePackage.ROLES__ROLES);
+		}
+	}
+	
+
 
 	
 	@Check
@@ -58,4 +72,20 @@ public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 					GlobalJadePackage.FOR_LOOP__NAME);
 		}
 	}
+	
+	@Check
+	public void checkMessageDestination(Message message) {
+		if(message.getSender().equals(message.getReceiver()))
+			error("Non si puo' mandare un messaggio allo stesso ruolo",
+					null,
+					GlobalJadePackage.MESSAGE);
+	}
+	
+	@Check
+	public void checkRecursionClosed(Message message) {
+		if(multipleRoles.contains(message.getSender())) {
+			error("Il ruolo multiplo non puo' mandare messaggi", null, GlobalJadePackage.MESSAGE__SENDER);
+		}
+	}
+	
 }
