@@ -51,7 +51,7 @@ public interface Model extends EObject
 
   /**
    * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Role}.
+   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Roles}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Roles</em>' containment reference list.
@@ -59,7 +59,7 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Role> getRoles();
+  EList<Roles> getRoles();
 
   /**
    * Returns the value of the '<em><b>Protocol</b></em>' containment reference list.

@@ -29,8 +29,8 @@ import org.xtext.globaltype.globaljade.globalJade.Message;
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getContent <em>Content</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getRoleA <em>Role A</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getRoleB <em>Role B</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getSender <em>Sender</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getReceiver <em>Receiver</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,44 +68,44 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
   protected EList<String> content;
 
   /**
-   * The default value of the '{@link #getRoleA() <em>Role A</em>}' attribute.
+   * The default value of the '{@link #getSender() <em>Sender</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRoleA()
+   * @see #getSender()
    * @generated
    * @ordered
    */
-  protected static final String ROLE_A_EDEFAULT = null;
+  protected static final String SENDER_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRoleA() <em>Role A</em>}' attribute.
+   * The cached value of the '{@link #getSender() <em>Sender</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRoleA()
+   * @see #getSender()
    * @generated
    * @ordered
    */
-  protected String roleA = ROLE_A_EDEFAULT;
+  protected String sender = SENDER_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getRoleB() <em>Role B</em>}' attribute.
+   * The default value of the '{@link #getReceiver() <em>Receiver</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRoleB()
+   * @see #getReceiver()
    * @generated
    * @ordered
    */
-  protected static final String ROLE_B_EDEFAULT = null;
+  protected static final String RECEIVER_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRoleB() <em>Role B</em>}' attribute.
+   * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRoleB()
+   * @see #getReceiver()
    * @generated
    * @ordered
    */
-  protected String roleB = ROLE_B_EDEFAULT;
+  protected String receiver = RECEIVER_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,9 +174,9 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
-  public String getRoleA()
+  public String getSender()
   {
-    return roleA;
+    return sender;
   }
 
   /**
@@ -185,12 +185,12 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
-  public void setRoleA(String newRoleA)
+  public void setSender(String newSender)
   {
-    String oldRoleA = roleA;
-    roleA = newRoleA;
+    String oldSender = sender;
+    sender = newSender;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__ROLE_A, oldRoleA, roleA));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__SENDER, oldSender, sender));
   }
 
   /**
@@ -199,9 +199,9 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
-  public String getRoleB()
+  public String getReceiver()
   {
-    return roleB;
+    return receiver;
   }
 
   /**
@@ -210,12 +210,12 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
-  public void setRoleB(String newRoleB)
+  public void setReceiver(String newReceiver)
   {
-    String oldRoleB = roleB;
-    roleB = newRoleB;
+    String oldReceiver = receiver;
+    receiver = newReceiver;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__ROLE_B, oldRoleB, roleB));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__RECEIVER, oldReceiver, receiver));
   }
 
   /**
@@ -232,10 +232,10 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
         return getType();
       case GlobalJadePackage.MESSAGE__CONTENT:
         return getContent();
-      case GlobalJadePackage.MESSAGE__ROLE_A:
-        return getRoleA();
-      case GlobalJadePackage.MESSAGE__ROLE_B:
-        return getRoleB();
+      case GlobalJadePackage.MESSAGE__SENDER:
+        return getSender();
+      case GlobalJadePackage.MESSAGE__RECEIVER:
+        return getReceiver();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -258,11 +258,11 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
         getContent().clear();
         getContent().addAll((Collection<? extends String>)newValue);
         return;
-      case GlobalJadePackage.MESSAGE__ROLE_A:
-        setRoleA((String)newValue);
+      case GlobalJadePackage.MESSAGE__SENDER:
+        setSender((String)newValue);
         return;
-      case GlobalJadePackage.MESSAGE__ROLE_B:
-        setRoleB((String)newValue);
+      case GlobalJadePackage.MESSAGE__RECEIVER:
+        setReceiver((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -284,11 +284,11 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
       case GlobalJadePackage.MESSAGE__CONTENT:
         getContent().clear();
         return;
-      case GlobalJadePackage.MESSAGE__ROLE_A:
-        setRoleA(ROLE_A_EDEFAULT);
+      case GlobalJadePackage.MESSAGE__SENDER:
+        setSender(SENDER_EDEFAULT);
         return;
-      case GlobalJadePackage.MESSAGE__ROLE_B:
-        setRoleB(ROLE_B_EDEFAULT);
+      case GlobalJadePackage.MESSAGE__RECEIVER:
+        setReceiver(RECEIVER_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -308,10 +308,10 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case GlobalJadePackage.MESSAGE__CONTENT:
         return content != null && !content.isEmpty();
-      case GlobalJadePackage.MESSAGE__ROLE_A:
-        return ROLE_A_EDEFAULT == null ? roleA != null : !ROLE_A_EDEFAULT.equals(roleA);
-      case GlobalJadePackage.MESSAGE__ROLE_B:
-        return ROLE_B_EDEFAULT == null ? roleB != null : !ROLE_B_EDEFAULT.equals(roleB);
+      case GlobalJadePackage.MESSAGE__SENDER:
+        return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
+      case GlobalJadePackage.MESSAGE__RECEIVER:
+        return RECEIVER_EDEFAULT == null ? receiver != null : !RECEIVER_EDEFAULT.equals(receiver);
     }
     return super.eIsSet(featureID);
   }
@@ -331,10 +331,10 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
     result.append(type);
     result.append(", content: ");
     result.append(content);
-    result.append(", roleA: ");
-    result.append(roleA);
-    result.append(", roleB: ");
-    result.append(roleB);
+    result.append(", sender: ");
+    result.append(sender);
+    result.append(", receiver: ");
+    result.append(receiver);
     result.append(')');
     return result.toString();
   }

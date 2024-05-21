@@ -32,7 +32,7 @@ import org.xtext.globaltype.globaljade.globalJade.Protocol;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getRoleTarget <em>Role Target</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl#getBranch <em>Branch</em>}</li>
  * </ul>
  *
@@ -61,24 +61,24 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
+   * The default value of the '{@link #getRoleTarget() <em>Role Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getRoleTarget()
    * @generated
    * @ordered
    */
-  protected static final String ROLE_EDEFAULT = null;
+  protected static final String ROLE_TARGET_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
+   * The cached value of the '{@link #getRoleTarget() <em>Role Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getRoleTarget()
    * @generated
    * @ordered
    */
-  protected String role = ROLE_EDEFAULT;
+  protected String roleTarget = ROLE_TARGET_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBranch() <em>Branch</em>}' containment reference list.
@@ -142,9 +142,9 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * @generated
    */
   @Override
-  public String getRole()
+  public String getRoleTarget()
   {
-    return role;
+    return roleTarget;
   }
 
   /**
@@ -153,12 +153,12 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
    * @generated
    */
   @Override
-  public void setRole(String newRole)
+  public void setRoleTarget(String newRoleTarget)
   {
-    String oldRole = role;
-    role = newRole;
+    String oldRoleTarget = roleTarget;
+    roleTarget = newRoleTarget;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__ROLE, oldRole, role));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.FOR_LOOP__ROLE_TARGET, oldRoleTarget, roleTarget));
   }
 
   /**
@@ -204,8 +204,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
     {
       case GlobalJadePackage.FOR_LOOP__NAME:
         return getName();
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        return getRole();
+      case GlobalJadePackage.FOR_LOOP__ROLE_TARGET:
+        return getRoleTarget();
       case GlobalJadePackage.FOR_LOOP__BRANCH:
         return getBranch();
     }
@@ -226,8 +226,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
       case GlobalJadePackage.FOR_LOOP__NAME:
         setName((String)newValue);
         return;
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        setRole((String)newValue);
+      case GlobalJadePackage.FOR_LOOP__ROLE_TARGET:
+        setRoleTarget((String)newValue);
         return;
       case GlobalJadePackage.FOR_LOOP__BRANCH:
         getBranch().clear();
@@ -250,8 +250,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
       case GlobalJadePackage.FOR_LOOP__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        setRole(ROLE_EDEFAULT);
+      case GlobalJadePackage.FOR_LOOP__ROLE_TARGET:
+        setRoleTarget(ROLE_TARGET_EDEFAULT);
         return;
       case GlobalJadePackage.FOR_LOOP__BRANCH:
         getBranch().clear();
@@ -272,8 +272,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
     {
       case GlobalJadePackage.FOR_LOOP__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GlobalJadePackage.FOR_LOOP__ROLE:
-        return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+      case GlobalJadePackage.FOR_LOOP__ROLE_TARGET:
+        return ROLE_TARGET_EDEFAULT == null ? roleTarget != null : !ROLE_TARGET_EDEFAULT.equals(roleTarget);
       case GlobalJadePackage.FOR_LOOP__BRANCH:
         return branch != null && !branch.isEmpty();
     }
@@ -293,8 +293,8 @@ public class For_loopImpl extends MinimalEObjectImpl.Container implements For_lo
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", role: ");
-    result.append(role);
+    result.append(", roleTarget: ");
+    result.append(roleTarget);
     result.append(')');
     return result.toString();
   }

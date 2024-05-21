@@ -3,57 +3,55 @@
  */
 package org.xtext.globaltype.globaljade.globalJade.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Role;
+import org.xtext.globaltype.globaljade.globalJade.Roles;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Role</b></em>'.
+ * An implementation of the model object '<em><b>Roles</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.RolesImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RoleImpl extends MinimalEObjectImpl.Container implements Role
+public class RolesImpl extends MinimalEObjectImpl.Container implements Roles
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRoles()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<Role> roles;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RoleImpl()
+  protected RolesImpl()
   {
     super();
   }
@@ -66,7 +64,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.ROLE;
+    return GlobalJadePackage.Literals.ROLES;
   }
 
   /**
@@ -75,9 +73,13 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public String getName()
+  public EList<Role> getRoles()
   {
-    return name;
+    if (roles == null)
+    {
+      roles = new EObjectContainmentEList<Role>(Role.class, this, GlobalJadePackage.ROLES__ROLES);
+    }
+    return roles;
   }
 
   /**
@@ -86,12 +88,14 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.ROLE__NAME, oldName, name));
+    switch (featureID)
+    {
+      case GlobalJadePackage.ROLES__ROLES:
+        return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +108,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        return getName();
+      case GlobalJadePackage.ROLES__ROLES:
+        return getRoles();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +119,15 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        setName((String)newValue);
+      case GlobalJadePackage.ROLES__ROLES:
+        getRoles().clear();
+        getRoles().addAll((Collection<? extends Role>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +143,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        setName(NAME_EDEFAULT);
+      case GlobalJadePackage.ROLES__ROLES:
+        getRoles().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +160,10 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GlobalJadePackage.ROLES__ROLES:
+        return roles != null && !roles.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //RoleImpl
+} //RolesImpl

@@ -66,6 +66,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
     switch (eClass.getClassifierID())
     {
       case GlobalJadePackage.MODEL: return createModel();
+      case GlobalJadePackage.ROLES: return createRoles();
+      case GlobalJadePackage.ROLE: return createRole();
+      case GlobalJadePackage.ONE_ROLE: return createOneRole();
+      case GlobalJadePackage.MULTIPLE_ROLE: return createMultipleRole();
       case GlobalJadePackage.PROTOCOL: return createProtocol();
       case GlobalJadePackage.RECURSION: return createRecursion();
       case GlobalJadePackage.END_RECURSION: return createEnd_Recursion();
@@ -74,7 +78,6 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
       case GlobalJadePackage.FOR_LOOP: return createFor_loop();
       case GlobalJadePackage.END_MESSAGE: return createEnd_message();
       case GlobalJadePackage.MESSAGE: return createMessage();
-      case GlobalJadePackage.ROLE: return createRole();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -90,6 +93,54 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Roles createRoles()
+  {
+    RolesImpl roles = new RolesImpl();
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Role createRole()
+  {
+    RoleImpl role = new RoleImpl();
+    return role;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OneRole createOneRole()
+  {
+    OneRoleImpl oneRole = new OneRoleImpl();
+    return oneRole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MultipleRole createMultipleRole()
+  {
+    MultipleRoleImpl multipleRole = new MultipleRoleImpl();
+    return multipleRole;
   }
 
   /**
@@ -186,18 +237,6 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
   {
     MessageImpl message = new MessageImpl();
     return message;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Role createRole()
-  {
-    RoleImpl role = new RoleImpl();
-    return role;
   }
 
   /**

@@ -80,6 +80,36 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GlobalJadePackage.ROLES:
+      {
+        Roles roles = (Roles)theEObject;
+        T result = caseRoles(roles);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.ROLE:
+      {
+        Role role = (Role)theEObject;
+        T result = caseRole(role);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.ONE_ROLE:
+      {
+        OneRole oneRole = (OneRole)theEObject;
+        T result = caseOneRole(oneRole);
+        if (result == null) result = caseRole(oneRole);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.MULTIPLE_ROLE:
+      {
+        MultipleRole multipleRole = (MultipleRole)theEObject;
+        T result = caseMultipleRole(multipleRole);
+        if (result == null) result = caseRole(multipleRole);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GlobalJadePackage.PROTOCOL:
       {
         Protocol protocol = (Protocol)theEObject;
@@ -136,13 +166,6 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.ROLE:
-      {
-        Role role = (Role)theEObject;
-        T result = caseRole(role);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -159,6 +182,70 @@ public class GlobalJadeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Roles</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Roles</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoles(Roles object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRole(Role object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>One Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>One Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOneRole(OneRole object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multiple Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multiple Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultipleRole(MultipleRole object)
   {
     return null;
   }
@@ -287,22 +374,6 @@ public class GlobalJadeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMessage(Message object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Role</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRole(Role object)
   {
     return null;
   }

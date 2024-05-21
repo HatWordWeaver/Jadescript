@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getRole_name <em>Role name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getMessages <em>Messages</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getBranch <em>Branch</em>}</li>
  * </ul>
  *
@@ -47,6 +48,18 @@ public interface Choice_rule extends EObject
    * @generated
    */
   void setRole_name(String value);
+
+  /**
+   * Returns the value of the '<em><b>Messages</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Message}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Messages</em>' containment reference list.
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_rule_Messages()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Message> getMessages();
 
   /**
    * Returns the value of the '<em><b>Branch</b></em>' containment reference list.

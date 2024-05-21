@@ -7,11 +7,28 @@ generate globalJade "http://www.xtext.org/globaltype/globaljade/GlobalJade"
  */
 Model:
 	// global protocol declaration
-	'global' 'protocol' name=GENERAL_NAME '(' roles+=Role (',' roles+=Role)*')'
+	'global' 'protocol' name=NAME '(' roles+=Roles ')'
 	'{'
 		protocol+=Protocol
 	'}'
 ;
+
+Roles:
+	roles+=Role (',' roles+=Role)*
+;
+
+Role:
+	OneRole | MultipleRole
+;
+
+OneRole:
+	'role' name=NAME
+;
+
+MultipleRole:
+	'multrole' name=NAME ':' ref=[OneRole | NAME]
+;
+
 
 Protocol:
 	{Protocol} (actions+=(Message
@@ -25,30 +42,30 @@ Protocol:
 ;
 
 Recursion:
-	'rec' name=GENERAL_NAME ':'
+	'rec' name=NAME ':'
 ;
 
 End_Recursion:
-	'stop' name=GENERAL_NAME
+	'stop' name=NAME
 ;
 
 Continue_Recursion:
-	'continue' name=GENERAL_NAME
+	'continue' name=NAME
 ;
 
 Choice_rule:
 	// for choice
-	'choice' 'at' role_name=GENERAL_NAME '{'
-		//messages+=Message*
+	'choice' 'at' role_name=NAME '{'
+		messages+=Message
 		branch+=Protocol
 	'}' ('or' '{'
-		//messages+=Message*
+		messages+=Message
 		branch+=Protocol
 	'}')*
 ;
 
 For_loop:
-	'forall' name=GENERAL_NAME 'in' role=GENERAL_NAME 'do' '{'
+	'forall' name=NAME 'in' roleTarget=NAME 'do' '{'
 		(
 			branch+=Protocol
 		)
@@ -64,7 +81,7 @@ END_MEX:
 ;
 
 Message:
-	type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' roleA=GENERAL_NAME 'to' roleB=GENERAL_NAME ';'
+	type=TYPE_MESSAGE '('content+=CONTENT (',' content+=CONTENT)*')' 'from' sender=NAME 'to' receiver=NAME ';'
 ;
 
 terminal TYPE_MESSAGE:
@@ -81,11 +98,6 @@ terminal CONTENT:
 	'int' | 'bool' | 'string'
 ;
 
-
-Role:
-	'role' role=GENERAL_NAME // dovrei mettere la parte opzionale per quanto riguarda piu' ruoli
-;
-
-terminal GENERAL_NAME:
+terminal NAME:
 	('A'..'Z')+ ('a'..'z')*
 ;

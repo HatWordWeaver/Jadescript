@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Model;
 import org.xtext.globaltype.globaljade.globalJade.Protocol;
-import org.xtext.globaltype.globaljade.globalJade.Role;
+import org.xtext.globaltype.globaljade.globalJade.Roles;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<Role> roles;
+  protected EList<Roles> roles;
 
   /**
    * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' containment reference list.
@@ -133,11 +133,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Role> getRoles()
+  public EList<Roles> getRoles()
   {
     if (roles == null)
     {
-      roles = new EObjectContainmentEList<Role>(Role.class, this, GlobalJadePackage.MODEL__ROLES);
+      roles = new EObjectContainmentEList<Roles>(Roles.class, this, GlobalJadePackage.MODEL__ROLES);
     }
     return roles;
   }
@@ -211,7 +211,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return;
       case GlobalJadePackage.MODEL__ROLES:
         getRoles().clear();
-        getRoles().addAll((Collection<? extends Role>)newValue);
+        getRoles().addAll((Collection<? extends Roles>)newValue);
         return;
       case GlobalJadePackage.MODEL__PROTOCOL:
         getProtocol().clear();

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Role#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Role#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getRole()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface Role extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Role</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Role</em>' attribute.
-   * @see #setRole(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getRole_Role()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getRole_Name()
    * @model
    * @generated
    */
-  String getRole();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Role#getRole <em>Role</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Role#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Role</em>' attribute.
-   * @see #getRole()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setRole(String value);
+  void setName(String value);
 
 } // Role

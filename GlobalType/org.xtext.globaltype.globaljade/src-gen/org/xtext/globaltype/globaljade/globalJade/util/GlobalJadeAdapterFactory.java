@@ -81,6 +81,26 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseRoles(Roles object)
+      {
+        return createRolesAdapter();
+      }
+      @Override
+      public Adapter caseRole(Role object)
+      {
+        return createRoleAdapter();
+      }
+      @Override
+      public Adapter caseOneRole(OneRole object)
+      {
+        return createOneRoleAdapter();
+      }
+      @Override
+      public Adapter caseMultipleRole(MultipleRole object)
+      {
+        return createMultipleRoleAdapter();
+      }
+      @Override
       public Adapter caseProtocol(Protocol object)
       {
         return createProtocolAdapter();
@@ -121,11 +141,6 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createMessageAdapter();
       }
       @Override
-      public Adapter caseRole(Role object)
-      {
-        return createRoleAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -158,6 +173,66 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Roles <em>Roles</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Roles
+   * @generated
+   */
+  public Adapter createRolesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Role <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Role
+   * @generated
+   */
+  public Adapter createRoleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.OneRole <em>One Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.OneRole
+   * @generated
+   */
+  public Adapter createOneRoleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole <em>Multiple Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.MultipleRole
+   * @generated
+   */
+  public Adapter createMultipleRoleAdapter()
   {
     return null;
   }
@@ -278,21 +353,6 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMessageAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Role <em>Role</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.Role
-   * @generated
-   */
-  public Adapter createRoleAdapter()
   {
     return null;
   }

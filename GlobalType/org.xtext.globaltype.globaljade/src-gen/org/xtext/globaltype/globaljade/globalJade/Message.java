@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getContent <em>Content</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleA <em>Role A</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleB <em>Role B</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getSender <em>Sender</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getReceiver <em>Receiver</em>}</li>
  * </ul>
  *
  * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage()
@@ -63,47 +63,47 @@ public interface Message extends EObject
   EList<String> getContent();
 
   /**
-   * Returns the value of the '<em><b>Role A</b></em>' attribute.
+   * Returns the value of the '<em><b>Sender</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Role A</em>' attribute.
-   * @see #setRoleA(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_RoleA()
+   * @return the value of the '<em>Sender</em>' attribute.
+   * @see #setSender(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Sender()
    * @model
    * @generated
    */
-  String getRoleA();
+  String getSender();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleA <em>Role A</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getSender <em>Sender</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Role A</em>' attribute.
-   * @see #getRoleA()
+   * @param value the new value of the '<em>Sender</em>' attribute.
+   * @see #getSender()
    * @generated
    */
-  void setRoleA(String value);
+  void setSender(String value);
 
   /**
-   * Returns the value of the '<em><b>Role B</b></em>' attribute.
+   * Returns the value of the '<em><b>Receiver</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Role B</em>' attribute.
-   * @see #setRoleB(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_RoleB()
+   * @return the value of the '<em>Receiver</em>' attribute.
+   * @see #setReceiver(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Receiver()
    * @model
    * @generated
    */
-  String getRoleB();
+  String getReceiver();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getRoleB <em>Role B</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getReceiver <em>Receiver</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Role B</em>' attribute.
-   * @see #getRoleB()
+   * @param value the new value of the '<em>Receiver</em>' attribute.
+   * @see #getReceiver()
    * @generated
    */
-  void setRoleB(String value);
+  void setReceiver(String value);
 
 } // Message

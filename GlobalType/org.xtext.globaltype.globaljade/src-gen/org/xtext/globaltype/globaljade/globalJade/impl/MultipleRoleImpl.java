@@ -6,54 +6,45 @@ package org.xtext.globaltype.globaljade.globalJade.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.Role;
+import org.xtext.globaltype.globaljade.globalJade.MultipleRole;
+import org.xtext.globaltype.globaljade.globalJade.OneRole;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Role</b></em>'.
+ * An implementation of the model object '<em><b>Multiple Role</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RoleImpl extends MinimalEObjectImpl.Container implements Role
+public class MultipleRoleImpl extends RoleImpl implements MultipleRole
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected OneRole ref;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RoleImpl()
+  protected MultipleRoleImpl()
   {
     super();
   }
@@ -66,7 +57,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.ROLE;
+    return GlobalJadePackage.Literals.MULTIPLE_ROLE;
   }
 
   /**
@@ -75,9 +66,29 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public String getName()
+  public OneRole getRef()
   {
-    return name;
+    if (ref != null && ref.eIsProxy())
+    {
+      InternalEObject oldRef = (InternalEObject)ref;
+      ref = (OneRole)eResolveProxy(oldRef);
+      if (ref != oldRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GlobalJadePackage.MULTIPLE_ROLE__REF, oldRef, ref));
+      }
+    }
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OneRole basicGetRef()
+  {
+    return ref;
   }
 
   /**
@@ -86,12 +97,12 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setRef(OneRole newRef)
   {
-    String oldName = name;
-    name = newName;
+    OneRole oldRef = ref;
+    ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.ROLE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MULTIPLE_ROLE__REF, oldRef, ref));
   }
 
   /**
@@ -104,8 +115,9 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        return getName();
+      case GlobalJadePackage.MULTIPLE_ROLE__REF:
+        if (resolve) return getRef();
+        return basicGetRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +132,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        setName((String)newValue);
+      case GlobalJadePackage.MULTIPLE_ROLE__REF:
+        setRef((OneRole)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +149,8 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        setName(NAME_EDEFAULT);
+      case GlobalJadePackage.MULTIPLE_ROLE__REF:
+        setRef((OneRole)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +166,10 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role
   {
     switch (featureID)
     {
-      case GlobalJadePackage.ROLE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GlobalJadePackage.MULTIPLE_ROLE__REF:
+        return ref != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //RoleImpl
+} //MultipleRoleImpl

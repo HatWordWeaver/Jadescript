@@ -31,41 +31,49 @@ public class GlobalJadeParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GlobalJadeGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getRoleAccess().getAlternatives(), "rule__Role__Alternatives");
 			builder.put(grammarAccess.getProtocolAccess().getActionsAlternatives_1_0(), "rule__Protocol__ActionsAlternatives_1_0");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-			builder.put(grammarAccess.getModelAccess().getGroup_5(), "rule__Model__Group_5__0");
+			builder.put(grammarAccess.getRolesAccess().getGroup(), "rule__Roles__Group__0");
+			builder.put(grammarAccess.getRolesAccess().getGroup_1(), "rule__Roles__Group_1__0");
+			builder.put(grammarAccess.getOneRoleAccess().getGroup(), "rule__OneRole__Group__0");
+			builder.put(grammarAccess.getMultipleRoleAccess().getGroup(), "rule__MultipleRole__Group__0");
 			builder.put(grammarAccess.getProtocolAccess().getGroup(), "rule__Protocol__Group__0");
 			builder.put(grammarAccess.getRecursionAccess().getGroup(), "rule__Recursion__Group__0");
 			builder.put(grammarAccess.getEnd_RecursionAccess().getGroup(), "rule__End_Recursion__Group__0");
 			builder.put(grammarAccess.getContinue_RecursionAccess().getGroup(), "rule__Continue_Recursion__Group__0");
 			builder.put(grammarAccess.getChoice_ruleAccess().getGroup(), "rule__Choice_rule__Group__0");
-			builder.put(grammarAccess.getChoice_ruleAccess().getGroup_6(), "rule__Choice_rule__Group_6__0");
+			builder.put(grammarAccess.getChoice_ruleAccess().getGroup_7(), "rule__Choice_rule__Group_7__0");
 			builder.put(grammarAccess.getFor_loopAccess().getGroup(), "rule__For_loop__Group__0");
 			builder.put(grammarAccess.getEnd_messageAccess().getGroup(), "rule__End_message__Group__0");
 			builder.put(grammarAccess.getMessageAccess().getGroup(), "rule__Message__Group__0");
 			builder.put(grammarAccess.getMessageAccess().getGroup_3(), "rule__Message__Group_3__0");
-			builder.put(grammarAccess.getRoleAccess().getGroup(), "rule__Role__Group__0");
 			builder.put(grammarAccess.getModelAccess().getNameAssignment_2(), "rule__Model__NameAssignment_2");
 			builder.put(grammarAccess.getModelAccess().getRolesAssignment_4(), "rule__Model__RolesAssignment_4");
-			builder.put(grammarAccess.getModelAccess().getRolesAssignment_5_1(), "rule__Model__RolesAssignment_5_1");
-			builder.put(grammarAccess.getModelAccess().getProtocolAssignment_8(), "rule__Model__ProtocolAssignment_8");
+			builder.put(grammarAccess.getModelAccess().getProtocolAssignment_7(), "rule__Model__ProtocolAssignment_7");
+			builder.put(grammarAccess.getRolesAccess().getRolesAssignment_0(), "rule__Roles__RolesAssignment_0");
+			builder.put(grammarAccess.getRolesAccess().getRolesAssignment_1_1(), "rule__Roles__RolesAssignment_1_1");
+			builder.put(grammarAccess.getOneRoleAccess().getNameAssignment_1(), "rule__OneRole__NameAssignment_1");
+			builder.put(grammarAccess.getMultipleRoleAccess().getNameAssignment_1(), "rule__MultipleRole__NameAssignment_1");
+			builder.put(grammarAccess.getMultipleRoleAccess().getRefAssignment_3(), "rule__MultipleRole__RefAssignment_3");
 			builder.put(grammarAccess.getProtocolAccess().getActionsAssignment_1(), "rule__Protocol__ActionsAssignment_1");
 			builder.put(grammarAccess.getRecursionAccess().getNameAssignment_1(), "rule__Recursion__NameAssignment_1");
 			builder.put(grammarAccess.getEnd_RecursionAccess().getNameAssignment_1(), "rule__End_Recursion__NameAssignment_1");
 			builder.put(grammarAccess.getContinue_RecursionAccess().getNameAssignment_1(), "rule__Continue_Recursion__NameAssignment_1");
 			builder.put(grammarAccess.getChoice_ruleAccess().getRole_nameAssignment_2(), "rule__Choice_rule__Role_nameAssignment_2");
-			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_4(), "rule__Choice_rule__BranchAssignment_4");
-			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_6_2(), "rule__Choice_rule__BranchAssignment_6_2");
+			builder.put(grammarAccess.getChoice_ruleAccess().getMessagesAssignment_4(), "rule__Choice_rule__MessagesAssignment_4");
+			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_5(), "rule__Choice_rule__BranchAssignment_5");
+			builder.put(grammarAccess.getChoice_ruleAccess().getMessagesAssignment_7_2(), "rule__Choice_rule__MessagesAssignment_7_2");
+			builder.put(grammarAccess.getChoice_ruleAccess().getBranchAssignment_7_3(), "rule__Choice_rule__BranchAssignment_7_3");
 			builder.put(grammarAccess.getFor_loopAccess().getNameAssignment_1(), "rule__For_loop__NameAssignment_1");
-			builder.put(grammarAccess.getFor_loopAccess().getRoleAssignment_3(), "rule__For_loop__RoleAssignment_3");
+			builder.put(grammarAccess.getFor_loopAccess().getRoleTargetAssignment_3(), "rule__For_loop__RoleTargetAssignment_3");
 			builder.put(grammarAccess.getFor_loopAccess().getBranchAssignment_6(), "rule__For_loop__BranchAssignment_6");
 			builder.put(grammarAccess.getEnd_messageAccess().getEndAssignment_0(), "rule__End_message__EndAssignment_0");
 			builder.put(grammarAccess.getMessageAccess().getTypeAssignment_0(), "rule__Message__TypeAssignment_0");
 			builder.put(grammarAccess.getMessageAccess().getContentAssignment_2(), "rule__Message__ContentAssignment_2");
 			builder.put(grammarAccess.getMessageAccess().getContentAssignment_3_1(), "rule__Message__ContentAssignment_3_1");
-			builder.put(grammarAccess.getMessageAccess().getRoleAAssignment_6(), "rule__Message__RoleAAssignment_6");
-			builder.put(grammarAccess.getMessageAccess().getRoleBAssignment_8(), "rule__Message__RoleBAssignment_8");
-			builder.put(grammarAccess.getRoleAccess().getRoleAssignment_1(), "rule__Role__RoleAssignment_1");
+			builder.put(grammarAccess.getMessageAccess().getSenderAssignment_6(), "rule__Message__SenderAssignment_6");
+			builder.put(grammarAccess.getMessageAccess().getReceiverAssignment_8(), "rule__Message__ReceiverAssignment_8");
 		}
 	}
 	

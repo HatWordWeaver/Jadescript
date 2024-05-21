@@ -33,6 +33,42 @@ public interface GlobalJadeFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Roles</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Roles</em>'.
+   * @generated
+   */
+  Roles createRoles();
+
+  /**
+   * Returns a new object of class '<em>Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Role</em>'.
+   * @generated
+   */
+  Role createRole();
+
+  /**
+   * Returns a new object of class '<em>One Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>One Role</em>'.
+   * @generated
+   */
+  OneRole createOneRole();
+
+  /**
+   * Returns a new object of class '<em>Multiple Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiple Role</em>'.
+   * @generated
+   */
+  MultipleRole createMultipleRole();
+
+  /**
    * Returns a new object of class '<em>Protocol</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -103,15 +139,6 @@ public interface GlobalJadeFactory extends EFactory
    * @generated
    */
   Message createMessage();
-
-  /**
-   * Returns a new object of class '<em>Role</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Role</em>'.
-   * @generated
-   */
-  Role createRole();
 
   /**
    * Returns the package supported by this factory.

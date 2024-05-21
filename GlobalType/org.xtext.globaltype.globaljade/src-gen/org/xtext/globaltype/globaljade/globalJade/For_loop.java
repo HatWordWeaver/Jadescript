@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRoleTarget <em>Role Target</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getBranch <em>Branch</em>}</li>
  * </ul>
  *
@@ -50,26 +50,26 @@ public interface For_loop extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Role</b></em>' attribute.
+   * Returns the value of the '<em><b>Role Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Role</em>' attribute.
-   * @see #setRole(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getFor_loop_Role()
+   * @return the value of the '<em>Role Target</em>' attribute.
+   * @see #setRoleTarget(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getFor_loop_RoleTarget()
    * @model
    * @generated
    */
-  String getRole();
+  String getRoleTarget();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRole <em>Role</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRoleTarget <em>Role Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Role</em>' attribute.
-   * @see #getRole()
+   * @param value the new value of the '<em>Role Target</em>' attribute.
+   * @see #getRoleTarget()
    * @generated
    */
-  void setRole(String value);
+  void setRoleTarget(String value);
 
   /**
    * Returns the value of the '<em><b>Branch</b></em>' containment reference list.

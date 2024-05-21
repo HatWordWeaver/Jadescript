@@ -3,6 +3,18 @@
  */
 package org.xtext.globaltype.globaljade.validation;
 
+import java.util.HashMap;
+import java.util.ArrayList;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.validation.Check;
+import org.xtext.globaltype.globaljade.globalJade.MultipleRole;
+import org.xtext.globaltype.globaljade.globalJade.OneRole;
+import org.xtext.globaltype.globaljade.globalJade.Roles;
+import org.xtext.globaltype.globaljade.globalJade.Role;
+import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
+import org.xtext.globaltype.globaljade.globalJade.For_loop;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +23,39 @@ package org.xtext.globaltype.globaljade.validation;
  */
 public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					GlobalJadePackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	//HashMap<MultipleRole, OneRole> references;
+	ArrayList<String> multipleRoles = new ArrayList<>();
 	
+	@Check
+	public void setupMultipleRoles(Roles roles) {
+		for(Role r: roles.getRoles()) {
+			if(r instanceof MultipleRole) {
+				String name = ((MultipleRole) r).getRef().getName();
+				if(!multipleRoles.contains(name))
+					multipleRoles.add(name);
+				
+			}
+		}
+	}
+
+	
+	@Check
+	public void choiceMessageFromTheChoiceAgent(Choice_rule c) {
+		if(!c.getRole_name().equals(c.getMessages().get(0).getSender())) {
+			error("aspettavo: " + c.getRole_name() + " ma ho trovato: " + c.getMessages().get(0).getSender(),
+					null,
+					GlobalJadePackage.CHOICE_RULE);
+		}
+	}
+	
+	@Check
+	public void checkForAgentExistent(For_loop f) {
+		
+		if(!multipleRoles.contains(f.getRoleTarget())){
+			error("Trovato" + f.getRoleTarget() + 
+					"Deve essere iterato un ruolo multiplo",
+					null,
+					GlobalJadePackage.FOR_LOOP__NAME);
+		}
+	}
 }
