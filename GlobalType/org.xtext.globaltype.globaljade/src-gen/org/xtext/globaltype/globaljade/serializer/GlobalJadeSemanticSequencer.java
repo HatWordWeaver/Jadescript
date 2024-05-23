@@ -160,11 +160,23 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (protocolName=NAME roles=Roles protocol+=Protocol)
+	 *     (protocolName=NAME roles=Roles protocol=Protocol)
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.MODEL__PROTOCOL_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.MODEL__PROTOCOL_NAME));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.MODEL__ROLES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.MODEL__ROLES));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.MODEL__PROTOCOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.MODEL__PROTOCOL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModelAccess().getProtocolNameNAMETerminalRuleCall_2_0(), semanticObject.getProtocolName());
+		feeder.accept(grammarAccess.getModelAccess().getRolesRolesParserRuleCall_4_0(), semanticObject.getRoles());
+		feeder.accept(grammarAccess.getModelAccess().getProtocolProtocolParserRuleCall_7_0(), semanticObject.getProtocol());
+		feeder.finish();
 	}
 	
 	

@@ -47,7 +47,7 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//    // global protocol declaration
 		//    'global' 'protocol' protocolName=NAME '(' roles=Roles ')'
 		//    '{'
-		//        protocol+=Protocol
+		//        protocol=Protocol
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -55,7 +55,7 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//// global protocol declaration
 		//'global' 'protocol' protocolName=NAME '(' roles=Roles ')'
 		//'{'
-		//    protocol+=Protocol
+		//    protocol=Protocol
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -87,7 +87,7 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
-		//protocol+=Protocol
+		//protocol=Protocol
 		public Assignment getProtocolAssignment_7() { return cProtocolAssignment_7; }
 		
 		//Protocol
@@ -770,7 +770,7 @@ public class GlobalJadeGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//    // global protocol declaration
 	//    'global' 'protocol' protocolName=NAME '(' roles=Roles ')'
 	//    '{'
-	//        protocol+=Protocol
+	//        protocol=Protocol
 	//    '}'
 	//;
 	public ModelElements getModelAccess() {

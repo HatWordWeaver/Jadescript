@@ -6,8 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" eType="#//Roles"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol" upperBound="-1"
-        eType="#//Protocol" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol" eType="#//Protocol"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Roles">
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"

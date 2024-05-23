@@ -86,7 +86,7 @@ public interface GlobalJadePackage extends EPackage
   int MODEL__ROLES = 1;
 
   /**
-   * The feature id for the '<em><b>Protocol</b></em>' containment reference list.
+   * The feature id for the '<em><b>Protocol</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -517,10 +517,10 @@ public interface GlobalJadePackage extends EPackage
   EReference getModel_Roles();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocol <em>Protocol</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocol <em>Protocol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Protocol</em>'.
+   * @return the meta object for the containment reference '<em>Protocol</em>'.
    * @see org.xtext.globaltype.globaljade.globalJade.Model#getProtocol()
    * @see #getModel()
    * @generated
@@ -874,7 +874,7 @@ public interface GlobalJadePackage extends EPackage
     EReference MODEL__ROLES = eINSTANCE.getModel_Roles();
 
     /**
-     * The meta object literal for the '<em><b>Protocol</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Protocol</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

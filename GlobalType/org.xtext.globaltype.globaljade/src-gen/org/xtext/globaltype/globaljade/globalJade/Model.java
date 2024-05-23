@@ -3,8 +3,6 @@
  */
 package org.xtext.globaltype.globaljade.globalJade;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -72,15 +70,25 @@ public interface Model extends EObject
   void setRoles(Roles value);
 
   /**
-   * Returns the value of the '<em><b>Protocol</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Protocol}.
+   * Returns the value of the '<em><b>Protocol</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Protocol</em>' containment reference list.
+   * @return the value of the '<em>Protocol</em>' containment reference.
+   * @see #setProtocol(Protocol)
    * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getModel_Protocol()
    * @model containment="true"
    * @generated
    */
-  EList<Protocol> getProtocol();
+  Protocol getProtocol();
+
+  /**
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocol <em>Protocol</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Protocol</em>' containment reference.
+   * @see #getProtocol()
+   * @generated
+   */
+  void setProtocol(Protocol value);
 
 } // Model

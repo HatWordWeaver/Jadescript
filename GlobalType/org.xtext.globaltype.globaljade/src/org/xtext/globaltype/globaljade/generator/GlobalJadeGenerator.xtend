@@ -25,18 +25,17 @@ import org.xtext.globaltype.globaljade.globalJade.Payload
  */
 class GlobalJadeGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		var model = resource.contents.head as Model;
 		//create projection file(local protocol) for each role
-		for(Role r : model.getRoles().getRoles()){
+		var model = resource.contents.head as Model;
+		
+		for(Role r: model.getRoles().getRoles()){
 			fsa.generateFile('local'+r.getName()+'.txt', model.project(r))
 		}
-		
 	}
 	
 	def CharSequence project(Model model, Role role)'''
 		local protocol «model.protocolName» for role «role.name»(«projectOn(model.roles, role)») {
-			«projectOn(model, role)»
-			
+			«projectOn(model.protocol, role)»
 		}
 	'''
 	
@@ -46,45 +45,40 @@ class GlobalJadeGenerator extends AbstractGenerator {
 		«ENDFOR»
 	'''
 	
-	def dispatch projectOn(Roles roles, Role r)'''
-		«FOR role : roles.roles SEPARATOR ', '»role «IF role == r»self«ELSE»«role.name»«ENDIF»«ENDFOR»'''
+	def dispatch projectOn(Roles roles, Role r) '''
+		«FOR role : roles.roles SEPARATOR ', '»
+			role 
+			«IF role == r»self
+			«ELSE»«role.name»
+			«ENDIF»
+		«ENDFOR»
+	'''
 	
 	def dispatch projectOn(Message m, Role r)'''
 		«IF m.sender == r»
-			«m.type»(«printPayload(m.payload)») to «m.getReceiver()»
+			«m.type»(«printPayload(m.payload)») to «m.receiver»
 		«ENDIF»
 		«IF m.receiver == r»
-			«m.type»(«printPayload(m.payload)») from «m.getSender()»
-		«ENDIF»'''
+			«m.type»(«printPayload(m.payload)») from «m.sender»
+		«ENDIF»
+	'''
 	
 	def dispatch projectOn(Choice c, Role r)'''
-		choice at «IF c.role == r»self«ELSE»«c.getRole()»«ENDIF»{
-			«projectOn(c.messages.get(0), r)»
-			«projectOn(c.branch.get(0), r)»
+		choice at «IF c.role == r»self«ELSE»«c.role»«ENDIF»{
+				«projectOn(c.messages.get(0), r)»
+				«projectOn(c.branch.get(0), r)»
 		}
 	'''
 	
 	def dispatch projectOn(Recursion rec, Role r)'''
-		rec «rec.name»:
 	'''
 	
 	def dispatch projectOn(CloseRecursion recEnd, Role r)'''
-		loop «recEnd.recursionVariable.name»;
 	'''
 	
 	def dispatch projectOn(ForEach each, Role r)'''
-		«IF each.role == r»
-			«projectOn(each.branch, each.eachRole)»
-		«ENDIF»
-		«IF each.role !== r»
-			foreach «each.eachRole.name»:«each.role.name»{
-				«projectOn(each.branch, r)»
-			}
-		«ENDIF»
-		
 	'''
 	
 	def printPayload(Payload payload)'''
-		«IF payload !== null»
-			«FOR type: payload.types SEPARATOR ', '»«type»«ENDFOR»«ENDIF»'''
+	'''
 }

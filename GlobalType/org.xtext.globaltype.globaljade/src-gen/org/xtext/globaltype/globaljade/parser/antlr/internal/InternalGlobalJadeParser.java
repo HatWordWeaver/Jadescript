@@ -260,7 +260,7 @@ public class InternalGlobalJadeParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElementForParent(grammarAccess.getModelRule());
             					}
-            					add(
+            					set(
             						current,
             						"protocol",
             						lv_protocol_7_0,

@@ -9,7 +9,7 @@ Model:
 	// global protocol declaration
 	'global' 'protocol' protocolName=NAME '(' roles=Roles ')'
 	'{'
-		protocol+=Protocol
+		protocol=Protocol
 	'}'
 ;
 

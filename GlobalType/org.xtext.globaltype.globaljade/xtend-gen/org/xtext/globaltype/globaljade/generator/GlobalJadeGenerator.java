@@ -22,7 +22,6 @@ import org.xtext.globaltype.globaljade.globalJade.Payload;
 import org.xtext.globaltype.globaljade.globalJade.Protocol;
 import org.xtext.globaltype.globaljade.globalJade.Recursion;
 import org.xtext.globaltype.globaljade.globalJade.Role;
-import org.xtext.globaltype.globaljade.globalJade.RoleMultiple;
 import org.xtext.globaltype.globaljade.globalJade.Roles;
 
 /**
@@ -59,11 +58,9 @@ public class GlobalJadeGenerator extends AbstractGenerator {
     _builder.append(") {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    CharSequence _projectOn_1 = this.projectOn(model, role);
+    CharSequence _projectOn_1 = this.projectOn(model.getProtocol(), role);
     _builder.append(_projectOn_1, "\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -94,13 +91,16 @@ public class GlobalJadeGenerator extends AbstractGenerator {
           _builder.appendImmediate(", ", "");
         }
         _builder.append("role ");
+        _builder.newLine();
         {
           boolean _equals = Objects.equal(role, r);
           if (_equals) {
             _builder.append("self");
+            _builder.newLineIfNotEmpty();
           } else {
             String _name = role.getName();
             _builder.append(_name);
+            _builder.newLineIfNotEmpty();
           }
         }
       }
@@ -138,7 +138,6 @@ public class GlobalJadeGenerator extends AbstractGenerator {
         String _sender_1 = m.getSender();
         _builder.append(_sender_1);
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
       }
     }
     return _builder;
@@ -159,13 +158,13 @@ public class GlobalJadeGenerator extends AbstractGenerator {
     }
     _builder.append("{");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
+    _builder.append("\t\t");
     Object _projectOn = this.projectOn(c.getMessages().get(0), r);
-    _builder.append(_projectOn, "\t");
+    _builder.append(_projectOn, "\t\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
+    _builder.append("\t\t");
     Object _projectOn_1 = this.projectOn(c.getBranch().get(0), r);
-    _builder.append(_projectOn_1, "\t");
+    _builder.append(_projectOn_1, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -174,77 +173,21 @@ public class GlobalJadeGenerator extends AbstractGenerator {
 
   protected CharSequence _projectOn(final Recursion rec, final Role r) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("rec ");
-    String _name = rec.getName();
-    _builder.append(_name);
-    _builder.append(":");
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
 
   protected CharSequence _projectOn(final CloseRecursion recEnd, final Role r) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("loop ");
-    String _name = recEnd.getRecursionVariable().getName();
-    _builder.append(_name);
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
 
   protected CharSequence _projectOn(final ForEach each, final Role r) {
     StringConcatenation _builder = new StringConcatenation();
-    {
-      RoleMultiple _role = each.getRole();
-      boolean _equals = Objects.equal(_role, r);
-      if (_equals) {
-        Object _projectOn = this.projectOn(each.getBranch(), each.getEachRole());
-        _builder.append(_projectOn);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      RoleMultiple _role_1 = each.getRole();
-      boolean _tripleNotEquals = (_role_1 != r);
-      if (_tripleNotEquals) {
-        _builder.append("foreach ");
-        String _name = each.getEachRole().getName();
-        _builder.append(_name);
-        _builder.append(":");
-        String _name_1 = each.getRole().getName();
-        _builder.append(_name_1);
-        _builder.append("{");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        Object _projectOn_1 = this.projectOn(each.getBranch(), r);
-        _builder.append(_projectOn_1, "\t");
-        _builder.newLineIfNotEmpty();
-        _builder.append("}");
-        _builder.newLine();
-      }
-    }
-    _builder.newLine();
     return _builder;
   }
 
   public CharSequence printPayload(final Payload payload) {
     StringConcatenation _builder = new StringConcatenation();
-    {
-      if ((payload != null)) {
-        {
-          EList<String> _types = payload.getTypes();
-          boolean _hasElements = false;
-          for(final String type : _types) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(", ", "");
-            }
-            _builder.append(type);
-          }
-        }
-      }
-    }
     return _builder;
   }
 

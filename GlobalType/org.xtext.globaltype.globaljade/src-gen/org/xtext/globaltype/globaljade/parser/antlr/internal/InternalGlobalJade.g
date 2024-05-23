@@ -143,7 +143,7 @@ ruleModel returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
-					add(
+					set(
 						$current,
 						"protocol",
 						lv_protocol_7_0,
