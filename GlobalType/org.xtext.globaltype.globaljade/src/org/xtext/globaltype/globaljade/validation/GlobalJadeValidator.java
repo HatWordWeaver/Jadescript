@@ -3,18 +3,17 @@
  */
 package org.xtext.globaltype.globaljade.validation;
 
-import java.util.HashMap;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
-import org.xtext.globaltype.globaljade.globalJade.MultipleRole;
-import org.xtext.globaltype.globaljade.globalJade.OneRole;
+import org.xtext.globaltype.globaljade.globalJade.RoleMultiple;
+import org.xtext.globaltype.globaljade.globalJade.RoleOne;
 import org.xtext.globaltype.globaljade.globalJade.Roles;
 import org.xtext.globaltype.globaljade.globalJade.Role;
-import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.Choice;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.For_loop;
+import org.xtext.globaltype.globaljade.globalJade.ForEach;
 import org.xtext.globaltype.globaljade.globalJade.Message;
 
 /**
@@ -30,8 +29,8 @@ public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 	@Check
 	public void setupMultipleRoles(Roles roles) {
 		for(Role r: roles.getRoles()) {
-			if(r instanceof MultipleRole) {
-				String name = ((MultipleRole) r).getRef().getName();
+			if(r instanceof RoleMultiple) {
+				String name = ((RoleMultiple) r).getRef().getName();
 				if(!multipleRoles.contains(name))
 					multipleRoles.add(name);
 				
@@ -54,24 +53,27 @@ public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 
 	
 	@Check
-	public void choiceMessageFromTheChoiceAgent(Choice_rule c) {
-		if(!c.getRole_name().equals(c.getMessages().get(0).getSender())) {
-			error("aspettavo: " + c.getRole_name() + " ma ho trovato: " + c.getMessages().get(0).getSender(),
+	public void choiceMessageFromTheChoiceAgent(Choice c) {
+		if(!c.getRole().equals(c.getMessages().get(0).getSender())) {
+			error("aspettavo: " + c.getRole() + " ma ho trovato: " + c.getMessages().get(0).getSender(),
 					null,
-					GlobalJadePackage.CHOICE_RULE);
+					GlobalJadePackage.CHOICE);
 		}
 	}
 	
+	/*
 	@Check
-	public void checkForAgentExistent(For_loop f) {
+	public void checkForAgentExistent(ForEach f) {
 		
-		if(!multipleRoles.contains(f.getRoleTarget())){
-			error("Trovato" + f.getRoleTarget() + 
+		if(!multipleRoles.contains(f.getRole())){
+			error("Trovato" + f.getRole() + 
 					"Deve essere iterato un ruolo multiplo",
 					null,
-					GlobalJadePackage.FOR_LOOP__NAME);
+					GlobalJadePackage.FOR_EACH__ROLE);
 		}
 	}
+	
+	
 	
 	@Check
 	public void checkMessageDestination(Message message) {
@@ -81,11 +83,13 @@ public class GlobalJadeValidator extends AbstractGlobalJadeValidator {
 					GlobalJadePackage.MESSAGE);
 	}
 	
+	
+	
 	@Check
 	public void checkRecursionClosed(Message message) {
 		if(multipleRoles.contains(message.getSender())) {
 			error("Il ruolo multiplo non puo' mandare messaggi", null, GlobalJadePackage.MESSAGE__SENDER);
 		}
 	}
-	
+	*/
 }

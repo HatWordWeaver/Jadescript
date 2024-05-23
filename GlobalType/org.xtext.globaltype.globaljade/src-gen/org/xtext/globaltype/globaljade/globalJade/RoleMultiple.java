@@ -6,42 +6,42 @@ package org.xtext.globaltype.globaljade.globalJade;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Multiple Role</b></em>'.
+ * A representation of the model object '<em><b>Role Multiple</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.RoleMultiple#getRef <em>Ref</em>}</li>
  * </ul>
  *
- * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMultipleRole()
+ * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getRoleMultiple()
  * @model
  * @generated
  */
-public interface MultipleRole extends Role
+public interface RoleMultiple extends Role
 {
   /**
    * Returns the value of the '<em><b>Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ref</em>' reference.
-   * @see #setRef(OneRole)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMultipleRole_Ref()
+   * @see #setRef(RoleOne)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getRoleMultiple_Ref()
    * @model
    * @generated
    */
-  OneRole getRef();
+  RoleOne getRef();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole#getRef <em>Ref</em>}' reference.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.RoleMultiple#getRef <em>Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ref</em>' reference.
    * @see #getRef()
    * @generated
    */
-  void setRef(OneRole value);
+  void setRef(RoleOne value);
 
-} // MultipleRole
+} // RoleMultiple

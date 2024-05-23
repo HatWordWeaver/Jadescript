@@ -91,14 +91,14 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createRoleAdapter();
       }
       @Override
-      public Adapter caseOneRole(OneRole object)
+      public Adapter caseRoleOne(RoleOne object)
       {
-        return createOneRoleAdapter();
+        return createRoleOneAdapter();
       }
       @Override
-      public Adapter caseMultipleRole(MultipleRole object)
+      public Adapter caseRoleMultiple(RoleMultiple object)
       {
-        return createMultipleRoleAdapter();
+        return createRoleMultipleAdapter();
       }
       @Override
       public Adapter caseProtocol(Protocol object)
@@ -111,34 +111,29 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
         return createRecursionAdapter();
       }
       @Override
-      public Adapter caseEnd_Recursion(End_Recursion object)
+      public Adapter caseCloseRecursion(CloseRecursion object)
       {
-        return createEnd_RecursionAdapter();
+        return createCloseRecursionAdapter();
       }
       @Override
-      public Adapter caseContinue_Recursion(Continue_Recursion object)
+      public Adapter caseChoice(Choice object)
       {
-        return createContinue_RecursionAdapter();
+        return createChoiceAdapter();
       }
       @Override
-      public Adapter caseChoice_rule(Choice_rule object)
+      public Adapter caseForEach(ForEach object)
       {
-        return createChoice_ruleAdapter();
-      }
-      @Override
-      public Adapter caseFor_loop(For_loop object)
-      {
-        return createFor_loopAdapter();
-      }
-      @Override
-      public Adapter caseEnd_message(End_message object)
-      {
-        return createEnd_messageAdapter();
+        return createForEachAdapter();
       }
       @Override
       public Adapter caseMessage(Message object)
       {
         return createMessageAdapter();
+      }
+      @Override
+      public Adapter casePayload(Payload object)
+      {
+        return createPayloadAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -208,31 +203,31 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.OneRole <em>One Role</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.RoleOne <em>Role One</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.OneRole
+   * @see org.xtext.globaltype.globaljade.globalJade.RoleOne
    * @generated
    */
-  public Adapter createOneRoleAdapter()
+  public Adapter createRoleOneAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole <em>Multiple Role</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.RoleMultiple <em>Role Multiple</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.MultipleRole
+   * @see org.xtext.globaltype.globaljade.globalJade.RoleMultiple
    * @generated
    */
-  public Adapter createMultipleRoleAdapter()
+  public Adapter createRoleMultipleAdapter()
   {
     return null;
   }
@@ -268,76 +263,46 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.End_Recursion <em>End Recursion</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.CloseRecursion <em>Close Recursion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_Recursion
+   * @see org.xtext.globaltype.globaljade.globalJade.CloseRecursion
    * @generated
    */
-  public Adapter createEnd_RecursionAdapter()
+  public Adapter createCloseRecursionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Continue_Recursion <em>Continue Recursion</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Choice <em>Choice</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.Continue_Recursion
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice
    * @generated
    */
-  public Adapter createContinue_RecursionAdapter()
+  public Adapter createChoiceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule <em>Choice rule</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.ForEach <em>For Each</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule
+   * @see org.xtext.globaltype.globaljade.globalJade.ForEach
    * @generated
    */
-  public Adapter createChoice_ruleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.For_loop <em>For loop</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.For_loop
-   * @generated
-   */
-  public Adapter createFor_loopAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.End_message <em>End message</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_message
-   * @generated
-   */
-  public Adapter createEnd_messageAdapter()
+  public Adapter createForEachAdapter()
   {
     return null;
   }
@@ -353,6 +318,21 @@ public class GlobalJadeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMessageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.globaltype.globaljade.globalJade.Payload <em>Payload</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.globaltype.globaljade.globalJade.Payload
+   * @generated
+   */
+  public Adapter createPayloadAdapter()
   {
     return null;
   }

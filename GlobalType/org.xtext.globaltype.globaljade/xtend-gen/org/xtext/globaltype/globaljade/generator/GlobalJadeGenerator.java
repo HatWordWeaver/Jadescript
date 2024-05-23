@@ -3,10 +3,27 @@
  */
 package org.xtext.globaltype.globaljade.generator;
 
+import com.google.common.base.Objects;
+import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.globaltype.globaljade.globalJade.Choice;
+import org.xtext.globaltype.globaljade.globalJade.CloseRecursion;
+import org.xtext.globaltype.globaljade.globalJade.ForEach;
+import org.xtext.globaltype.globaljade.globalJade.Message;
+import org.xtext.globaltype.globaljade.globalJade.Model;
+import org.xtext.globaltype.globaljade.globalJade.Payload;
+import org.xtext.globaltype.globaljade.globalJade.Protocol;
+import org.xtext.globaltype.globaljade.globalJade.Recursion;
+import org.xtext.globaltype.globaljade.globalJade.Role;
+import org.xtext.globaltype.globaljade.globalJade.RoleMultiple;
+import org.xtext.globaltype.globaljade.globalJade.Roles;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +34,238 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class GlobalJadeGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    Model model = ((Model) _head);
+    EList<Role> _roles = model.getRoles().getRoles();
+    for (final Role r : _roles) {
+      String _name = r.getName();
+      String _plus = ("local" + _name);
+      String _plus_1 = (_plus + ".txt");
+      fsa.generateFile(_plus_1, this.project(model, r));
+    }
+  }
+
+  public CharSequence project(final Model model, final Role role) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("local protocol ");
+    String _protocolName = model.getProtocolName();
+    _builder.append(_protocolName);
+    _builder.append(" for role ");
+    String _name = role.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    CharSequence _projectOn = this.projectOn(model.getRoles(), role);
+    _builder.append(_projectOn);
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    CharSequence _projectOn_1 = this.projectOn(model, role);
+    _builder.append(_projectOn_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final Protocol protocol, final Role role) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<EObject> _actions = protocol.getActions();
+      for(final EObject a : _actions) {
+        Object _projectOn = this.projectOn(a, role);
+        _builder.append(_projectOn);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final Roles roles, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Role> _roles = roles.getRoles();
+      boolean _hasElements = false;
+      for(final Role role : _roles) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        _builder.append("role ");
+        {
+          boolean _equals = Objects.equal(role, r);
+          if (_equals) {
+            _builder.append("self");
+          } else {
+            String _name = role.getName();
+            _builder.append(_name);
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final Message m, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _sender = m.getSender();
+      boolean _equals = Objects.equal(_sender, r);
+      if (_equals) {
+        String _type = m.getType();
+        _builder.append(_type);
+        _builder.append("(");
+        CharSequence _printPayload = this.printPayload(m.getPayload());
+        _builder.append(_printPayload);
+        _builder.append(") to ");
+        String _receiver = m.getReceiver();
+        _builder.append(_receiver);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _receiver_1 = m.getReceiver();
+      boolean _equals_1 = Objects.equal(_receiver_1, r);
+      if (_equals_1) {
+        String _type_1 = m.getType();
+        _builder.append(_type_1);
+        _builder.append("(");
+        CharSequence _printPayload_1 = this.printPayload(m.getPayload());
+        _builder.append(_printPayload_1);
+        _builder.append(") from ");
+        String _sender_1 = m.getSender();
+        _builder.append(_sender_1);
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+      }
+    }
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final Choice c, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("choice at ");
+    {
+      String _role = c.getRole();
+      boolean _equals = Objects.equal(_role, r);
+      if (_equals) {
+        _builder.append("self");
+      } else {
+        String _role_1 = c.getRole();
+        _builder.append(_role_1);
+      }
+    }
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    Object _projectOn = this.projectOn(c.getMessages().get(0), r);
+    _builder.append(_projectOn, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    Object _projectOn_1 = this.projectOn(c.getBranch().get(0), r);
+    _builder.append(_projectOn_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final Recursion rec, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("rec ");
+    String _name = rec.getName();
+    _builder.append(_name);
+    _builder.append(":");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final CloseRecursion recEnd, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("loop ");
+    String _name = recEnd.getRecursionVariable().getName();
+    _builder.append(_name);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected CharSequence _projectOn(final ForEach each, final Role r) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      RoleMultiple _role = each.getRole();
+      boolean _equals = Objects.equal(_role, r);
+      if (_equals) {
+        Object _projectOn = this.projectOn(each.getBranch(), each.getEachRole());
+        _builder.append(_projectOn);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      RoleMultiple _role_1 = each.getRole();
+      boolean _tripleNotEquals = (_role_1 != r);
+      if (_tripleNotEquals) {
+        _builder.append("foreach ");
+        String _name = each.getEachRole().getName();
+        _builder.append(_name);
+        _builder.append(":");
+        String _name_1 = each.getRole().getName();
+        _builder.append(_name_1);
+        _builder.append("{");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        Object _projectOn_1 = this.projectOn(each.getBranch(), r);
+        _builder.append(_projectOn_1, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence printPayload(final Payload payload) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((payload != null)) {
+        {
+          EList<String> _types = payload.getTypes();
+          boolean _hasElements = false;
+          for(final String type : _types) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(", ", "");
+            }
+            _builder.append(type);
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+
+  public CharSequence projectOn(final EObject c, final Role r) {
+    if (c instanceof Choice) {
+      return _projectOn((Choice)c, r);
+    } else if (c instanceof CloseRecursion) {
+      return _projectOn((CloseRecursion)c, r);
+    } else if (c instanceof ForEach) {
+      return _projectOn((ForEach)c, r);
+    } else if (c instanceof Message) {
+      return _projectOn((Message)c, r);
+    } else if (c instanceof Protocol) {
+      return _projectOn((Protocol)c, r);
+    } else if (c instanceof Recursion) {
+      return _projectOn((Recursion)c, r);
+    } else if (c instanceof Roles) {
+      return _projectOn((Roles)c, r);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(c, r).toString());
+    }
   }
 }

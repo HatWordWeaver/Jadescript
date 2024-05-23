@@ -3,57 +3,50 @@
  */
 package org.xtext.globaltype.globaljade.globalJade.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.globaltype.globaljade.globalJade.Continue_Recursion;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
+import org.xtext.globaltype.globaljade.globalJade.Payload;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Continue Recursion</b></em>'.
+ * An implementation of the model object '<em><b>Payload</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Continue_RecursionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.PayloadImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Continue_RecursionImpl extends MinimalEObjectImpl.Container implements Continue_Recursion
+public class PayloadImpl extends MinimalEObjectImpl.Container implements Payload
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<String> types;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Continue_RecursionImpl()
+  protected PayloadImpl()
   {
     super();
   }
@@ -66,7 +59,7 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.CONTINUE_RECURSION;
+    return GlobalJadePackage.Literals.PAYLOAD;
   }
 
   /**
@@ -75,23 +68,13 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public String getName()
+  public EList<String> getTypes()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.CONTINUE_RECURSION__NAME, oldName, name));
+    if (types == null)
+    {
+      types = new EDataTypeEList<String>(String.class, this, GlobalJadePackage.PAYLOAD__TYPES);
+    }
+    return types;
   }
 
   /**
@@ -104,8 +87,8 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CONTINUE_RECURSION__NAME:
-        return getName();
+      case GlobalJadePackage.PAYLOAD__TYPES:
+        return getTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +98,15 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CONTINUE_RECURSION__NAME:
-        setName((String)newValue);
+      case GlobalJadePackage.PAYLOAD__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +122,8 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CONTINUE_RECURSION__NAME:
-        setName(NAME_EDEFAULT);
+      case GlobalJadePackage.PAYLOAD__TYPES:
+        getTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +139,8 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CONTINUE_RECURSION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GlobalJadePackage.PAYLOAD__TYPES:
+        return types != null && !types.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +156,10 @@ public class Continue_RecursionImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (types: ");
+    result.append(types);
     result.append(')');
     return result.toString();
   }
 
-} //Continue_RecursionImpl
+} //PayloadImpl

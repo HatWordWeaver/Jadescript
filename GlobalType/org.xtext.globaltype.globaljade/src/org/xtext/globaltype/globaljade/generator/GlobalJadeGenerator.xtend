@@ -7,6 +7,16 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.globaltype.globaljade.globalJade.Model
+import org.xtext.globaltype.globaljade.globalJade.Role
+import org.xtext.globaltype.globaljade.globalJade.Protocol
+import org.xtext.globaltype.globaljade.globalJade.Message
+import org.xtext.globaltype.globaljade.globalJade.Choice
+import org.xtext.globaltype.globaljade.globalJade.Recursion
+import org.xtext.globaltype.globaljade.globalJade.CloseRecursion
+import org.xtext.globaltype.globaljade.globalJade.ForEach
+import org.xtext.globaltype.globaljade.globalJade.Roles
+import org.xtext.globaltype.globaljade.globalJade.Payload
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +24,67 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class GlobalJadeGenerator extends AbstractGenerator {
-
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var model = resource.contents.head as Model;
+		//create projection file(local protocol) for each role
+		for(Role r : model.getRoles().getRoles()){
+			fsa.generateFile('local'+r.getName()+'.txt', model.project(r))
+		}
+		
 	}
+	
+	def CharSequence project(Model model, Role role)'''
+		local protocol «model.protocolName» for role «role.name»(«projectOn(model.roles, role)») {
+			«projectOn(model, role)»
+			
+		}
+	'''
+	
+	def dispatch projectOn(Protocol protocol, Role role) '''
+		«FOR a : protocol.actions»
+			«projectOn(a, role)»
+		«ENDFOR»
+	'''
+	
+	def dispatch projectOn(Roles roles, Role r)'''
+		«FOR role : roles.roles SEPARATOR ', '»role «IF role == r»self«ELSE»«role.name»«ENDIF»«ENDFOR»'''
+	
+	def dispatch projectOn(Message m, Role r)'''
+		«IF m.sender == r»
+			«m.type»(«printPayload(m.payload)») to «m.getReceiver()»
+		«ENDIF»
+		«IF m.receiver == r»
+			«m.type»(«printPayload(m.payload)») from «m.getSender()»
+		«ENDIF»'''
+	
+	def dispatch projectOn(Choice c, Role r)'''
+		choice at «IF c.role == r»self«ELSE»«c.getRole()»«ENDIF»{
+			«projectOn(c.messages.get(0), r)»
+			«projectOn(c.branch.get(0), r)»
+		}
+	'''
+	
+	def dispatch projectOn(Recursion rec, Role r)'''
+		rec «rec.name»:
+	'''
+	
+	def dispatch projectOn(CloseRecursion recEnd, Role r)'''
+		loop «recEnd.recursionVariable.name»;
+	'''
+	
+	def dispatch projectOn(ForEach each, Role r)'''
+		«IF each.role == r»
+			«projectOn(each.branch, each.eachRole)»
+		«ENDIF»
+		«IF each.role !== r»
+			foreach «each.eachRole.name»:«each.role.name»{
+				«projectOn(each.branch, r)»
+			}
+		«ENDIF»
+		
+	'''
+	
+	def printPayload(Payload payload)'''
+		«IF payload !== null»
+			«FOR type: payload.types SEPARATOR ', '»«type»«ENDFOR»«ENDIF»'''
 }

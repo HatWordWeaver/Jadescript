@@ -51,22 +51,22 @@ public interface GlobalJadeFactory extends EFactory
   Role createRole();
 
   /**
-   * Returns a new object of class '<em>One Role</em>'.
+   * Returns a new object of class '<em>Role One</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>One Role</em>'.
+   * @return a new object of class '<em>Role One</em>'.
    * @generated
    */
-  OneRole createOneRole();
+  RoleOne createRoleOne();
 
   /**
-   * Returns a new object of class '<em>Multiple Role</em>'.
+   * Returns a new object of class '<em>Role Multiple</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiple Role</em>'.
+   * @return a new object of class '<em>Role Multiple</em>'.
    * @generated
    */
-  MultipleRole createMultipleRole();
+  RoleMultiple createRoleMultiple();
 
   /**
    * Returns a new object of class '<em>Protocol</em>'.
@@ -87,49 +87,31 @@ public interface GlobalJadeFactory extends EFactory
   Recursion createRecursion();
 
   /**
-   * Returns a new object of class '<em>End Recursion</em>'.
+   * Returns a new object of class '<em>Close Recursion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>End Recursion</em>'.
+   * @return a new object of class '<em>Close Recursion</em>'.
    * @generated
    */
-  End_Recursion createEnd_Recursion();
+  CloseRecursion createCloseRecursion();
 
   /**
-   * Returns a new object of class '<em>Continue Recursion</em>'.
+   * Returns a new object of class '<em>Choice</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Continue Recursion</em>'.
+   * @return a new object of class '<em>Choice</em>'.
    * @generated
    */
-  Continue_Recursion createContinue_Recursion();
+  Choice createChoice();
 
   /**
-   * Returns a new object of class '<em>Choice rule</em>'.
+   * Returns a new object of class '<em>For Each</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Choice rule</em>'.
+   * @return a new object of class '<em>For Each</em>'.
    * @generated
    */
-  Choice_rule createChoice_rule();
-
-  /**
-   * Returns a new object of class '<em>For loop</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For loop</em>'.
-   * @generated
-   */
-  For_loop createFor_loop();
-
-  /**
-   * Returns a new object of class '<em>End message</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>End message</em>'.
-   * @generated
-   */
-  End_message createEnd_message();
+  ForEach createForEach();
 
   /**
    * Returns a new object of class '<em>Message</em>'.
@@ -139,6 +121,15 @@ public interface GlobalJadeFactory extends EFactory
    * @generated
    */
   Message createMessage();
+
+  /**
+   * Returns a new object of class '<em>Payload</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Payload</em>'.
+   * @generated
+   */
+  Payload createPayload();
 
   /**
    * Returns the package supported by this factory.

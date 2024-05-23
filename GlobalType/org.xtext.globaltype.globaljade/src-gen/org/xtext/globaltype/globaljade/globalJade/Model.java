@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Model#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocolName <em>Protocol Name</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Model#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocol <em>Protocol</em>}</li>
  * </ul>
@@ -28,38 +28,48 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Protocol Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getModel_Name()
+   * @return the value of the '<em>Protocol Name</em>' attribute.
+   * @see #setProtocolName(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getModel_ProtocolName()
    * @model
    * @generated
    */
-  String getName();
+  String getProtocolName();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Model#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocolName <em>Protocol Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Protocol Name</em>' attribute.
+   * @see #getProtocolName()
    * @generated
    */
-  void setName(String value);
+  void setProtocolName(String value);
 
   /**
-   * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.globaltype.globaljade.globalJade.Roles}.
+   * Returns the value of the '<em><b>Roles</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Roles</em>' containment reference list.
+   * @return the value of the '<em>Roles</em>' containment reference.
+   * @see #setRoles(Roles)
    * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getModel_Roles()
    * @model containment="true"
    * @generated
    */
-  EList<Roles> getRoles();
+  Roles getRoles();
+
+  /**
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Model#getRoles <em>Roles</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Roles</em>' containment reference.
+   * @see #getRoles()
+   * @generated
+   */
+  void setRoles(Roles value);
 
   /**
    * Returns the value of the '<em><b>Protocol</b></em>' containment reference list.

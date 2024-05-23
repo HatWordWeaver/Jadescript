@@ -3,8 +3,6 @@
  */
 package org.xtext.globaltype.globaljade.globalJade;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getPayload <em>Payload</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getSender <em>Sender</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Message#getReceiver <em>Receiver</em>}</li>
  * </ul>
@@ -51,16 +49,26 @@ public interface Message extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Content</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Payload</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Content</em>' attribute list.
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Content()
-   * @model unique="false"
+   * @return the value of the '<em>Payload</em>' containment reference.
+   * @see #setPayload(Payload)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getMessage_Payload()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getContent();
+  Payload getPayload();
+
+  /**
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Message#getPayload <em>Payload</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Payload</em>' containment reference.
+   * @see #getPayload()
+   * @generated
+   */
+  void setPayload(Payload value);
 
   /**
    * Returns the value of the '<em><b>Sender</b></em>' attribute.

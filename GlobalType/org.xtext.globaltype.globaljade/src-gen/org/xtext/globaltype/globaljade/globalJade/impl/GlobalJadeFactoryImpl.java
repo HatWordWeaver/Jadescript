@@ -68,16 +68,15 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
       case GlobalJadePackage.MODEL: return createModel();
       case GlobalJadePackage.ROLES: return createRoles();
       case GlobalJadePackage.ROLE: return createRole();
-      case GlobalJadePackage.ONE_ROLE: return createOneRole();
-      case GlobalJadePackage.MULTIPLE_ROLE: return createMultipleRole();
+      case GlobalJadePackage.ROLE_ONE: return createRoleOne();
+      case GlobalJadePackage.ROLE_MULTIPLE: return createRoleMultiple();
       case GlobalJadePackage.PROTOCOL: return createProtocol();
       case GlobalJadePackage.RECURSION: return createRecursion();
-      case GlobalJadePackage.END_RECURSION: return createEnd_Recursion();
-      case GlobalJadePackage.CONTINUE_RECURSION: return createContinue_Recursion();
-      case GlobalJadePackage.CHOICE_RULE: return createChoice_rule();
-      case GlobalJadePackage.FOR_LOOP: return createFor_loop();
-      case GlobalJadePackage.END_MESSAGE: return createEnd_message();
+      case GlobalJadePackage.CLOSE_RECURSION: return createCloseRecursion();
+      case GlobalJadePackage.CHOICE: return createChoice();
+      case GlobalJadePackage.FOR_EACH: return createForEach();
       case GlobalJadePackage.MESSAGE: return createMessage();
+      case GlobalJadePackage.PAYLOAD: return createPayload();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -125,10 +124,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public OneRole createOneRole()
+  public RoleOne createRoleOne()
   {
-    OneRoleImpl oneRole = new OneRoleImpl();
-    return oneRole;
+    RoleOneImpl roleOne = new RoleOneImpl();
+    return roleOne;
   }
 
   /**
@@ -137,10 +136,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public MultipleRole createMultipleRole()
+  public RoleMultiple createRoleMultiple()
   {
-    MultipleRoleImpl multipleRole = new MultipleRoleImpl();
-    return multipleRole;
+    RoleMultipleImpl roleMultiple = new RoleMultipleImpl();
+    return roleMultiple;
   }
 
   /**
@@ -173,10 +172,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public End_Recursion createEnd_Recursion()
+  public CloseRecursion createCloseRecursion()
   {
-    End_RecursionImpl end_Recursion = new End_RecursionImpl();
-    return end_Recursion;
+    CloseRecursionImpl closeRecursion = new CloseRecursionImpl();
+    return closeRecursion;
   }
 
   /**
@@ -185,10 +184,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public Continue_Recursion createContinue_Recursion()
+  public Choice createChoice()
   {
-    Continue_RecursionImpl continue_Recursion = new Continue_RecursionImpl();
-    return continue_Recursion;
+    ChoiceImpl choice = new ChoiceImpl();
+    return choice;
   }
 
   /**
@@ -197,34 +196,10 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
    * @generated
    */
   @Override
-  public Choice_rule createChoice_rule()
+  public ForEach createForEach()
   {
-    Choice_ruleImpl choice_rule = new Choice_ruleImpl();
-    return choice_rule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public For_loop createFor_loop()
-  {
-    For_loopImpl for_loop = new For_loopImpl();
-    return for_loop;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public End_message createEnd_message()
-  {
-    End_messageImpl end_message = new End_messageImpl();
-    return end_message;
+    ForEachImpl forEach = new ForEachImpl();
+    return forEach;
   }
 
   /**
@@ -237,6 +212,18 @@ public class GlobalJadeFactoryImpl extends EFactoryImpl implements GlobalJadeFac
   {
     MessageImpl message = new MessageImpl();
     return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Payload createPayload()
+  {
+    PayloadImpl payload = new PayloadImpl();
+    return payload;
   }
 
   /**

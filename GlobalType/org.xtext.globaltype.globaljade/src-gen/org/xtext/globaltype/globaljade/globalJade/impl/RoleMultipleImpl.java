@@ -6,54 +6,45 @@ package org.xtext.globaltype.globaljade.globalJade.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.globaltype.globaljade.globalJade.End_Recursion;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
+import org.xtext.globaltype.globaljade.globalJade.RoleMultiple;
+import org.xtext.globaltype.globaljade.globalJade.RoleOne;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>End Recursion</b></em>'.
+ * An implementation of the model object '<em><b>Role Multiple</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.End_RecursionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleMultipleImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class End_RecursionImpl extends MinimalEObjectImpl.Container implements End_Recursion
+public class RoleMultipleImpl extends RoleImpl implements RoleMultiple
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected RoleOne ref;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected End_RecursionImpl()
+  protected RoleMultipleImpl()
   {
     super();
   }
@@ -66,7 +57,7 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.END_RECURSION;
+    return GlobalJadePackage.Literals.ROLE_MULTIPLE;
   }
 
   /**
@@ -75,9 +66,29 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
    * @generated
    */
   @Override
-  public String getName()
+  public RoleOne getRef()
   {
-    return name;
+    if (ref != null && ref.eIsProxy())
+    {
+      InternalEObject oldRef = (InternalEObject)ref;
+      ref = (RoleOne)eResolveProxy(oldRef);
+      if (ref != oldRef)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GlobalJadePackage.ROLE_MULTIPLE__REF, oldRef, ref));
+      }
+    }
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RoleOne basicGetRef()
+  {
+    return ref;
   }
 
   /**
@@ -86,12 +97,12 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setRef(RoleOne newRef)
   {
-    String oldName = name;
-    name = newName;
+    RoleOne oldRef = ref;
+    ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.END_RECURSION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.ROLE_MULTIPLE__REF, oldRef, ref));
   }
 
   /**
@@ -104,8 +115,9 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
   {
     switch (featureID)
     {
-      case GlobalJadePackage.END_RECURSION__NAME:
-        return getName();
+      case GlobalJadePackage.ROLE_MULTIPLE__REF:
+        if (resolve) return getRef();
+        return basicGetRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +132,8 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
   {
     switch (featureID)
     {
-      case GlobalJadePackage.END_RECURSION__NAME:
-        setName((String)newValue);
+      case GlobalJadePackage.ROLE_MULTIPLE__REF:
+        setRef((RoleOne)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +149,8 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
   {
     switch (featureID)
     {
-      case GlobalJadePackage.END_RECURSION__NAME:
-        setName(NAME_EDEFAULT);
+      case GlobalJadePackage.ROLE_MULTIPLE__REF:
+        setRef((RoleOne)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +166,10 @@ public class End_RecursionImpl extends MinimalEObjectImpl.Container implements E
   {
     switch (featureID)
     {
-      case GlobalJadePackage.END_RECURSION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GlobalJadePackage.ROLE_MULTIPLE__REF:
+        return ref != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //End_RecursionImpl
+} //RoleMultipleImpl

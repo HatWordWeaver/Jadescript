@@ -9,45 +9,45 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Choice rule</b></em>'.
+ * A representation of the model object '<em><b>Choice</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getRole_name <em>Role name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getMessages <em>Messages</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getBranch <em>Branch</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.Choice#getBranch <em>Branch</em>}</li>
  * </ul>
  *
- * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_rule()
+ * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice()
  * @model
  * @generated
  */
-public interface Choice_rule extends EObject
+public interface Choice extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Role name</b></em>' attribute.
+   * Returns the value of the '<em><b>Role</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Role name</em>' attribute.
-   * @see #setRole_name(String)
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_rule_Role_name()
+   * @return the value of the '<em>Role</em>' attribute.
+   * @see #setRole(String)
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_Role()
    * @model
    * @generated
    */
-  String getRole_name();
+  String getRole();
 
   /**
-   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getRole_name <em>Role name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.globaltype.globaljade.globalJade.Choice#getRole <em>Role</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Role name</em>' attribute.
-   * @see #getRole_name()
+   * @param value the new value of the '<em>Role</em>' attribute.
+   * @see #getRole()
    * @generated
    */
-  void setRole_name(String value);
+  void setRole(String value);
 
   /**
    * Returns the value of the '<em><b>Messages</b></em>' containment reference list.
@@ -55,7 +55,7 @@ public interface Choice_rule extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Messages</em>' containment reference list.
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_rule_Messages()
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_Messages()
    * @model containment="true"
    * @generated
    */
@@ -67,10 +67,10 @@ public interface Choice_rule extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Branch</em>' containment reference list.
-   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_rule_Branch()
+   * @see org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage#getChoice_Branch()
    * @model containment="true"
    * @generated
    */
   EList<Protocol> getBranch();
 
-} // Choice_rule
+} // Choice

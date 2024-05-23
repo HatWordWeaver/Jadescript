@@ -68,16 +68,16 @@ public interface GlobalJadePackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Protocol Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__NAME = 0;
+  int MODEL__PROTOCOL_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+   * The feature id for the '<em><b>Roles</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -160,14 +160,14 @@ public interface GlobalJadePackage extends EPackage
   int ROLE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.OneRoleImpl <em>One Role</em>}' class.
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleOneImpl <em>Role One</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.OneRoleImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getOneRole()
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.RoleOneImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getRoleOne()
    * @generated
    */
-  int ONE_ROLE = 3;
+  int ROLE_ONE = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,26 +176,26 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ONE_ROLE__NAME = ROLE__NAME;
+  int ROLE_ONE__NAME = ROLE__NAME;
 
   /**
-   * The number of structural features of the '<em>One Role</em>' class.
+   * The number of structural features of the '<em>Role One</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ONE_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 0;
+  int ROLE_ONE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl <em>Multiple Role</em>}' class.
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleMultipleImpl <em>Role Multiple</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getMultipleRole()
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.RoleMultipleImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getRoleMultiple()
    * @generated
    */
-  int MULTIPLE_ROLE = 4;
+  int ROLE_MULTIPLE = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -204,7 +204,7 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLE_ROLE__NAME = ROLE__NAME;
+  int ROLE_MULTIPLE__NAME = ROLE__NAME;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -213,16 +213,16 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MULTIPLE_ROLE__REF = ROLE_FEATURE_COUNT + 0;
+  int ROLE_MULTIPLE__REF = ROLE_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Multiple Role</em>' class.
+   * The number of structural features of the '<em>Role Multiple</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLE_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
+  int ROLE_MULTIPLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolImpl <em>Protocol</em>}' class.
@@ -281,79 +281,51 @@ public interface GlobalJadePackage extends EPackage
   int RECURSION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.End_RecursionImpl <em>End Recursion</em>}' class.
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.CloseRecursionImpl <em>Close Recursion</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.End_RecursionImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getEnd_Recursion()
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.CloseRecursionImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getCloseRecursion()
    * @generated
    */
-  int END_RECURSION = 7;
+  int CLOSE_RECURSION = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Recursion Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int END_RECURSION__NAME = 0;
+  int CLOSE_RECURSION__RECURSION_VARIABLE = 0;
 
   /**
-   * The number of structural features of the '<em>End Recursion</em>' class.
+   * The number of structural features of the '<em>Close Recursion</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int END_RECURSION_FEATURE_COUNT = 1;
+  int CLOSE_RECURSION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.Continue_RecursionImpl <em>Continue Recursion</em>}' class.
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl <em>Choice</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.Continue_RecursionImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getContinue_Recursion()
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getChoice()
    * @generated
    */
-  int CONTINUE_RECURSION = 8;
+  int CHOICE = 8;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTINUE_RECURSION__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Continue Recursion</em>' class.
+   * The feature id for the '<em><b>Role</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTINUE_RECURSION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl <em>Choice rule</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getChoice_rule()
-   * @generated
-   */
-  int CHOICE_RULE = 9;
-
-  /**
-   * The feature id for the '<em><b>Role name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHOICE_RULE__ROLE_NAME = 0;
+  int CHOICE__ROLE = 0;
 
   /**
    * The feature id for the '<em><b>Messages</b></em>' containment reference list.
@@ -362,7 +334,7 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE_RULE__MESSAGES = 1;
+  int CHOICE__MESSAGES = 1;
 
   /**
    * The feature id for the '<em><b>Branch</b></em>' containment reference list.
@@ -371,90 +343,62 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE_RULE__BRANCH = 2;
+  int CHOICE__BRANCH = 2;
 
   /**
-   * The number of structural features of the '<em>Choice rule</em>' class.
+   * The number of structural features of the '<em>Choice</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHOICE_RULE_FEATURE_COUNT = 3;
+  int CHOICE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl <em>For loop</em>}' class.
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ForEachImpl <em>For Each</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getFor_loop()
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.ForEachImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getForEach()
    * @generated
    */
-  int FOR_LOOP = 10;
+  int FOR_EACH = 9;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_LOOP__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Role Target</b></em>' attribute.
+   * The feature id for the '<em><b>Each Role</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_LOOP__ROLE_TARGET = 1;
+  int FOR_EACH__EACH_ROLE = 0;
 
   /**
-   * The feature id for the '<em><b>Branch</b></em>' containment reference list.
+   * The feature id for the '<em><b>Role</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_LOOP__BRANCH = 2;
+  int FOR_EACH__ROLE = 1;
 
   /**
-   * The number of structural features of the '<em>For loop</em>' class.
+   * The feature id for the '<em><b>Branch</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_LOOP_FEATURE_COUNT = 3;
+  int FOR_EACH__BRANCH = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.End_messageImpl <em>End message</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.End_messageImpl
-   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getEnd_message()
-   * @generated
-   */
-  int END_MESSAGE = 11;
-
-  /**
-   * The feature id for the '<em><b>End</b></em>' attribute list.
+   * The number of structural features of the '<em>For Each</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int END_MESSAGE__END = 0;
-
-  /**
-   * The number of structural features of the '<em>End message</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int END_MESSAGE_FEATURE_COUNT = 1;
+  int FOR_EACH_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl <em>Message</em>}' class.
@@ -464,7 +408,7 @@ public interface GlobalJadePackage extends EPackage
    * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getMessage()
    * @generated
    */
-  int MESSAGE = 12;
+  int MESSAGE = 10;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -476,13 +420,13 @@ public interface GlobalJadePackage extends EPackage
   int MESSAGE__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' attribute list.
+   * The feature id for the '<em><b>Payload</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MESSAGE__CONTENT = 1;
+  int MESSAGE__PAYLOAD = 1;
 
   /**
    * The feature id for the '<em><b>Sender</b></em>' attribute.
@@ -511,6 +455,34 @@ public interface GlobalJadePackage extends EPackage
    */
   int MESSAGE_FEATURE_COUNT = 4;
 
+  /**
+   * The meta object id for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.PayloadImpl <em>Payload</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.PayloadImpl
+   * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getPayload()
+   * @generated
+   */
+  int PAYLOAD = 11;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAYLOAD__TYPES = 0;
+
+  /**
+   * The number of structural features of the '<em>Payload</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAYLOAD_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Model <em>Model</em>}'.
@@ -523,21 +495,21 @@ public interface GlobalJadePackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Model#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Model#getProtocolName <em>Protocol Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Model#getName()
+   * @return the meta object for the attribute '<em>Protocol Name</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Model#getProtocolName()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_Name();
+  EAttribute getModel_ProtocolName();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Model#getRoles <em>Roles</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.globaltype.globaljade.globalJade.Model#getRoles <em>Roles</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Roles</em>'.
+   * @return the meta object for the containment reference '<em>Roles</em>'.
    * @see org.xtext.globaltype.globaljade.globalJade.Model#getRoles()
    * @see #getModel()
    * @generated
@@ -598,35 +570,35 @@ public interface GlobalJadePackage extends EPackage
   EAttribute getRole_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.OneRole <em>One Role</em>}'.
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.RoleOne <em>Role One</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>One Role</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.OneRole
+   * @return the meta object for class '<em>Role One</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.RoleOne
    * @generated
    */
-  EClass getOneRole();
+  EClass getRoleOne();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole <em>Multiple Role</em>}'.
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.RoleMultiple <em>Role Multiple</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Multiple Role</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.MultipleRole
+   * @return the meta object for class '<em>Role Multiple</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.RoleMultiple
    * @generated
    */
-  EClass getMultipleRole();
+  EClass getRoleMultiple();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.globaltype.globaljade.globalJade.MultipleRole#getRef <em>Ref</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.globaltype.globaljade.globalJade.RoleMultiple#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Ref</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.MultipleRole#getRef()
-   * @see #getMultipleRole()
+   * @see org.xtext.globaltype.globaljade.globalJade.RoleMultiple#getRef()
+   * @see #getRoleMultiple()
    * @generated
    */
-  EReference getMultipleRole_Ref();
+  EReference getRoleMultiple_Ref();
 
   /**
    * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Protocol <em>Protocol</em>}'.
@@ -671,153 +643,111 @@ public interface GlobalJadePackage extends EPackage
   EAttribute getRecursion_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.End_Recursion <em>End Recursion</em>}'.
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.CloseRecursion <em>Close Recursion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>End Recursion</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_Recursion
+   * @return the meta object for class '<em>Close Recursion</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.CloseRecursion
    * @generated
    */
-  EClass getEnd_Recursion();
+  EClass getCloseRecursion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.End_Recursion#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.globaltype.globaljade.globalJade.CloseRecursion#getRecursionVariable <em>Recursion Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_Recursion#getName()
-   * @see #getEnd_Recursion()
+   * @return the meta object for the reference '<em>Recursion Variable</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.CloseRecursion#getRecursionVariable()
+   * @see #getCloseRecursion()
    * @generated
    */
-  EAttribute getEnd_Recursion_Name();
+  EReference getCloseRecursion_RecursionVariable();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Continue_Recursion <em>Continue Recursion</em>}'.
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Choice <em>Choice</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Continue Recursion</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Continue_Recursion
+   * @return the meta object for class '<em>Choice</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice
    * @generated
    */
-  EClass getContinue_Recursion();
+  EClass getChoice();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Continue_Recursion#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Choice#getRole <em>Role</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Continue_Recursion#getName()
-   * @see #getContinue_Recursion()
+   * @return the meta object for the attribute '<em>Role</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice#getRole()
+   * @see #getChoice()
    * @generated
    */
-  EAttribute getContinue_Recursion_Name();
+  EAttribute getChoice_Role();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule <em>Choice rule</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Choice rule</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule
-   * @generated
-   */
-  EClass getChoice_rule();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getRole_name <em>Role name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Role name</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule#getRole_name()
-   * @see #getChoice_rule()
-   * @generated
-   */
-  EAttribute getChoice_rule_Role_name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getMessages <em>Messages</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Choice#getMessages <em>Messages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Messages</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule#getMessages()
-   * @see #getChoice_rule()
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice#getMessages()
+   * @see #getChoice()
    * @generated
    */
-  EReference getChoice_rule_Messages();
+  EReference getChoice_Messages();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Choice_rule#getBranch <em>Branch</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.Choice#getBranch <em>Branch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Branch</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Choice_rule#getBranch()
-   * @see #getChoice_rule()
+   * @see org.xtext.globaltype.globaljade.globalJade.Choice#getBranch()
+   * @see #getChoice()
    * @generated
    */
-  EReference getChoice_rule_Branch();
+  EReference getChoice_Branch();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.For_loop <em>For loop</em>}'.
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.ForEach <em>For Each</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For loop</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.For_loop
+   * @return the meta object for class '<em>For Each</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.ForEach
    * @generated
    */
-  EClass getFor_loop();
+  EClass getForEach();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.globaltype.globaljade.globalJade.ForEach#getEachRole <em>Each Role</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.For_loop#getName()
-   * @see #getFor_loop()
+   * @return the meta object for the containment reference '<em>Each Role</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.ForEach#getEachRole()
+   * @see #getForEach()
    * @generated
    */
-  EAttribute getFor_loop_Name();
+  EReference getForEach_EachRole();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getRoleTarget <em>Role Target</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.globaltype.globaljade.globalJade.ForEach#getRole <em>Role</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Role Target</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.For_loop#getRoleTarget()
-   * @see #getFor_loop()
+   * @return the meta object for the reference '<em>Role</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.ForEach#getRole()
+   * @see #getForEach()
    * @generated
    */
-  EAttribute getFor_loop_RoleTarget();
+  EReference getForEach_Role();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.globaltype.globaljade.globalJade.For_loop#getBranch <em>Branch</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.globaltype.globaljade.globalJade.ForEach#getBranch <em>Branch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Branch</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.For_loop#getBranch()
-   * @see #getFor_loop()
+   * @return the meta object for the containment reference '<em>Branch</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.ForEach#getBranch()
+   * @see #getForEach()
    * @generated
    */
-  EReference getFor_loop_Branch();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.End_message <em>End message</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>End message</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_message
-   * @generated
-   */
-  EClass getEnd_message();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.globaltype.globaljade.globalJade.End_message#getEnd <em>End</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>End</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.End_message#getEnd()
-   * @see #getEnd_message()
-   * @generated
-   */
-  EAttribute getEnd_message_End();
+  EReference getForEach_Branch();
 
   /**
    * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Message <em>Message</em>}'.
@@ -841,15 +771,15 @@ public interface GlobalJadePackage extends EPackage
   EAttribute getMessage_Type();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.globaltype.globaljade.globalJade.Message#getContent <em>Content</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.globaltype.globaljade.globalJade.Message#getPayload <em>Payload</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Content</em>'.
-   * @see org.xtext.globaltype.globaljade.globalJade.Message#getContent()
+   * @return the meta object for the containment reference '<em>Payload</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Message#getPayload()
    * @see #getMessage()
    * @generated
    */
-  EAttribute getMessage_Content();
+  EReference getMessage_Payload();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.globaltype.globaljade.globalJade.Message#getSender <em>Sender</em>}'.
@@ -872,6 +802,27 @@ public interface GlobalJadePackage extends EPackage
    * @generated
    */
   EAttribute getMessage_Receiver();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.globaltype.globaljade.globalJade.Payload <em>Payload</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Payload</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Payload
+   * @generated
+   */
+  EClass getPayload();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.globaltype.globaljade.globalJade.Payload#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Types</em>'.
+   * @see org.xtext.globaltype.globaljade.globalJade.Payload#getTypes()
+   * @see #getPayload()
+   * @generated
+   */
+  EAttribute getPayload_Types();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -907,15 +858,15 @@ public interface GlobalJadePackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Protocol Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+    EAttribute MODEL__PROTOCOL_NAME = eINSTANCE.getModel_ProtocolName();
 
     /**
-     * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Roles</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -967,24 +918,24 @@ public interface GlobalJadePackage extends EPackage
     EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.OneRoleImpl <em>One Role</em>}' class.
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleOneImpl <em>Role One</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.OneRoleImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getOneRole()
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.RoleOneImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getRoleOne()
      * @generated
      */
-    EClass ONE_ROLE = eINSTANCE.getOneRole();
+    EClass ROLE_ONE = eINSTANCE.getRoleOne();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl <em>Multiple Role</em>}' class.
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.RoleMultipleImpl <em>Role Multiple</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getMultipleRole()
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.RoleMultipleImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getRoleMultiple()
      * @generated
      */
-    EClass MULTIPLE_ROLE = eINSTANCE.getMultipleRole();
+    EClass ROLE_MULTIPLE = eINSTANCE.getRoleMultiple();
 
     /**
      * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
@@ -992,7 +943,7 @@ public interface GlobalJadePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MULTIPLE_ROLE__REF = eINSTANCE.getMultipleRole_Ref();
+    EReference ROLE_MULTIPLE__REF = eINSTANCE.getRoleMultiple_Ref();
 
     /**
      * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ProtocolImpl <em>Protocol</em>}' class.
@@ -1031,58 +982,40 @@ public interface GlobalJadePackage extends EPackage
     EAttribute RECURSION__NAME = eINSTANCE.getRecursion_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.End_RecursionImpl <em>End Recursion</em>}' class.
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.CloseRecursionImpl <em>Close Recursion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.End_RecursionImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getEnd_Recursion()
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.CloseRecursionImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getCloseRecursion()
      * @generated
      */
-    EClass END_RECURSION = eINSTANCE.getEnd_Recursion();
+    EClass CLOSE_RECURSION = eINSTANCE.getCloseRecursion();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Recursion Variable</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute END_RECURSION__NAME = eINSTANCE.getEnd_Recursion_Name();
+    EReference CLOSE_RECURSION__RECURSION_VARIABLE = eINSTANCE.getCloseRecursion_RecursionVariable();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.Continue_RecursionImpl <em>Continue Recursion</em>}' class.
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl <em>Choice</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.Continue_RecursionImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getContinue_Recursion()
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getChoice()
      * @generated
      */
-    EClass CONTINUE_RECURSION = eINSTANCE.getContinue_Recursion();
+    EClass CHOICE = eINSTANCE.getChoice();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTINUE_RECURSION__NAME = eINSTANCE.getContinue_Recursion_Name();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl <em>Choice rule</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getChoice_rule()
-     * @generated
-     */
-    EClass CHOICE_RULE = eINSTANCE.getChoice_rule();
-
-    /**
-     * The meta object literal for the '<em><b>Role name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CHOICE_RULE__ROLE_NAME = eINSTANCE.getChoice_rule_Role_name();
+    EAttribute CHOICE__ROLE = eINSTANCE.getChoice_Role();
 
     /**
      * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.
@@ -1090,7 +1023,7 @@ public interface GlobalJadePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHOICE_RULE__MESSAGES = eINSTANCE.getChoice_rule_Messages();
+    EReference CHOICE__MESSAGES = eINSTANCE.getChoice_Messages();
 
     /**
      * The meta object literal for the '<em><b>Branch</b></em>' containment reference list feature.
@@ -1098,59 +1031,41 @@ public interface GlobalJadePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHOICE_RULE__BRANCH = eINSTANCE.getChoice_rule_Branch();
+    EReference CHOICE__BRANCH = eINSTANCE.getChoice_Branch();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl <em>For loop</em>}' class.
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.ForEachImpl <em>For Each</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.For_loopImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getFor_loop()
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.ForEachImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getForEach()
      * @generated
      */
-    EClass FOR_LOOP = eINSTANCE.getFor_loop();
+    EClass FOR_EACH = eINSTANCE.getForEach();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR_LOOP__NAME = eINSTANCE.getFor_loop_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Role Target</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Each Role</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOR_LOOP__ROLE_TARGET = eINSTANCE.getFor_loop_RoleTarget();
+    EReference FOR_EACH__EACH_ROLE = eINSTANCE.getForEach_EachRole();
 
     /**
-     * The meta object literal for the '<em><b>Branch</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Role</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR_LOOP__BRANCH = eINSTANCE.getFor_loop_Branch();
+    EReference FOR_EACH__ROLE = eINSTANCE.getForEach_Role();
 
     /**
-     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.End_messageImpl <em>End message</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.End_messageImpl
-     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getEnd_message()
-     * @generated
-     */
-    EClass END_MESSAGE = eINSTANCE.getEnd_message();
-
-    /**
-     * The meta object literal for the '<em><b>End</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Branch</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute END_MESSAGE__END = eINSTANCE.getEnd_message_End();
+    EReference FOR_EACH__BRANCH = eINSTANCE.getForEach_Branch();
 
     /**
      * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl <em>Message</em>}' class.
@@ -1171,12 +1086,12 @@ public interface GlobalJadePackage extends EPackage
     EAttribute MESSAGE__TYPE = eINSTANCE.getMessage_Type();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Payload</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MESSAGE__CONTENT = eINSTANCE.getMessage_Content();
+    EReference MESSAGE__PAYLOAD = eINSTANCE.getMessage_Payload();
 
     /**
      * The meta object literal for the '<em><b>Sender</b></em>' attribute feature.
@@ -1193,6 +1108,24 @@ public interface GlobalJadePackage extends EPackage
      * @generated
      */
     EAttribute MESSAGE__RECEIVER = eINSTANCE.getMessage_Receiver();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.globaltype.globaljade.globalJade.impl.PayloadImpl <em>Payload</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.PayloadImpl
+     * @see org.xtext.globaltype.globaljade.globalJade.impl.GlobalJadePackageImpl#getPayload()
+     * @generated
+     */
+    EClass PAYLOAD = eINSTANCE.getPayload();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PAYLOAD__TYPES = eINSTANCE.getPayload_Types();
 
   }
 

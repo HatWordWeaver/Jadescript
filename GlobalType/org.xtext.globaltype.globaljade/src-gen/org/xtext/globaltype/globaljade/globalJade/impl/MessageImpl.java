@@ -3,21 +3,18 @@
  */
 package org.xtext.globaltype.globaljade.globalJade.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Message;
+import org.xtext.globaltype.globaljade.globalJade.Payload;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,7 @@ import org.xtext.globaltype.globaljade.globalJade.Message;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getPayload <em>Payload</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MessageImpl#getReceiver <em>Receiver</em>}</li>
  * </ul>
@@ -58,14 +55,14 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute list.
+   * The cached value of the '{@link #getPayload() <em>Payload</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getPayload()
    * @generated
    * @ordered
    */
-  protected EList<String> content;
+  protected Payload payload;
 
   /**
    * The default value of the '{@link #getSender() <em>Sender</em>}' attribute.
@@ -159,13 +156,48 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
-  public EList<String> getContent()
+  public Payload getPayload()
   {
-    if (content == null)
+    return payload;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPayload(Payload newPayload, NotificationChain msgs)
+  {
+    Payload oldPayload = payload;
+    payload = newPayload;
+    if (eNotificationRequired())
     {
-      content = new EDataTypeEList<String>(String.class, this, GlobalJadePackage.MESSAGE__CONTENT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__PAYLOAD, oldPayload, newPayload);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return content;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPayload(Payload newPayload)
+  {
+    if (newPayload != payload)
+    {
+      NotificationChain msgs = null;
+      if (payload != null)
+        msgs = ((InternalEObject)payload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GlobalJadePackage.MESSAGE__PAYLOAD, null, msgs);
+      if (newPayload != null)
+        msgs = ((InternalEObject)newPayload).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GlobalJadePackage.MESSAGE__PAYLOAD, null, msgs);
+      msgs = basicSetPayload(newPayload, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MESSAGE__PAYLOAD, newPayload, newPayload));
   }
 
   /**
@@ -224,14 +256,30 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GlobalJadePackage.MESSAGE__PAYLOAD:
+        return basicSetPayload(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case GlobalJadePackage.MESSAGE__TYPE:
         return getType();
-      case GlobalJadePackage.MESSAGE__CONTENT:
-        return getContent();
+      case GlobalJadePackage.MESSAGE__PAYLOAD:
+        return getPayload();
       case GlobalJadePackage.MESSAGE__SENDER:
         return getSender();
       case GlobalJadePackage.MESSAGE__RECEIVER:
@@ -245,7 +293,6 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -254,9 +301,8 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
       case GlobalJadePackage.MESSAGE__TYPE:
         setType((String)newValue);
         return;
-      case GlobalJadePackage.MESSAGE__CONTENT:
-        getContent().clear();
-        getContent().addAll((Collection<? extends String>)newValue);
+      case GlobalJadePackage.MESSAGE__PAYLOAD:
+        setPayload((Payload)newValue);
         return;
       case GlobalJadePackage.MESSAGE__SENDER:
         setSender((String)newValue);
@@ -281,8 +327,8 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
       case GlobalJadePackage.MESSAGE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case GlobalJadePackage.MESSAGE__CONTENT:
-        getContent().clear();
+      case GlobalJadePackage.MESSAGE__PAYLOAD:
+        setPayload((Payload)null);
         return;
       case GlobalJadePackage.MESSAGE__SENDER:
         setSender(SENDER_EDEFAULT);
@@ -306,8 +352,8 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
     {
       case GlobalJadePackage.MESSAGE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case GlobalJadePackage.MESSAGE__CONTENT:
-        return content != null && !content.isEmpty();
+      case GlobalJadePackage.MESSAGE__PAYLOAD:
+        return payload != null;
       case GlobalJadePackage.MESSAGE__SENDER:
         return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
       case GlobalJadePackage.MESSAGE__RECEIVER:
@@ -329,8 +375,6 @@ public class MessageImpl extends MinimalEObjectImpl.Container implements Message
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (type: ");
     result.append(type);
-    result.append(", content: ");
-    result.append(content);
     result.append(", sender: ");
     result.append(sender);
     result.append(", receiver: ");

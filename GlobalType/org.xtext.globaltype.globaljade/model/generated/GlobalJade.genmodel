@@ -7,7 +7,7 @@
   <genPackages prefix="GlobalJade" basePackage="org.xtext.globaltype.globaljade" disposableProviderFactory="true"
       fileExtensions="gbjade" ecorePackage="GlobalJade.ecore#/">
     <genClasses ecoreClass="GlobalJade.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Model/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Model/protocolName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Model/roles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Model/protocol"/>
     </genClasses>
@@ -17,9 +17,9 @@
     <genClasses ecoreClass="GlobalJade.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Role/name"/>
     </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//OneRole"/>
-    <genClasses ecoreClass="GlobalJade.ecore#//MultipleRole">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//MultipleRole/ref"/>
+    <genClasses ecoreClass="GlobalJade.ecore#//RoleOne"/>
+    <genClasses ecoreClass="GlobalJade.ecore#//RoleMultiple">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//RoleMultiple/ref"/>
     </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//Protocol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Protocol/actions"/>
@@ -27,30 +27,27 @@
     <genClasses ecoreClass="GlobalJade.ecore#//Recursion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Recursion/name"/>
     </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//End_Recursion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//End_Recursion/name"/>
+    <genClasses ecoreClass="GlobalJade.ecore#//CloseRecursion">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//CloseRecursion/recursionVariable"/>
     </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//Continue_Recursion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Continue_Recursion/name"/>
+    <genClasses ecoreClass="GlobalJade.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Choice/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice/messages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice/branch"/>
     </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//Choice_rule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Choice_rule/role_name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice_rule/messages"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Choice_rule/branch"/>
-    </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//For_loop">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//For_loop/roleTarget"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//For_loop/branch"/>
-    </genClasses>
-    <genClasses ecoreClass="GlobalJade.ecore#//End_message">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//End_message/end"/>
+    <genClasses ecoreClass="GlobalJade.ecore#//ForEach">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//ForEach/eachRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//ForEach/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//ForEach/branch"/>
     </genClasses>
     <genClasses ecoreClass="GlobalJade.ecore#//Message">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Message/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Message/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GlobalJade.ecore#//Message/payload"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Message/sender"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Message/receiver"/>
+    </genClasses>
+    <genClasses ecoreClass="GlobalJade.ecore#//Payload">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GlobalJade.ecore#//Payload/types"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -94,19 +94,19 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.ONE_ROLE:
+      case GlobalJadePackage.ROLE_ONE:
       {
-        OneRole oneRole = (OneRole)theEObject;
-        T result = caseOneRole(oneRole);
-        if (result == null) result = caseRole(oneRole);
+        RoleOne roleOne = (RoleOne)theEObject;
+        T result = caseRoleOne(roleOne);
+        if (result == null) result = caseRole(roleOne);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.MULTIPLE_ROLE:
+      case GlobalJadePackage.ROLE_MULTIPLE:
       {
-        MultipleRole multipleRole = (MultipleRole)theEObject;
-        T result = caseMultipleRole(multipleRole);
-        if (result == null) result = caseRole(multipleRole);
+        RoleMultiple roleMultiple = (RoleMultiple)theEObject;
+        T result = caseRoleMultiple(roleMultiple);
+        if (result == null) result = caseRole(roleMultiple);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,38 +124,24 @@ public class GlobalJadeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.END_RECURSION:
+      case GlobalJadePackage.CLOSE_RECURSION:
       {
-        End_Recursion end_Recursion = (End_Recursion)theEObject;
-        T result = caseEnd_Recursion(end_Recursion);
+        CloseRecursion closeRecursion = (CloseRecursion)theEObject;
+        T result = caseCloseRecursion(closeRecursion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.CONTINUE_RECURSION:
+      case GlobalJadePackage.CHOICE:
       {
-        Continue_Recursion continue_Recursion = (Continue_Recursion)theEObject;
-        T result = caseContinue_Recursion(continue_Recursion);
+        Choice choice = (Choice)theEObject;
+        T result = caseChoice(choice);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GlobalJadePackage.CHOICE_RULE:
+      case GlobalJadePackage.FOR_EACH:
       {
-        Choice_rule choice_rule = (Choice_rule)theEObject;
-        T result = caseChoice_rule(choice_rule);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GlobalJadePackage.FOR_LOOP:
-      {
-        For_loop for_loop = (For_loop)theEObject;
-        T result = caseFor_loop(for_loop);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GlobalJadePackage.END_MESSAGE:
-      {
-        End_message end_message = (End_message)theEObject;
-        T result = caseEnd_message(end_message);
+        ForEach forEach = (ForEach)theEObject;
+        T result = caseForEach(forEach);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,6 +149,13 @@ public class GlobalJadeSwitch<T> extends Switch<T>
       {
         Message message = (Message)theEObject;
         T result = caseMessage(message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GlobalJadePackage.PAYLOAD:
+      {
+        Payload payload = (Payload)theEObject;
+        T result = casePayload(payload);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -219,33 +212,33 @@ public class GlobalJadeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>One Role</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Role One</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>One Role</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Role One</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOneRole(OneRole object)
+  public T caseRoleOne(RoleOne object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiple Role</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Role Multiple</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiple Role</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Role Multiple</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMultipleRole(MultipleRole object)
+  public T caseRoleMultiple(RoleMultiple object)
   {
     return null;
   }
@@ -283,81 +276,49 @@ public class GlobalJadeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>End Recursion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Close Recursion</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>End Recursion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Close Recursion</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEnd_Recursion(End_Recursion object)
+  public T caseCloseRecursion(CloseRecursion object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Continue Recursion</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Choice</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Continue Recursion</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Choice</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContinue_Recursion(Continue_Recursion object)
+  public T caseChoice(Choice object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Choice rule</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>For Each</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Choice rule</em>'.
+   * @return the result of interpreting the object as an instance of '<em>For Each</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseChoice_rule(Choice_rule object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For loop</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For loop</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_loop(For_loop object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>End message</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>End message</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEnd_message(End_message object)
+  public T caseForEach(ForEach object)
   {
     return null;
   }
@@ -374,6 +335,22 @@ public class GlobalJadeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMessage(Message object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Payload</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Payload</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePayload(Payload object)
   {
     return null;
   }

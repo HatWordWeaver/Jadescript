@@ -19,47 +19,47 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
+import org.xtext.globaltype.globaljade.globalJade.Choice;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Message;
 import org.xtext.globaltype.globaljade.globalJade.Protocol;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Choice rule</b></em>'.
+ * An implementation of the model object '<em><b>Choice</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getRole_name <em>Role name</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getMessages <em>Messages</em>}</li>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.Choice_ruleImpl#getBranch <em>Branch</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.ChoiceImpl#getBranch <em>Branch</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Choice_rule
+public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
 {
   /**
-   * The default value of the '{@link #getRole_name() <em>Role name</em>}' attribute.
+   * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole_name()
+   * @see #getRole()
    * @generated
    * @ordered
    */
-  protected static final String ROLE_NAME_EDEFAULT = null;
+  protected static final String ROLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRole_name() <em>Role name</em>}' attribute.
+   * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole_name()
+   * @see #getRole()
    * @generated
    * @ordered
    */
-  protected String role_name = ROLE_NAME_EDEFAULT;
+  protected String role = ROLE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
@@ -86,7 +86,7 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Choice_ruleImpl()
+  protected ChoiceImpl()
   {
     super();
   }
@@ -99,7 +99,7 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.CHOICE_RULE;
+    return GlobalJadePackage.Literals.CHOICE;
   }
 
   /**
@@ -108,9 +108,9 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
    * @generated
    */
   @Override
-  public String getRole_name()
+  public String getRole()
   {
-    return role_name;
+    return role;
   }
 
   /**
@@ -119,12 +119,12 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
    * @generated
    */
   @Override
-  public void setRole_name(String newRole_name)
+  public void setRole(String newRole)
   {
-    String oldRole_name = role_name;
-    role_name = newRole_name;
+    String oldRole = role;
+    role = newRole;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.CHOICE_RULE__ROLE_NAME, oldRole_name, role_name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.CHOICE__ROLE, oldRole, role));
   }
 
   /**
@@ -137,7 +137,7 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     if (messages == null)
     {
-      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.CHOICE_RULE__MESSAGES);
+      messages = new EObjectContainmentEList<Message>(Message.class, this, GlobalJadePackage.CHOICE__MESSAGES);
     }
     return messages;
   }
@@ -152,7 +152,7 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     if (branch == null)
     {
-      branch = new EObjectContainmentEList<Protocol>(Protocol.class, this, GlobalJadePackage.CHOICE_RULE__BRANCH);
+      branch = new EObjectContainmentEList<Protocol>(Protocol.class, this, GlobalJadePackage.CHOICE__BRANCH);
     }
     return branch;
   }
@@ -167,9 +167,9 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
+      case GlobalJadePackage.CHOICE__MESSAGES:
         return ((InternalEList<?>)getMessages()).basicRemove(otherEnd, msgs);
-      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+      case GlobalJadePackage.CHOICE__BRANCH:
         return ((InternalEList<?>)getBranch()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -185,11 +185,11 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
-        return getRole_name();
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
+      case GlobalJadePackage.CHOICE__ROLE:
+        return getRole();
+      case GlobalJadePackage.CHOICE__MESSAGES:
         return getMessages();
-      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+      case GlobalJadePackage.CHOICE__BRANCH:
         return getBranch();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -206,14 +206,14 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
-        setRole_name((String)newValue);
+      case GlobalJadePackage.CHOICE__ROLE:
+        setRole((String)newValue);
         return;
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
+      case GlobalJadePackage.CHOICE__MESSAGES:
         getMessages().clear();
         getMessages().addAll((Collection<? extends Message>)newValue);
         return;
-      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+      case GlobalJadePackage.CHOICE__BRANCH:
         getBranch().clear();
         getBranch().addAll((Collection<? extends Protocol>)newValue);
         return;
@@ -231,13 +231,13 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
-        setRole_name(ROLE_NAME_EDEFAULT);
+      case GlobalJadePackage.CHOICE__ROLE:
+        setRole(ROLE_EDEFAULT);
         return;
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
+      case GlobalJadePackage.CHOICE__MESSAGES:
         getMessages().clear();
         return;
-      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+      case GlobalJadePackage.CHOICE__BRANCH:
         getBranch().clear();
         return;
     }
@@ -254,11 +254,11 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
   {
     switch (featureID)
     {
-      case GlobalJadePackage.CHOICE_RULE__ROLE_NAME:
-        return ROLE_NAME_EDEFAULT == null ? role_name != null : !ROLE_NAME_EDEFAULT.equals(role_name);
-      case GlobalJadePackage.CHOICE_RULE__MESSAGES:
+      case GlobalJadePackage.CHOICE__ROLE:
+        return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+      case GlobalJadePackage.CHOICE__MESSAGES:
         return messages != null && !messages.isEmpty();
-      case GlobalJadePackage.CHOICE_RULE__BRANCH:
+      case GlobalJadePackage.CHOICE__BRANCH:
         return branch != null && !branch.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -275,10 +275,10 @@ public class Choice_ruleImpl extends MinimalEObjectImpl.Container implements Cho
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (role_name: ");
-    result.append(role_name);
+    result.append(" (role: ");
+    result.append(role);
     result.append(')');
     return result.toString();
   }
 
-} //Choice_ruleImpl
+} //ChoiceImpl

@@ -6,23 +6,23 @@ package org.xtext.globaltype.globaljade.globalJade.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.OneRole;
+import org.xtext.globaltype.globaljade.globalJade.RoleOne;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>One Role</b></em>'.
+ * An implementation of the model object '<em><b>Role One</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class OneRoleImpl extends RoleImpl implements OneRole
+public class RoleOneImpl extends RoleImpl implements RoleOne
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OneRoleImpl()
+  protected RoleOneImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class OneRoleImpl extends RoleImpl implements OneRole
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.ONE_ROLE;
+    return GlobalJadePackage.Literals.ROLE_ONE;
   }
 
-} //OneRoleImpl
+} //RoleOneImpl

@@ -14,18 +14,17 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.globaltype.globaljade.globalJade.Choice_rule;
-import org.xtext.globaltype.globaljade.globalJade.Continue_Recursion;
-import org.xtext.globaltype.globaljade.globalJade.End_Recursion;
-import org.xtext.globaltype.globaljade.globalJade.End_message;
-import org.xtext.globaltype.globaljade.globalJade.For_loop;
+import org.xtext.globaltype.globaljade.globalJade.Choice;
+import org.xtext.globaltype.globaljade.globalJade.CloseRecursion;
+import org.xtext.globaltype.globaljade.globalJade.ForEach;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
 import org.xtext.globaltype.globaljade.globalJade.Message;
 import org.xtext.globaltype.globaljade.globalJade.Model;
-import org.xtext.globaltype.globaljade.globalJade.MultipleRole;
-import org.xtext.globaltype.globaljade.globalJade.OneRole;
+import org.xtext.globaltype.globaljade.globalJade.Payload;
 import org.xtext.globaltype.globaljade.globalJade.Protocol;
 import org.xtext.globaltype.globaljade.globalJade.Recursion;
+import org.xtext.globaltype.globaljade.globalJade.RoleMultiple;
+import org.xtext.globaltype.globaljade.globalJade.RoleOne;
 import org.xtext.globaltype.globaljade.globalJade.Roles;
 import org.xtext.globaltype.globaljade.services.GlobalJadeGrammarAccess;
 
@@ -43,20 +42,14 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == GlobalJadePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case GlobalJadePackage.CHOICE_RULE:
-				sequence_Choice_rule(context, (Choice_rule) semanticObject); 
+			case GlobalJadePackage.CHOICE:
+				sequence_Choice(context, (Choice) semanticObject); 
 				return; 
-			case GlobalJadePackage.CONTINUE_RECURSION:
-				sequence_Continue_Recursion(context, (Continue_Recursion) semanticObject); 
+			case GlobalJadePackage.CLOSE_RECURSION:
+				sequence_CloseRecursion(context, (CloseRecursion) semanticObject); 
 				return; 
-			case GlobalJadePackage.END_RECURSION:
-				sequence_End_Recursion(context, (End_Recursion) semanticObject); 
-				return; 
-			case GlobalJadePackage.END_MESSAGE:
-				sequence_End_message(context, (End_message) semanticObject); 
-				return; 
-			case GlobalJadePackage.FOR_LOOP:
-				sequence_For_loop(context, (For_loop) semanticObject); 
+			case GlobalJadePackage.FOR_EACH:
+				sequence_ForEach(context, (ForEach) semanticObject); 
 				return; 
 			case GlobalJadePackage.MESSAGE:
 				sequence_Message(context, (Message) semanticObject); 
@@ -64,17 +57,20 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GlobalJadePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case GlobalJadePackage.MULTIPLE_ROLE:
-				sequence_MultipleRole(context, (MultipleRole) semanticObject); 
-				return; 
-			case GlobalJadePackage.ONE_ROLE:
-				sequence_OneRole(context, (OneRole) semanticObject); 
+			case GlobalJadePackage.PAYLOAD:
+				sequence_Payload(context, (Payload) semanticObject); 
 				return; 
 			case GlobalJadePackage.PROTOCOL:
 				sequence_Protocol(context, (Protocol) semanticObject); 
 				return; 
 			case GlobalJadePackage.RECURSION:
 				sequence_Recursion(context, (Recursion) semanticObject); 
+				return; 
+			case GlobalJadePackage.ROLE_MULTIPLE:
+				sequence_RoleMultiple(context, (RoleMultiple) semanticObject); 
+				return; 
+			case GlobalJadePackage.ROLE_ONE:
+				sequence_RoleOne(context, (RoleOne) semanticObject); 
 				return; 
 			case GlobalJadePackage.ROLES:
 				sequence_Roles(context, (Roles) semanticObject); 
@@ -87,13 +83,13 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Choice_rule returns Choice_rule
+	 *     Choice returns Choice
 	 *
 	 * Constraint:
-	 *     (role_name=NAME messages+=Message branch+=Protocol (messages+=Message branch+=Protocol)*)
+	 *     (role=NAME messages+=Message branch+=Protocol (messages+=Message branch+=Protocol)*)
 	 * </pre>
 	 */
-	protected void sequence_Choice_rule(ISerializationContext context, Choice_rule semanticObject) {
+	protected void sequence_Choice(ISerializationContext context, Choice semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -101,19 +97,19 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Continue_Recursion returns Continue_Recursion
+	 *     CloseRecursion returns CloseRecursion
 	 *
 	 * Constraint:
-	 *     name=NAME
+	 *     recursionVariable=[Recursion|NAME]
 	 * </pre>
 	 */
-	protected void sequence_Continue_Recursion(ISerializationContext context, Continue_Recursion semanticObject) {
+	protected void sequence_CloseRecursion(ISerializationContext context, CloseRecursion semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.CONTINUE_RECURSION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.CONTINUE_RECURSION__NAME));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.CLOSE_RECURSION__RECURSION_VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.CLOSE_RECURSION__RECURSION_VARIABLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getContinue_RecursionAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCloseRecursionAccess().getRecursionVariableRecursionNAMETerminalRuleCall_1_0_1(), semanticObject.eGet(GlobalJadePackage.Literals.CLOSE_RECURSION__RECURSION_VARIABLE, false));
 		feeder.finish();
 	}
 	
@@ -121,48 +117,26 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     End_Recursion returns End_Recursion
+	 *     ForEach returns ForEach
 	 *
 	 * Constraint:
-	 *     name=NAME
+	 *     (eachRole=Role role=[RoleMultiple|NAME] branch=Protocol)
 	 * </pre>
 	 */
-	protected void sequence_End_Recursion(ISerializationContext context, End_Recursion semanticObject) {
+	protected void sequence_ForEach(ISerializationContext context, ForEach semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.END_RECURSION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.END_RECURSION__NAME));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.FOR_EACH__EACH_ROLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.FOR_EACH__EACH_ROLE));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.FOR_EACH__ROLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.FOR_EACH__ROLE));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.FOR_EACH__BRANCH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.FOR_EACH__BRANCH));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEnd_RecursionAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getForEachAccess().getEachRoleRoleParserRuleCall_1_0(), semanticObject.getEachRole());
+		feeder.accept(grammarAccess.getForEachAccess().getRoleRoleMultipleNAMETerminalRuleCall_3_0_1(), semanticObject.eGet(GlobalJadePackage.Literals.FOR_EACH__ROLE, false));
+		feeder.accept(grammarAccess.getForEachAccess().getBranchProtocolParserRuleCall_5_0(), semanticObject.getBranch());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     End_message returns End_message
-	 *
-	 * Constraint:
-	 *     end+=END_MEX
-	 * </pre>
-	 */
-	protected void sequence_End_message(ISerializationContext context, End_message semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     For_loop returns For_loop
-	 *
-	 * Constraint:
-	 *     (name=NAME roleTarget=NAME branch+=Protocol)
-	 * </pre>
-	 */
-	protected void sequence_For_loop(ISerializationContext context, For_loop semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -172,7 +146,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Message returns Message
 	 *
 	 * Constraint:
-	 *     (type=TYPE_MESSAGE content+=CONTENT content+=CONTENT* sender=NAME receiver=NAME)
+	 *     (type=MessageType payload=Payload? sender=NAME receiver=NAME)
 	 * </pre>
 	 */
 	protected void sequence_Message(ISerializationContext context, Message semanticObject) {
@@ -186,7 +160,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=NAME roles+=Roles protocol+=Protocol)
+	 *     (protocolName=NAME roles=Roles protocol+=Protocol)
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -197,45 +171,14 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Role returns MultipleRole
-	 *     MultipleRole returns MultipleRole
+	 *     Payload returns Payload
 	 *
 	 * Constraint:
-	 *     (name=NAME ref=[OneRole|NAME])
+	 *     (types+=Type types+=Type*)
 	 * </pre>
 	 */
-	protected void sequence_MultipleRole(ISerializationContext context, MultipleRole semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.ROLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.ROLE__NAME));
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.MULTIPLE_ROLE__REF) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.MULTIPLE_ROLE__REF));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMultipleRoleAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMultipleRoleAccess().getRefOneRoleNAMETerminalRuleCall_3_0_1(), semanticObject.eGet(GlobalJadePackage.Literals.MULTIPLE_ROLE__REF, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Role returns OneRole
-	 *     OneRole returns OneRole
-	 *
-	 * Constraint:
-	 *     name=NAME
-	 * </pre>
-	 */
-	protected void sequence_OneRole(ISerializationContext context, OneRole semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.ROLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.ROLE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOneRoleAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+	protected void sequence_Payload(ISerializationContext context, Payload semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -245,15 +188,7 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Protocol returns Protocol
 	 *
 	 * Constraint:
-	 *     (
-	 *         actions+=Message | 
-	 *         actions+=Choice_rule | 
-	 *         actions+=For_loop | 
-	 *         actions+=End_message | 
-	 *         actions+=Recursion | 
-	 *         actions+=End_Recursion | 
-	 *         actions+=Continue_Recursion
-	 *     )*
+	 *     (actions+=Message | actions+=Choice | actions+=ForEach | actions+=Recursion | actions+=CloseRecursion)*
 	 * </pre>
 	 */
 	protected void sequence_Protocol(ISerializationContext context, Protocol semanticObject) {
@@ -277,6 +212,51 @@ public class GlobalJadeSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRecursionAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Role returns RoleMultiple
+	 *     RoleMultiple returns RoleMultiple
+	 *
+	 * Constraint:
+	 *     (name=NAME ref=[RoleOne|NAME])
+	 * </pre>
+	 */
+	protected void sequence_RoleMultiple(ISerializationContext context, RoleMultiple semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.ROLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.ROLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.ROLE_MULTIPLE__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.ROLE_MULTIPLE__REF));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoleMultipleAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoleMultipleAccess().getRefRoleOneNAMETerminalRuleCall_3_0_1(), semanticObject.eGet(GlobalJadePackage.Literals.ROLE_MULTIPLE__REF, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Role returns RoleOne
+	 *     RoleOne returns RoleOne
+	 *
+	 * Constraint:
+	 *     name=NAME
+	 * </pre>
+	 */
+	protected void sequence_RoleOne(ISerializationContext context, RoleOne semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GlobalJadePackage.Literals.ROLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GlobalJadePackage.Literals.ROLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoleOneAccess().getNameNAMETerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

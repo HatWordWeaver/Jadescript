@@ -9,42 +9,43 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.globaltype.globaljade.globalJade.CloseRecursion;
 import org.xtext.globaltype.globaljade.globalJade.GlobalJadePackage;
-import org.xtext.globaltype.globaljade.globalJade.MultipleRole;
-import org.xtext.globaltype.globaljade.globalJade.OneRole;
+import org.xtext.globaltype.globaljade.globalJade.Recursion;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Multiple Role</b></em>'.
+ * An implementation of the model object '<em><b>Close Recursion</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.MultipleRoleImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link org.xtext.globaltype.globaljade.globalJade.impl.CloseRecursionImpl#getRecursionVariable <em>Recursion Variable</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MultipleRoleImpl extends RoleImpl implements MultipleRole
+public class CloseRecursionImpl extends MinimalEObjectImpl.Container implements CloseRecursion
 {
   /**
-   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
+   * The cached value of the '{@link #getRecursionVariable() <em>Recursion Variable</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRef()
+   * @see #getRecursionVariable()
    * @generated
    * @ordered
    */
-  protected OneRole ref;
+  protected Recursion recursionVariable;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MultipleRoleImpl()
+  protected CloseRecursionImpl()
   {
     super();
   }
@@ -57,7 +58,7 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
   @Override
   protected EClass eStaticClass()
   {
-    return GlobalJadePackage.Literals.MULTIPLE_ROLE;
+    return GlobalJadePackage.Literals.CLOSE_RECURSION;
   }
 
   /**
@@ -66,19 +67,19 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
    * @generated
    */
   @Override
-  public OneRole getRef()
+  public Recursion getRecursionVariable()
   {
-    if (ref != null && ref.eIsProxy())
+    if (recursionVariable != null && recursionVariable.eIsProxy())
     {
-      InternalEObject oldRef = (InternalEObject)ref;
-      ref = (OneRole)eResolveProxy(oldRef);
-      if (ref != oldRef)
+      InternalEObject oldRecursionVariable = (InternalEObject)recursionVariable;
+      recursionVariable = (Recursion)eResolveProxy(oldRecursionVariable);
+      if (recursionVariable != oldRecursionVariable)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GlobalJadePackage.MULTIPLE_ROLE__REF, oldRef, ref));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE, oldRecursionVariable, recursionVariable));
       }
     }
-    return ref;
+    return recursionVariable;
   }
 
   /**
@@ -86,9 +87,9 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
    * <!-- end-user-doc -->
    * @generated
    */
-  public OneRole basicGetRef()
+  public Recursion basicGetRecursionVariable()
   {
-    return ref;
+    return recursionVariable;
   }
 
   /**
@@ -97,12 +98,12 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
    * @generated
    */
   @Override
-  public void setRef(OneRole newRef)
+  public void setRecursionVariable(Recursion newRecursionVariable)
   {
-    OneRole oldRef = ref;
-    ref = newRef;
+    Recursion oldRecursionVariable = recursionVariable;
+    recursionVariable = newRecursionVariable;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.MULTIPLE_ROLE__REF, oldRef, ref));
+      eNotify(new ENotificationImpl(this, Notification.SET, GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE, oldRecursionVariable, recursionVariable));
   }
 
   /**
@@ -115,9 +116,9 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MULTIPLE_ROLE__REF:
-        if (resolve) return getRef();
-        return basicGetRef();
+      case GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE:
+        if (resolve) return getRecursionVariable();
+        return basicGetRecursionVariable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -132,8 +133,8 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MULTIPLE_ROLE__REF:
-        setRef((OneRole)newValue);
+      case GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE:
+        setRecursionVariable((Recursion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,8 +150,8 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MULTIPLE_ROLE__REF:
-        setRef((OneRole)null);
+      case GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE:
+        setRecursionVariable((Recursion)null);
         return;
     }
     super.eUnset(featureID);
@@ -166,10 +167,10 @@ public class MultipleRoleImpl extends RoleImpl implements MultipleRole
   {
     switch (featureID)
     {
-      case GlobalJadePackage.MULTIPLE_ROLE__REF:
-        return ref != null;
+      case GlobalJadePackage.CLOSE_RECURSION__RECURSION_VARIABLE:
+        return recursionVariable != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MultipleRoleImpl
+} //CloseRecursionImpl
